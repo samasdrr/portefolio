@@ -85,7 +85,8 @@ body {
 }
 .screen::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 65%, rgba(0,0,0,0.18) 80%, rgba(0,0,0,0.45) 100%);
+  background: radial-gradient(ellipse 85% 85% at 50% 50%,
+    transparent 65%, rgba(0,0,0,0.18) 80%, rgba(0,0,0,0.45) 100%);
   pointer-events: none; z-index: 98; border-radius: 6px;
 }
 .scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 3px); pointer-events: none; z-index: 100; }
@@ -125,6 +126,122 @@ body {
 .window-content::-webkit-scrollbar { width: 16px; }
 .window-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
 .window-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
+
+/* ===== CHAT ===== */
+.window-content-chat {
+  flex: 1; display: flex; flex-direction: column;
+  background: white; margin: 0 5px 5px;
+  border: 1px solid #aca899; overflow: hidden; padding: 0;
+}
+
+.chat-messages {
+  flex: 1; overflow-y: auto;
+  padding: 8px 10px; display: flex;
+  flex-direction: column; gap: 7px;
+  background: #fafaf8;
+}
+.chat-messages::-webkit-scrollbar { width: 12px; }
+.chat-messages::-webkit-scrollbar-track { background: #ece9d8; }
+.chat-messages::-webkit-scrollbar-thumb { background: #b0aca0; border: 1px solid #909088; }
+
+.chat-msg-wrap { display: flex; flex-direction: column; max-width: 82%; }
+.chat-msg-wrap.bot { align-self: flex-start; align-items: flex-start; }
+.chat-msg-wrap.user { align-self: flex-end; align-items: flex-end; }
+
+.chat-sender { font-size: 9px; color: #999; margin-bottom: 2px; }
+
+.chat-msg {
+  padding: 6px 10px; font-size: 11px; line-height: 1.55;
+  border-radius: 10px; white-space: pre-wrap; word-break: break-word;
+}
+.chat-msg.bot {
+  background: #f0eee8; border: 1px solid #d8d4c8;
+  border-bottom-left-radius: 3px; color: #333;
+}
+.chat-msg.user {
+  background: linear-gradient(135deg, #316ac5, #1a3b8c);
+  color: white; border-bottom-right-radius: 3px;
+}
+
+/* Typing */
+.chat-typing {
+  display: flex; align-items: center; gap: 3px;
+  padding: 8px 12px; background: #f0eee8;
+  border: 1px solid #d8d4c8; border-radius: 10px;
+  border-bottom-left-radius: 3px;
+}
+.chat-typing span {
+  width: 5px; height: 5px; background: #aaa;
+  border-radius: 50%; animation: typingDot 1.2s infinite;
+}
+.chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Booking card */
+.chat-booking-card {
+  background: #f5f8ff; border: 1px solid #7f9db9;
+  border-radius: 8px; padding: 8px 10px;
+  margin-top: 4px;
+}
+.chat-booking-card .bk-title {
+  font-size: 11px; font-weight: bold; color: #1a3b8c;
+  margin-bottom: 7px; display: flex; align-items: center; gap: 5px;
+}
+.bk-field { margin-bottom: 5px; }
+.bk-field label { display: block; font-size: 9px; color: #666; margin-bottom: 2px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+.bk-field input, .bk-field select, .bk-field textarea {
+  width: 100%; border: 1px solid #b0c8e0; border-radius: 3px;
+  padding: 3px 6px; font-size: 10px; font-family: Tahoma, Arial, sans-serif;
+  background: white; color: #333;
+}
+.bk-field textarea { resize: none; height: 38px; }
+.bk-row { display: flex; gap: 5px; }
+.bk-row .bk-field { flex: 1; }
+.bk-submit {
+  width: 100%; margin-top: 6px; padding: 5px;
+  background: linear-gradient(180deg, #4a7fd5 0%, #2a5ab5 100%);
+  color: white; border: 1px solid #1a3b8c; border-radius: 4px;
+  font-size: 11px; font-weight: bold; cursor: pointer;
+  font-family: Tahoma, Arial, sans-serif;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.bk-submit:hover { background: linear-gradient(180deg, #5a8fe5 0%, #3a6ac5 100%); }
+
+/* Quick replies */
+.chat-quick-replies {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  padding: 5px 8px; border-top: 1px solid #e0ddd5;
+  background: #f5f3ed; flex-shrink: 0;
+}
+.chat-qr {
+  font-size: 10px; background: white; border: 1px solid #b0c0d8;
+  border-radius: 10px; padding: 2px 9px; cursor: pointer;
+  color: #1a3b8c; transition: background 0.1s;
+  white-space: nowrap;
+}
+.chat-qr:hover { background: #dce6f8; border-color: #316ac5; }
+
+/* Input row */
+.chat-input-row {
+  display: flex; gap: 4px; padding: 5px 8px;
+  border-top: 1px solid #aca899; background: #ece9d8; flex-shrink: 0;
+}
+.chat-input {
+  flex: 1; border: 1px solid #7f9db9; border-radius: 3px;
+  padding: 4px 7px; font-size: 11px; font-family: Tahoma, Arial, sans-serif;
+  background: white; outline: none;
+}
+.chat-input:focus { border-color: #316ac5; }
+.chat-send-btn {
+  background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%);
+  border: 1px solid #1a4090; color: white; border-radius: 3px;
+  padding: 3px 12px; cursor: pointer; font-size: 12px; font-weight: bold;
+}
+.chat-send-btn:hover { background: linear-gradient(180deg, #7ab5e5 0%, #5a9be5 50%, #4070c0 100%); }
 
 /* ===== À PROPOS ===== */
 .about-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
@@ -171,7 +288,6 @@ body {
 .modal-content::-webkit-scrollbar { width: 16px; }
 .modal-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
 .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
-
 .carousel-wrap { margin-bottom: 10px; display: none; background: #f0eee8; border: 1px solid #aca899; border-radius: 3px; overflow: hidden; }
 .carousel-img { width: 100%; display: block; }
 .carousel-nav { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 5px; background: #ece9d8; border-top: 1px solid #aca899; }
@@ -179,7 +295,6 @@ body {
 .carousel-btn:hover { background: linear-gradient(180deg, #7ab5e5 0%, #5a9be5 50%, #4070c0 100%); }
 .carousel-btn:disabled { background: #b0b0b0; cursor: default; opacity: 0.5; }
 .carousel-counter { font-size: 10px; color: #555; min-width: 40px; text-align: center; }
-
 #modal-img { width: 100%; border: 1px solid #aca899; border-radius: 3px; margin-bottom: 10px; display: none; }
 #modal-project-title { font-size: 13px; font-weight: bold; color: #1a3b8c; margin-bottom: 2px; }
 #modal-project-sub { font-size: 10px; color: #888; font-style: italic; margin-bottom: 6px; }
@@ -282,6 +397,7 @@ body.lang-en .block-en { display: block !important; }
 
         <div class="wallpaper"></div>
 
+        <!-- Icônes -->
         <div class="desktop-icons">
           <div class="icon" id="icon-about" onclick="openWindow('about')">
             <div class="icon-img">👤</div>
@@ -299,6 +415,10 @@ body.lang-en .block-en { display: block !important; }
             <div class="icon-img">✉️</div>
             <div class="icon-label">Contact</div>
           </div>
+          <div class="icon" id="icon-assistant" onclick="openWindow('assistant')">
+            <div class="icon-img">🤖</div>
+            <div class="icon-label">Assistant</div>
+          </div>
         </div>
 
         <!-- À PROPOS -->
@@ -306,15 +426,11 @@ body.lang-en .block-en { display: block !important; }
           <div class="title-bar">
             <div class="title-bar-left"><span class="title-icon">👤</span><span class="title-text"><span data-fr>À propos de moi</span><span data-en>About Me</span></span></div>
             <div class="title-buttons">
-              <div class="tb-btn" onclick="minimizeWindow('about')">_</div>
-              <div class="tb-btn">□</div>
+              <div class="tb-btn" onclick="minimizeWindow('about')">_</div><div class="tb-btn">□</div>
               <div class="tb-btn close-btn" onclick="closeWindow('about')">✕</div>
             </div>
           </div>
-          <div class="menu-bar">
-            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
-            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
-          </div>
+          <div class="menu-bar"><div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div><div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div></div>
           <div class="address-bar">C:\Portfolio\<span data-fr>A_Propos</span><span data-en>About</span>\</div>
           <div class="window-content">
             <div class="about-header">
@@ -322,8 +438,8 @@ body.lang-en .block-en { display: block !important; }
               <div class="about-text">
                 <h2>Samantha Asdrubal</h2>
                 <div class="role">Business Analyst &mdash; Mailinblack</div>
-                <div class="block-fr"><p class="bio">Business Analyst en alternance chez Mailinblack et étudiante en Master Data &amp; AI for Business. J'optimise les processus commerciaux via l'automatisation, la data et les tableaux de bord décisionnels. Mon parcours commerce + marketing digital me permet de faire le lien entre enjeux métier et solutions tech.</p></div>
-                <div class="block-en"><p class="bio">Business Analyst apprentice at Mailinblack and Master Data &amp; AI for Business student. I optimize sales processes through automation, data analysis and dashboards. My background in commerce and digital marketing bridges business needs with technology.</p></div>
+                <div class="block-fr"><p class="bio">Business Analyst en alternance chez Mailinblack et étudiante en Master Data &amp; AI for Business. J'optimise les processus commerciaux via l'automatisation, la data et les tableaux de bord décisionnels.</p></div>
+                <div class="block-en"><p class="bio">Business Analyst apprentice at Mailinblack and Master Data &amp; AI for Business student. I optimize sales processes through automation, data analysis and dashboards.</p></div>
               </div>
             </div>
             <div class="section-title block-fr">💼 Expériences</div>
@@ -348,39 +464,24 @@ body.lang-en .block-en { display: block !important; }
           <div class="title-bar">
             <div class="title-bar-left"><span class="title-icon">💼</span><span class="title-text"><span data-fr>Mes Compétences</span><span data-en>My Skills</span></span></div>
             <div class="title-buttons">
-              <div class="tb-btn" onclick="minimizeWindow('skills')">_</div>
-              <div class="tb-btn">□</div>
+              <div class="tb-btn" onclick="minimizeWindow('skills')">_</div><div class="tb-btn">□</div>
               <div class="tb-btn close-btn" onclick="closeWindow('skills')">✕</div>
             </div>
           </div>
-          <div class="menu-bar">
-            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
-            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
-          </div>
+          <div class="menu-bar"><div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div><div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div></div>
           <div class="address-bar">C:\Portfolio\<span data-fr>Competences</span><span data-en>Skills</span>\</div>
           <div class="window-content">
             <div class="skill-category">
               <div class="skill-cat-title">📊 Data &amp; <span data-fr>Analyse</span><span data-en>Analysis</span></div>
-              <div class="skill-tags">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">Excel / Google Sheets</span>
-                <span class="skill-tag certified">Dataiku <span class="cert-badge"><span data-fr>Certif. Designer Core</span><span data-en>Designer Core Cert.</span></span></span>
-              </div>
+              <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">Excel / Google Sheets</span><span class="skill-tag certified">Dataiku <span class="cert-badge"><span data-fr>Certif. Designer Core</span><span data-en>Designer Core Cert.</span></span></span></div>
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></div>
-              <div class="skill-tags">
-                <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Salesforce</span><span class="skill-tag">Notion</span>
-              </div>
+              <div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Salesforce</span><span class="skill-tag">Notion</span></div>
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></div>
-              <div class="skill-tags">
-                <span class="skill-tag">Make</span><span class="skill-tag">N8N</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Dust</span>
-                <span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span>
-                <span class="skill-tag">GitHub / VS Code</span>
-              </div>
+              <div class="skill-tags"><span class="skill-tag">Make</span><span class="skill-tag">N8N</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Dust</span><span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span><span class="skill-tag">GitHub / VS Code</span></div>
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">🧠 Soft Skills</div>
@@ -401,61 +502,19 @@ body.lang-en .block-en { display: block !important; }
           <div class="title-bar">
             <div class="title-bar-left"><span class="title-icon">📁</span><span class="title-text"><span data-fr>Mes Projets</span><span data-en>My Projects</span></span></div>
             <div class="title-buttons">
-              <div class="tb-btn" onclick="minimizeWindow('projects')">_</div>
-              <div class="tb-btn">□</div>
+              <div class="tb-btn" onclick="minimizeWindow('projects')">_</div><div class="tb-btn">□</div>
               <div class="tb-btn close-btn" onclick="closeWindow('projects')">✕</div>
             </div>
           </div>
-          <div class="menu-bar">
-            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
-            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
-          </div>
+          <div class="menu-bar"><div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div><div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div></div>
           <div class="address-bar">C:\Portfolio\<span data-fr>Projets</span><span data-en>Projects</span>\</div>
           <div class="window-content">
-
-            <div class="project-card clickable" onclick="openProject('seo')">
-              <h3>🔍 Workflow SEO Ranking</h3>
-              <div class="project-sub"><span data-fr>Hackathon payant</span><span data-en>Paid Hackathon</span></div>
-              <div class="project-tags"><span class="ptag">Make</span><span class="ptag">Google Sheets</span><span class="ptag">API Google Trends</span></div>
-              <p><span data-fr>Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.</span><span data-en>Fully automated workflow scoring keywords based on search intent.</span></p>
-              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
-            </div>
-
-            <div class="project-card clickable" onclick="openProject('courses')">
-              <h3>🏇 <span data-fr>Prédiction Courses Hippiques</span><span data-en>Horse Racing Prediction</span></h3>
-              <div class="project-tags"><span class="ptag">Google Sheets</span><span class="ptag">Excel</span><span class="ptag">Dashboard</span><span class="ptag">Kaggle</span></div>
-              <p><span data-fr>Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d'un jeu de données récupéré sur Kaggle.</span><span data-en>Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.</span></p>
-              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
-            </div>
-
-            <div class="project-card clickable" onclick="openProject('films')">
-              <h3>🎬 <span data-fr>Scraping Films &amp; Séries</span><span data-en>Movies &amp; Series Scraping</span></h3>
-              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">Web Scraping</span></div>
-              <p><span data-fr>Scraping du site JustWatch afin de générer des recommandations personnalisées sur les films et séries.</span><span data-en>Scraping JustWatch to generate personalized movie and series recommendations.</span></p>
-              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
-            </div>
-
-            <div class="project-card clickable" onclick="openProject('chatbot')">
-              <h3>🎵 <span data-fr>Chatbot Paroles de Musique</span><span data-en>Music Lyrics Chatbot</span></h3>
-              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Scraping</span><span class="ptag">RAG</span></div>
-              <p><span data-fr>Scraping de LyricsTranslate puis vectorisation des données (RAG) pour créer un chatbot qui retrouve le titre d'une chanson à partir de paroles.</span><span data-en>Scraping LyricsTranslate then vectorizing data (RAG) to build a chatbot that finds a song title from lyrics.</span></p>
-              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
-            </div>
-
-            <div class="project-card clickable" onclick="openProject('hub')">
-              <h3>🛒 Hub Supply Marketplace <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon Mirakl)</span></h3>
-              <div class="project-tags"><span class="ptag">Supply Chain</span><span class="ptag green">Agentique</span><span class="ptag green">Vibe Coding</span></div>
-              <p><span data-fr>Hub de gestion de la chaîne d'approvisionnement pour les vendeurs marketplace. Prédiction de stock, gestion de pertes et de l'approvisionnement.</span><span data-en>Supply chain management hub for marketplace sellers. Stock prediction, loss management and supply automation.</span></p>
-              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
-            </div>
-
-            <div class="project-card clickable" onclick="openProject('powerauto')">
-              <h3>⚡ <span data-fr>Workflow Power Automate — Gestion des leads</span><span data-en>Power Automate Workflow — Lead Management</span></h3>
-              <div class="project-tags"><span class="ptag">Power Automate</span><span class="ptag">Salesforce</span><span class="ptag">CRM</span><span class="ptag green">Microsoft Teams</span></div>
-              <p><span data-fr>Plusieurs flows connectés à Salesforce. Alertes quotidiennes et hebdomadaires envoyées via bot Teams aux sales et managers.</span><span data-en>Multiple flows connected to Salesforce. Daily and weekly alerts sent via Teams bot to sales reps and managers.</span></p>
-              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
-            </div>
-
+            <div class="project-card clickable" onclick="openProject('seo')"><h3>🔍 Workflow SEO Ranking</h3><div class="project-sub"><span data-fr>Hackathon payant</span><span data-en>Paid Hackathon</span></div><div class="project-tags"><span class="ptag">Make</span><span class="ptag">Google Sheets</span><span class="ptag">API Google Trends</span></div><p><span data-fr>Workflow automatisé scorant les mots-clés selon les intentions de recherche.</span><span data-en>Automated workflow scoring keywords based on search intent.</span></p><div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div></div>
+            <div class="project-card clickable" onclick="openProject('courses')"><h3>🏇 <span data-fr>Prédiction Courses Hippiques</span><span data-en>Horse Racing Prediction</span></h3><div class="project-tags"><span class="ptag">Google Sheets</span><span class="ptag">Excel</span><span class="ptag">Dashboard</span><span class="ptag">Kaggle</span></div><p><span data-fr>Dashboard prédisant un tiercé ou un quinté gagnant depuis un dataset Kaggle.</span><span data-en>Dashboard predicting the winning tiercé or quinté from a Kaggle dataset.</span></p><div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div></div>
+            <div class="project-card clickable" onclick="openProject('films')"><h3>🎬 <span data-fr>Scraping Films &amp; Séries</span><span data-en>Movies &amp; Series Scraping</span></h3><div class="project-tags"><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">Web Scraping</span></div><p><span data-fr>Scraping JustWatch pour générer des recommandations personnalisées.</span><span data-en>Scraping JustWatch to generate personalized recommendations.</span></p><div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div></div>
+            <div class="project-card clickable" onclick="openProject('chatbot')"><h3>🎵 <span data-fr>Chatbot Paroles de Musique</span><span data-en>Music Lyrics Chatbot</span></h3><div class="project-tags"><span class="ptag">Python</span><span class="ptag">Scraping</span><span class="ptag">RAG</span></div><p><span data-fr>Scraping LyricsTranslate + vectorisation (RAG) pour retrouver une chanson par ses paroles.</span><span data-en>Scraping LyricsTranslate + vectorization (RAG) to find a song from its lyrics.</span></p><div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div></div>
+            <div class="project-card clickable" onclick="openProject('hub')"><h3>🛒 Hub Supply Marketplace <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon Mirakl)</span></h3><div class="project-tags"><span class="ptag">Supply Chain</span><span class="ptag green">Agentique</span><span class="ptag green">Vibe Coding</span></div><p><span data-fr>Hub d'approvisionnement marketplace : prédiction de stock, gestion des pertes.</span><span data-en>Marketplace supply hub: stock prediction, loss management.</span></p><div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div></div>
+            <div class="project-card clickable" onclick="openProject('powerauto')"><h3>⚡ <span data-fr>Workflow Power Automate — Leads</span><span data-en>Power Automate — Lead Management</span></h3><div class="project-tags"><span class="ptag">Power Automate</span><span class="ptag">Salesforce</span><span class="ptag">CRM</span><span class="ptag green">Teams</span></div><p><span data-fr>Flows connectés à Salesforce. Alertes via bot Teams aux sales et managers.</span><span data-en>Flows connected to Salesforce. Alerts via Teams bot to sales and managers.</span></p><div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div></div>
           </div>
         </div>
 
@@ -463,21 +522,14 @@ body.lang-en .block-en { display: block !important; }
         <div id="project-modal">
           <div id="modal-win">
             <div class="title-bar">
-              <div class="title-bar-left">
-                <span class="title-icon" id="modal-icon">📁</span>
-                <span class="title-text" id="modal-win-title">Projet</span>
-              </div>
-              <div class="title-buttons">
-                <div class="tb-btn close-btn" onclick="closeModal()">✕</div>
-              </div>
+              <div class="title-bar-left"><span class="title-icon" id="modal-icon">📁</span><span class="title-text" id="modal-win-title">Projet</span></div>
+              <div class="title-buttons"><div class="tb-btn close-btn" onclick="closeModal()">✕</div></div>
             </div>
-            <div class="menu-bar">
-              <div class="menu-item" onclick="closeModal()"><span data-fr>Fermer</span><span data-en>Close</span></div>
-            </div>
+            <div class="menu-bar"><div class="menu-item" onclick="closeModal()"><span data-fr>Fermer</span><span data-en>Close</span></div></div>
             <div class="modal-content">
               <img id="modal-img" src="" alt="" onerror="this.style.display='none';" />
               <div class="carousel-wrap" id="carousel-wrap">
-                <img class="carousel-img" id="carousel-img" src="" alt="" onerror="this.src='';" />
+                <img class="carousel-img" id="carousel-img" src="" alt="" />
                 <div class="carousel-nav">
                   <button class="carousel-btn" id="carousel-prev" onclick="carouselPrev()">&#9664;</button>
                   <span class="carousel-counter" id="carousel-counter">1 / 2</span>
@@ -490,11 +542,9 @@ body.lang-en .block-en { display: block !important; }
               <div id="modal-project-desc"></div>
               <div id="modal-rag-note" class="modal-rag-note" style="display:none;">
                 <strong>💡 RAG (Retrieval-Augmented Generation)</strong> &mdash;
-                <span data-fr>Technique qui consiste à vectoriser des textes (ici les paroles) et à les stocker dans une base de vecteurs. Quand l'utilisateur saisit des paroles, le système calcule la similarité sémantique pour retrouver la chanson la plus proche.</span><span data-en>A technique that vectorizes texts (here: lyrics) and stores them in a vector database. When the user types lyrics, the system computes semantic similarity to find the closest song.</span>
+                <span data-fr>Technique de vectorisation des textes permettant à un chatbot de retrouver les informations les plus proches sémantiquement d'une requête.</span><span data-en>Text vectorization technique allowing a chatbot to retrieve the most semantically similar information to a query.</span>
               </div>
-              <a id="modal-link" href="#" target="_blank" rel="noopener">
-                🔗 <span data-fr>Voir le projet</span><span data-en>View project</span>
-              </a>
+              <a id="modal-link" href="#" target="_blank" rel="noopener">🔗 <span data-fr>Voir le projet</span><span data-en>View project</span></a>
             </div>
           </div>
         </div>
@@ -504,32 +554,56 @@ body.lang-en .block-en { display: block !important; }
           <div class="title-bar">
             <div class="title-bar-left"><span class="title-icon">✉️</span><span class="title-text">Contact</span></div>
             <div class="title-buttons">
-              <div class="tb-btn" onclick="minimizeWindow('contact')">_</div>
-              <div class="tb-btn">□</div>
+              <div class="tb-btn" onclick="minimizeWindow('contact')">_</div><div class="tb-btn">□</div>
               <div class="tb-btn close-btn" onclick="closeWindow('contact')">✕</div>
             </div>
           </div>
-          <div class="menu-bar">
-            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
-            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
-          </div>
+          <div class="menu-bar"><div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div><div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div></div>
           <div class="address-bar">C:\Portfolio\Contact\</div>
           <div class="window-content">
             <p class="contact-intro block-fr">N'hésitez pas à me contacter !</p>
             <p class="contact-intro block-en">Feel free to reach out!</p>
             <div class="contact-links">
-              <a href="mailto:asdrubalsamantha@gmail.com" class="contact-link">
-                <span class="cl-icon">📧</span><span>asdrubalsamantha@gmail.com</span>
-              </a>
-              <a href="mailto:sasdrubal@eugeniaschool.com" class="contact-link">
-                <span class="cl-icon">🎓</span><span>sasdrubal@eugeniaschool.com</span>
-              </a>
-              <a href="https://www.linkedin.com/in/samantha-asdrubal-136a7b29b" target="_blank" rel="noopener" class="contact-link">
-                <span class="cl-icon">🔗</span><span>linkedin.com/in/samantha-asdrubal</span>
-              </a>
-              <a href="https://github.com/samasdrr" target="_blank" rel="noopener" class="contact-link">
-                <span class="cl-icon">🐙</span><span>github.com/samasdrr</span>
-              </a>
+              <a href="mailto:asdrubalsamantha@gmail.com" class="contact-link"><span class="cl-icon">📧</span><span>asdrubalsamantha@gmail.com</span></a>
+              <a href="mailto:sasdrubal@eugeniaschool.com" class="contact-link"><span class="cl-icon">🎓</span><span>sasdrubal@eugeniaschool.com</span></a>
+              <a href="https://www.linkedin.com/in/samantha-asdrubal-136a7b29b" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">🔗</span><span>linkedin.com/in/samantha-asdrubal</span></a>
+              <a href="https://github.com/samasdrr" target="_blank" rel="noopener" class="contact-link"><span class="cl-icon">🐙</span><span>github.com/samasdrr</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ASSISTANT CHATBOT -->
+        <div class="xp-window" id="win-assistant">
+          <div class="title-bar">
+            <div class="title-bar-left"><span class="title-icon">🤖</span><span class="title-text"><span data-fr>Assistant — Samantha Asdrubal</span><span data-en>Assistant — Samantha Asdrubal</span></span></div>
+            <div class="title-buttons">
+              <div class="tb-btn" onclick="minimizeWindow('assistant')">_</div><div class="tb-btn">□</div>
+              <div class="tb-btn close-btn" onclick="closeWindow('assistant')">✕</div>
+            </div>
+          </div>
+          <div class="menu-bar"><div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div><div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div></div>
+          <div class="address-bar">C:\Portfolio\Assistant\</div>
+
+          <div class="window-content-chat">
+            <!-- Messages -->
+            <div class="chat-messages" id="chat-messages"></div>
+
+            <!-- Quick replies -->
+            <div class="chat-quick-replies" id="chat-qr-zone">
+              <div class="chat-qr" onclick="chatQuickReply('qr-profil')"><span data-fr>👤 Qui est-elle ?</span><span data-en>👤 Who is she?</span></div>
+              <div class="chat-qr" onclick="chatQuickReply('qr-exp')"><span data-fr>💼 Expériences</span><span data-en>💼 Experience</span></div>
+              <div class="chat-qr" onclick="chatQuickReply('qr-skills')"><span data-fr>⚙️ Compétences</span><span data-en>⚙️ Skills</span></div>
+              <div class="chat-qr" onclick="chatQuickReply('qr-projets')"><span data-fr>📁 Projets</span><span data-en>📁 Projects</span></div>
+              <div class="chat-qr" onclick="chatQuickReply('qr-contact')"><span data-fr>📬 Contact</span><span data-en>📬 Contact</span></div>
+              <div class="chat-qr" onclick="chatQuickReply('qr-rdv')"><span data-fr>📅 Réserver un RDV</span><span data-en>📅 Book a meeting</span></div>
+            </div>
+
+            <!-- Input -->
+            <div class="chat-input-row">
+              <input type="text" class="chat-input" id="chat-input"
+                placeholder="Posez votre question..."
+                onkeydown="if(event.key==='Enter'){chatSend();}" />
+              <button class="chat-send-btn" onclick="chatSend()">&#9658;</button>
             </div>
           </div>
         </div>
@@ -618,94 +692,245 @@ var currentWindow = null;
 var taskbarItems = {};
 var carouselImages = [];
 var carouselIndex = 0;
+var chatGreeted = false;
 
 /* ===== DONNÉES PROJETS ===== */
 var PROJECTS = {
-  seo: {
-    icon: '🔍',
-    titleFr: 'Workflow SEO Ranking',
-    titleEn: 'Workflow SEO Ranking',
-    subFr: 'Hackathon payant',
-    subEn: 'Paid Hackathon',
-    tags: ['Make', 'Google Sheets', 'API Google Trends'],
-    descFr: 'Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.\n\nConnecté à Google Trends via API pour récupérer les volumes et tendances, le flow classe automatiquement les mots-clés par potentiel SEO directement dans Google Sheets.',
-    descEn: 'Fully automated workflow scoring keywords based on search intent.\n\nConnected to Google Trends via API to retrieve volumes and trends, the flow automatically ranks keywords by SEO potential directly in Google Sheets.',
-    img: 'make1.png',
-    imgs: null,
-    link: null,
-    rag: false
+  seo: { icon:'🔍', titleFr:'Workflow SEO Ranking', titleEn:'Workflow SEO Ranking', subFr:'Hackathon payant', subEn:'Paid Hackathon', tags:['Make','Google Sheets','API Google Trends'], descFr:'Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.\n\nConnecté à Google Trends via API pour récupérer les volumes et tendances, le flow classe automatiquement les mots-clés par potentiel SEO dans Google Sheets.', descEn:'Fully automated workflow scoring keywords based on search intent.\n\nConnected to Google Trends via API to retrieve volumes and trends, automatically ranking keywords by SEO potential in Google Sheets.', img:'make1.png', imgs:null, link:null, rag:false },
+  courses: { icon:'🏇', titleFr:'Prédiction Courses Hippiques', titleEn:'Horse Racing Prediction', subFr:'', subEn:'', tags:['Google Sheets','Excel','Dashboard','Kaggle'], descFr:'Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d\'un jeu de données récupéré sur Kaggle.', descEn:'Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.', img:'Horsepredective.png', imgs:null, link:'https://docs.google.com/spreadsheets/d/1-MUSx2d8U98KpO9am7kJ5F4DKmnVEfQzKN0J30xqzRM/edit?usp=sharing', rag:false },
+  films: { icon:'🎬', titleFr:'Scraping Films & Séries', titleEn:'Movies & Series Scraping', subFr:'', subEn:'', tags:['Python','HTML','Web Scraping','JustWatch'], descFr:'Scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries.\n\nDéployé sous forme d\'application web via Lovable.', descEn:'Scraping JustWatch to generate personalized movie and series recommendations.\n\nDeployed as a web application via Lovable.', img:null, imgs:null, link:'https://vibe-select-recs.lovable.app', rag:false },
+  chatbot: { icon:'🎵', titleFr:'Chatbot Paroles de Musique', titleEn:'Music Lyrics Chatbot', subFr:'', subEn:'', tags:['Python','Scraping','RAG','LyricsTranslate'], descFr:'Scraping du site LyricsTranslate puis vectorisation des paroles (RAG) pour créer un chatbot qui retrouve le titre d\'une chanson à partir d\'un extrait de paroles.', descEn:'Scraping LyricsTranslate then vectorizing lyrics (RAG) to build a chatbot that finds a song title from a lyrics snippet.', img:null, imgs:null, link:'https://github.com/arquam-elglaoui/Project-AI', rag:true },
+  hub: { icon:'🛒', titleFr:'Hub Supply Marketplace', titleEn:'Hub Supply Marketplace', subFr:'Hackathon Mirakl', subEn:'Mirakl Hackathon', tags:['Supply Chain','Agentique','Vibe Coding','Mirakl'], descFr:'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace.\n\nFonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement.', descEn:'Supply chain management hub for marketplace sellers.\n\nFeatures: stock prediction, loss management and supply automation.', img:null, imgs:['Mirakl.png','mirakl1.png','mirakl2.png'], link:null, rag:false },
+  powerauto: { icon:'⚡', titleFr:'Workflow Power Automate — Gestion des leads', titleEn:'Power Automate Workflow — Lead Management', subFr:'Mailinblack', subEn:'Mailinblack', tags:['Power Automate','Salesforce','CRM','Microsoft Teams'], descFr:'Plusieurs flows Power Automate connectés au CRM Salesforce :\n\n• Top 5 sales de la semaine\n• Top 10 leads closés de la semaine\n• Top leads à closer par commercial\n\nAlertes quotidiennes et hebdomadaires via bot Microsoft Teams.', descEn:'Multiple Power Automate flows connected to Salesforce CRM:\n\n• Top 5 weekly sales reps\n• Top 10 closed leads\n• Top leads to close per salesperson\n\nDaily and weekly alerts via Microsoft Teams bot.', img:'powerautomate.png', imgs:null, link:null, rag:false }
+};
+
+/* ===== CHATBOT ===== */
+var BOT_DATA = {
+  greet: {
+    fr: 'Bonjour ! 👋 Je suis l\'assistant de Samantha.\nPosez-moi vos questions sur son parcours, ses compétences ou ses projets, ou réservez un rendez-vous avec elle !',
+    en: 'Hello! 👋 I\'m Samantha\'s assistant.\nAsk me anything about her background, skills or projects, or book a meeting!'
   },
-  courses: {
-    icon: '🏇',
-    titleFr: 'Prédiction Courses Hippiques',
-    titleEn: 'Horse Racing Prediction',
-    subFr: '',
-    subEn: '',
-    tags: ['Google Sheets', 'Excel', 'Dashboard', 'Kaggle'],
-    descFr: 'Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d\'un jeu de données récupéré sur Kaggle.\n\nLe dashboard intègre des formules de scoring basées sur les performances passées des chevaux, jockeys et conditions de course.',
-    descEn: 'Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.\n\nThe dashboard includes scoring formulas based on past performance of horses, jockeys and race conditions.',
-    img: 'Horsepredective.png',
-    imgs: null,
-    link: 'https://docs.google.com/spreadsheets/d/1-MUSx2d8U98KpO9am7kJ5F4DKmnVEfQzKN0J30xqzRM/edit?usp=sharing',
-    rag: false
+  profil: {
+    fr: '👤 Samantha Asdrubal est Business Analyst en alternance chez Mailinblack (Marseille) et étudiante en Master Data & AI for Business.\n\nPassionnée par l\'automatisation et la data, elle transforme les données brutes en insights actionnables et crée des outils qui simplifient les processus commerciaux.',
+    en: '👤 Samantha Asdrubal is a Business Analyst apprentice at Mailinblack (Marseille) and a Master Data & AI for Business student.\n\nPassionate about automation and data, she turns raw data into actionable insights and builds tools that streamline business processes.'
   },
-  films: {
-    icon: '🎬',
-    titleFr: 'Scraping Films & Séries',
-    titleEn: 'Movies & Series Scraping',
-    subFr: '',
-    subEn: '',
-    tags: ['Python', 'HTML', 'Web Scraping', 'JustWatch'],
-    descFr: 'Scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries selon les préférences de l\'utilisateur.\n\nDéployé sous forme d\'application web via Lovable.',
-    descEn: 'Scraping JustWatch to generate personalized movie and series recommendations based on user preferences.\n\nDeployed as a web application via Lovable.',
-    img: null,
-    imgs: null,
-    link: 'https://vibe-select-recs.lovable.app',
-    rag: false
+  formation: {
+    fr: '🎓 Formation :\n• Master Data & AI for Business (en cours)\n\nParcours pluridisciplinaire : Commerce, Marketing Digital, puis Data — ce qui lui permet de faire le lien entre les enjeux métier et les solutions technologiques.',
+    en: '🎓 Education:\n• Master Data & AI for Business (ongoing)\n\nMultidisciplinary background: Commerce, Digital Marketing, then Data — bridging business needs and technology solutions.'
   },
-  chatbot: {
-    icon: '🎵',
-    titleFr: 'Chatbot Paroles de Musique',
-    titleEn: 'Music Lyrics Chatbot',
-    subFr: '',
-    subEn: '',
-    tags: ['Python', 'Scraping', 'RAG', 'LyricsTranslate'],
-    descFr: 'Scraping du site LyricsTranslate puis vectorisation des paroles (RAG) pour créer un chatbot qui retrouve le titre d\'une chanson à partir d\'un extrait de paroles.',
-    descEn: 'Scraping LyricsTranslate then vectorizing lyrics (RAG) to build a chatbot that finds a song title from a lyrics snippet.',
-    img: null,
-    imgs: null,
-    link: 'https://github.com/arquam-elglaoui/Project-AI',
-    rag: true
+  experience: {
+    fr: '💼 Expériences :\n\n🔵 Mailinblack — Business Analyst (Alternance)\n2024–2027 | Marseille\nAutomatisation des processus commerciaux, création d\'outils de pilotage, dashboards.\n\n🔵 CNP Assurances — Chargée d\'indemnisation\n2022–2024 | Nantes\nGestion de dossiers MRH et corporels.',
+    en: '💼 Experience:\n\n🔵 Mailinblack — Business Analyst (Apprenticeship)\n2024–2027 | Marseille\nAutomation of sales processes, management tools, dashboards.\n\n🔵 CNP Assurances — Claims Officer\n2022–2024 | Nantes\nHome insurance and personal injury claims management.'
   },
-  hub: {
-    icon: '🛒',
-    titleFr: 'Hub Supply Marketplace',
-    titleEn: 'Hub Supply Marketplace',
-    subFr: 'Hackathon Mirakl',
-    subEn: 'Mirakl Hackathon',
-    tags: ['Supply Chain', 'Agentique', 'Vibe Coding', 'Mirakl'],
-    descFr: 'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace.\n\nFonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement. Conçu en mode vibe coding lors du hackathon Mirakl.',
-    descEn: 'Supply chain management hub for marketplace sellers.\n\nFeatures: stock prediction, loss management and supply automation. Built with vibe coding during the Mirakl hackathon.',
-    img: null,
-    imgs: ['Mirakl.png', 'mirakl1.png', 'mirakl2.png'],
-    link: null,
-    rag: false
+  skills: {
+    fr: '⚙️ Compétences :\n\n📊 Data & Analyse : Python, SQL, Excel, Dataiku (cert. Designer Core)\n📈 Visualisation : Tableau, Power BI, Salesforce, Notion\n🔧 Automatisation : Make, N8N, Power Automate, Dust, API, GitHub',
+    en: '⚙️ Skills:\n\n📊 Data & Analysis: Python, SQL, Excel, Dataiku (Designer Core cert.)\n📈 Visualization: Tableau, Power BI, Salesforce, Notion\n🔧 Automation: Make, N8N, Power Automate, Dust, API, GitHub'
   },
-  powerauto: {
-    icon: '⚡',
-    titleFr: 'Workflow Power Automate — Gestion des leads',
-    titleEn: 'Power Automate Workflow — Lead Management',
-    subFr: 'Mailinblack',
-    subEn: 'Mailinblack',
-    tags: ['Power Automate', 'Salesforce', 'CRM', 'Microsoft Teams'],
-    descFr: 'Plusieurs flows Power Automate connectés au CRM Salesforce :\n\n• Top 5 sales de la semaine\n• Top 10 leads closés de la semaine\n• Top leads à closer par commercial\n\nLes sales et managers reçoivent des alertes quotidiennes et hebdomadaires via un bot Microsoft Teams, directement dans leurs canaux.',
-    descEn: 'Multiple Power Automate flows connected to Salesforce CRM:\n\n• Top 5 weekly sales reps\n• Top 10 closed leads of the week\n• Top leads to close per salesperson\n\nSales reps and managers automatically receive daily and weekly alerts via a Microsoft Teams bot, directly in their channels.',
-    img: 'powerautomate.png',
-    imgs: null,
-    link: null,
-    rag: false
+  projets: {
+    fr: '📁 Projets notables :\n\n🔍 Workflow SEO Ranking (Hackathon)\n🏇 Prédiction Courses Hippiques (Kaggle)\n🎬 Scraping Films & Séries → vibe-select-recs.lovable.app\n🎵 Chatbot Paroles de Musique (RAG)\n🛒 Hub Supply Marketplace (Hackathon Mirakl)\n⚡ Workflows Power Automate + Salesforce + Teams\n\nCliquez sur l\'icône 📁 Projets pour les explorer !',
+    en: '📁 Notable projects:\n\n🔍 SEO Ranking Workflow (Hackathon)\n🏇 Horse Racing Prediction (Kaggle)\n🎬 Movies & Series Scraping → vibe-select-recs.lovable.app\n🎵 Music Lyrics Chatbot (RAG)\n🛒 Hub Supply Marketplace (Mirakl Hackathon)\n⚡ Power Automate + Salesforce + Teams Workflows\n\nClick the 📁 Projects icon to explore them!'
+  },
+  contact: {
+    fr: '📬 Pour contacter Samantha :\n\n📧 asdrubalsamantha@gmail.com\n🔗 linkedin.com/in/samantha-asdrubal\n🐙 github.com/samasdrr\n\nOu utilisez le bouton 📅 Réserver un RDV ci-dessus !',
+    en: '📬 To reach Samantha:\n\n📧 asdrubalsamantha@gmail.com\n🔗 linkedin.com/in/samantha-asdrubal\n🐙 github.com/samasdrr\n\nOr use the 📅 Book a meeting button above!'
+  },
+  localisation: {
+    fr: '📍 Samantha est basée à Marseille (alternance chez Mailinblack), avec une mobilité sur Paris et Nantes.',
+    en: '📍 Samantha is based in Marseille (apprenticeship at Mailinblack), with mobility to Paris and Nantes.'
+  },
+  merci: {
+    fr: 'Avec plaisir ! 😊 N\'hésitez pas si vous avez d\'autres questions !',
+    en: 'My pleasure! 😊 Feel free to ask if you have more questions!'
+  },
+  default: {
+    fr: 'Je ne suis pas sûr de comprendre. Vous pouvez me poser des questions sur le profil de Samantha, ses compétences, ses projets, ou réserver un RDV. Que souhaitez-vous savoir ?',
+    en: 'I\'m not sure I understand. You can ask about Samantha\'s profile, skills, projects, or book a meeting. What would you like to know?'
   }
 };
+
+var KEYWORDS = [
+  { keys:['bonjour','salut','hello','hi','hey','bonsoir','coucou'], topic:'greet' },
+  { keys:['qui','présente','samantha','profil','bio','elle','she','who','présentation'], topic:'profil' },
+  { keys:['formation','études','master','école','diplôme','education','study','studies','parcours'], topic:'formation' },
+  { keys:['expérience','travail','poste','mailinblack','cnp','alternance','job','work','experience'], topic:'experience' },
+  { keys:['compétence','skill','python','sql','power bi','tableau','make','n8n','automate','dataiku','outil','savoir','maîtrise'], topic:'skills' },
+  { keys:['projet','project','réalisation','travaux','portfolio','réalisations'], topic:'projets' },
+  { keys:['contact','mail','email','linkedin','github','joindre','reach','coordonnée'], topic:'contact' },
+  { keys:['localisation','où','ville','marseille','paris','nantes','location','based','habite'], topic:'localisation' },
+  { keys:['merci','thanks','thank','super','cool','parfait','nickel','bravo','génial'], topic:'merci' },
+  { keys:['rdv','rendez-vous','meeting','book','réserver','disponible','calendrier','rencontrer','disponibilité'], topic:'rdv' }
+];
+
+function getLang() {
+  return document.body.classList.contains('lang-en') ? 'en' : 'fr';
+}
+
+function getBotResponse(text) {
+  var t = text.toLowerCase();
+  for (var i = 0; i < KEYWORDS.length; i++) {
+    var kw = KEYWORDS[i];
+    for (var j = 0; j < kw.keys.length; j++) {
+      if (t.indexOf(kw.keys[j]) !== -1) {
+        return { topic: kw.topic };
+      }
+    }
+  }
+  return { topic: 'default' };
+}
+
+function chatAddMessage(text, sender, isHtml) {
+  var container = document.getElementById('chat-messages');
+  var wrap = document.createElement('div');
+  wrap.className = 'chat-msg-wrap ' + sender;
+
+  var senderLabel = document.createElement('div');
+  senderLabel.className = 'chat-sender';
+  senderLabel.textContent = sender === 'bot' ? '🤖 Assistant' : getLang() === 'fr' ? 'Vous' : 'You';
+  wrap.appendChild(senderLabel);
+
+  var msg = document.createElement('div');
+  msg.className = 'chat-msg ' + sender;
+  if (isHtml) {
+    msg.innerHTML = text;
+  } else {
+    msg.textContent = text;
+  }
+  wrap.appendChild(msg);
+  container.appendChild(wrap);
+  container.scrollTop = container.scrollHeight;
+  return wrap;
+}
+
+function chatAddTyping() {
+  var container = document.getElementById('chat-messages');
+  var wrap = document.createElement('div');
+  wrap.className = 'chat-msg-wrap bot';
+  wrap.id = 'chat-typing-wrap';
+
+  var senderLabel = document.createElement('div');
+  senderLabel.className = 'chat-sender';
+  senderLabel.textContent = '🤖 Assistant';
+  wrap.appendChild(senderLabel);
+
+  var typing = document.createElement('div');
+  typing.className = 'chat-typing';
+  typing.innerHTML = '<span></span><span></span><span></span>';
+  wrap.appendChild(typing);
+  container.appendChild(wrap);
+  container.scrollTop = container.scrollHeight;
+}
+
+function chatRemoveTyping() {
+  var el = document.getElementById('chat-typing-wrap');
+  if (el) { el.parentNode.removeChild(el); }
+}
+
+function chatBotReply(topic) {
+  var lang = getLang();
+  chatAddTyping();
+  setTimeout(function() {
+    chatRemoveTyping();
+    if (topic === 'rdv') {
+      var titleFr = '📅 Réserver un rendez-vous avec Samantha';
+      var titleEn = '📅 Book a meeting with Samantha';
+      var html = '<div class="chat-booking-card">' +
+        '<div class="bk-title">' + (lang === 'fr' ? titleFr : titleEn) + '</div>' +
+        '<div class="bk-field"><label>' + (lang === 'fr' ? 'Votre nom' : 'Your name') + '</label><input type="text" id="bk-name" placeholder="' + (lang === 'fr' ? 'Ex : Jean Dupont' : 'e.g. John Doe') + '" /></div>' +
+        '<div class="bk-field"><label>' + (lang === 'fr' ? 'Votre email' : 'Your email') + '</label><input type="email" id="bk-email" placeholder="jean@exemple.com" /></div>' +
+        '<div class="bk-row">' +
+          '<div class="bk-field"><label>' + (lang === 'fr' ? 'Date souhaitée' : 'Preferred date') + '</label><input type="date" id="bk-date" /></div>' +
+          '<div class="bk-field"><label>' + (lang === 'fr' ? 'Créneau' : 'Time slot') + '</label><select id="bk-time"><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option></select></div>' +
+        '</div>' +
+        '<div class="bk-field"><label>' + (lang === 'fr' ? 'Objet du rendez-vous' : 'Meeting subject') + '</label><input type="text" id="bk-subject" placeholder="' + (lang === 'fr' ? 'Ex : Opportunité de collaboration' : 'e.g. Collaboration opportunity') + '" /></div>' +
+        '<div class="bk-field"><label>' + (lang === 'fr' ? 'Message (optionnel)' : 'Message (optional)') + '</label><textarea id="bk-msg" placeholder="' + (lang === 'fr' ? 'Décrivez brièvement votre demande...' : 'Briefly describe your request...') + '"></textarea></div>' +
+        '<button class="bk-submit" onclick="submitBooking()">✉️ ' + (lang === 'fr' ? 'Envoyer la demande par email' : 'Send request by email') + '</button>' +
+        '</div>';
+      chatAddMessage(html, 'bot', true);
+    } else {
+      var data = BOT_DATA[topic] || BOT_DATA['default'];
+      var text = data[lang] || data['fr'];
+      chatAddMessage(text, 'bot', false);
+    }
+  }, 600);
+}
+
+function chatSend() {
+  var input = document.getElementById('chat-input');
+  var text = input.value.trim();
+  if (!text) { return; }
+  chatAddMessage(text, 'user', false);
+  input.value = '';
+  var result = getBotResponse(text);
+  chatBotReply(result.topic);
+}
+
+function chatQuickReply(qr) {
+  var lang = getLang();
+  var labels = {
+    'qr-profil':   { fr: 'Qui est Samantha ?',       en: 'Who is Samantha?' },
+    'qr-exp':      { fr: 'Ses expériences',           en: 'Her experience' },
+    'qr-skills':   { fr: 'Ses compétences',           en: 'Her skills' },
+    'qr-projets':  { fr: 'Ses projets',               en: 'Her projects' },
+    'qr-contact':  { fr: 'Comment la contacter ?',    en: 'How to contact her?' },
+    'qr-rdv':      { fr: 'Réserver un rendez-vous',   en: 'Book a meeting' }
+  };
+  var topics = {
+    'qr-profil': 'profil', 'qr-exp': 'experience',
+    'qr-skills': 'skills', 'qr-projets': 'projets',
+    'qr-contact': 'contact', 'qr-rdv': 'rdv'
+  };
+  var lbl = labels[qr] ? labels[qr][lang] : qr;
+  chatAddMessage(lbl, 'user', false);
+  chatBotReply(topics[qr] || 'default');
+}
+
+function submitBooking() {
+  var name    = (document.getElementById('bk-name')    || {}).value || '';
+  var email   = (document.getElementById('bk-email')   || {}).value || '';
+  var date    = (document.getElementById('bk-date')    || {}).value || '';
+  var time    = (document.getElementById('bk-time')    || {}).value || '';
+  var subject = (document.getElementById('bk-subject') || {}).value || '';
+  var msg     = (document.getElementById('bk-msg')     || {}).value || '';
+  var lang    = getLang();
+
+  if (!name || !email) {
+    alert(lang === 'fr' ? 'Merci de renseigner votre nom et votre email.' : 'Please fill in your name and email.');
+    return;
+  }
+
+  var sub = encodeURIComponent((lang === 'fr' ? 'Demande de rendez-vous' : 'Meeting request') + (subject ? ' — ' + subject : ''));
+  var body = encodeURIComponent(
+    (lang === 'fr' ? 'Bonjour Samantha,' : 'Hello Samantha,') + '\n\n' +
+    (lang === 'fr' ? 'Je souhaite prendre rendez-vous avec vous.' : 'I would like to schedule a meeting with you.') + '\n\n' +
+    (lang === 'fr' ? 'Nom : ' : 'Name: ') + name + '\n' +
+    (lang === 'fr' ? 'Email : ' : 'Email: ') + email + '\n' +
+    (date ? (lang === 'fr' ? 'Date souhaitée : ' : 'Preferred date: ') + date + '\n' : '') +
+    (time ? (lang === 'fr' ? 'Créneau : ' : 'Time slot: ') + time + '\n' : '') +
+    (msg ? '\n' + msg + '\n' : '') +
+    '\n' + (lang === 'fr' ? 'Cordialement,' : 'Best regards,') + '\n' + name
+  );
+
+  window.location.href = 'mailto:asdrubalsamantha@gmail.com?subject=' + sub + '&body=' + body;
+
+  chatAddTyping();
+  setTimeout(function() {
+    chatRemoveTyping();
+    chatAddMessage(
+      lang === 'fr'
+        ? '✅ Votre client mail va s\'ouvrir. Envoyez l\'email et Samantha vous répondra dans les meilleurs délais !'
+        : '✅ Your email client will open. Send the email and Samantha will get back to you shortly!',
+      'bot', false
+    );
+  }, 700);
+}
+
+function chatInit() {
+  var container = document.getElementById('chat-messages');
+  if (!container || chatGreeted) { return; }
+  container.innerHTML = '';
+  chatGreeted = true;
+  chatBotReply('greet');
+}
 
 /* ===== CARROUSEL ===== */
 function carouselShow(idx) {
@@ -725,21 +950,17 @@ function carouselNext() { carouselShow(carouselIndex + 1); }
 function openProject(key) {
   var d = PROJECTS[key];
   if (!d) { return; }
-  var lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
-
+  var lang = getLang();
   document.getElementById('modal-icon').textContent = d.icon;
   var t = (lang === 'en') ? d.titleEn : d.titleFr;
   document.getElementById('modal-win-title').textContent = t;
-
   var titleEl = document.getElementById('modal-project-title');
   titleEl.textContent = t;
   titleEl.style.cssText = 'font-size:13px;font-weight:bold;color:#1a3b8c;margin-bottom:2px;';
-
   var sub = (lang === 'en') ? d.subEn : d.subFr;
   var subEl = document.getElementById('modal-project-sub');
   subEl.textContent = sub;
   subEl.style.cssText = 'font-size:10px;color:#888;font-style:italic;margin-bottom:6px;';
-
   var tagsEl = document.getElementById('modal-project-tags');
   tagsEl.innerHTML = '';
   tagsEl.style.cssText = 'display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;';
@@ -749,20 +970,15 @@ function openProject(key) {
     span.style.cssText = 'background:#316ac5;color:white;font-size:10px;padding:1px 6px;border-radius:2px;';
     tagsEl.appendChild(span);
   }
-
   var descEl = document.getElementById('modal-project-desc');
   descEl.style.cssText = 'font-size:11px;line-height:1.6;color:#444;margin-bottom:10px;white-space:pre-line;';
   descEl.textContent = (lang === 'en') ? d.descEn : d.descFr;
-
   document.getElementById('modal-rag-note').style.display = d.rag ? 'block' : 'none';
-
   var imgEl = document.getElementById('modal-img');
   var carWrap = document.getElementById('carousel-wrap');
-
   if (d.imgs && d.imgs.length > 0) {
     imgEl.style.display = 'none';
     carouselImages = d.imgs;
-    carouselIndex = 0;
     carWrap.style.display = 'block';
     carouselShow(0);
   } else if (d.img) {
@@ -775,7 +991,6 @@ function openProject(key) {
     carWrap.style.display = 'none';
     carouselImages = [];
   }
-
   var linkEl = document.getElementById('modal-link');
   if (d.link) {
     linkEl.href = d.link;
@@ -783,7 +998,6 @@ function openProject(key) {
   } else {
     linkEl.style.display = 'none';
   }
-
   document.getElementById('project-modal').style.display = 'block';
 }
 
@@ -804,6 +1018,7 @@ function openWindow(name) {
   if (icon) { icon.classList.add('active-icon'); }
   currentWindow = name;
   taskbarItems[name] = true;
+  if (name === 'assistant') { setTimeout(chatInit, 100); }
   renderTaskbar();
 }
 
@@ -832,12 +1047,13 @@ function renderTaskbar() {
   if (!container) { return; }
   container.innerHTML = '';
   var labels = {
-    about:    { fr: 'A propos',    en: 'About'    },
-    skills:   { fr: 'Competences', en: 'Skills'   },
-    projects: { fr: 'Projets',     en: 'Projects' },
-    contact:  { fr: 'Contact',     en: 'Contact'  }
+    about:     { fr: 'A propos',     en: 'About'     },
+    skills:    { fr: 'Competences',  en: 'Skills'    },
+    projects:  { fr: 'Projets',      en: 'Projects'  },
+    contact:   { fr: 'Contact',      en: 'Contact'   },
+    assistant: { fr: 'Assistant',    en: 'Assistant' }
   };
-  var lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  var lang = getLang();
   for (var key in taskbarItems) {
     (function(k) {
       var btn = document.createElement('div');
@@ -871,8 +1087,7 @@ function toggleLang() {
 
 function updateClock() {
   var now = new Date();
-  var h = now.getHours();
-  var m = now.getMinutes();
+  var h = now.getHours(); var m = now.getMinutes();
   var hh = (h < 10) ? ('0' + h) : ('' + h);
   var mm = (m < 10) ? ('0' + m) : ('' + m);
   var el = document.getElementById('clock');
@@ -884,24 +1099,16 @@ setInterval(updateClock, 10000);
 function scaleToFit() {
   var el = document.getElementById('monitor-wrap');
   if (!el) { return; }
-  var vw = window.innerWidth;
-  var vh = window.innerHeight;
+  var vw = window.innerWidth; var vh = window.innerHeight;
   el.style.transform = '';
-  var mw = el.offsetWidth;
-  var mh = el.offsetHeight;
+  var mw = el.offsetWidth; var mh = el.offsetHeight;
   if (mw === 0 || mh === 0) { return; }
-  var sx = vw / mw;
-  var sy = vh / mh;
-  var scale = Math.min(sx, sy, 1) * 0.94;
+  var scale = Math.min(vw / mw, vh / mh, 1) * 0.94;
   el.style.transform = 'scale(' + scale + ')';
   el.style.transformOrigin = 'top center';
 }
-
 window.addEventListener('resize', scaleToFit);
-window.addEventListener('load', function() {
-  setTimeout(scaleToFit, 50);
-  setTimeout(scaleToFit, 400);
-});
+window.addEventListener('load', function() { setTimeout(scaleToFit, 50); setTimeout(scaleToFit, 400); });
 setTimeout(scaleToFit, 100);
 
 window.addEventListener('load', function() {
