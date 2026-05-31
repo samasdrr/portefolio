@@ -1,353 +1,1041 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samantha Asdrubal - Portfolio</title>
-    <style>
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html, body { height:100%; overflow:hidden; }
-        body { font-family:'Tahoma', Arial, sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; }
-        body.lang-fr [data-lang="en"] { display:none !important; }
-        body.lang-en [data-lang="fr"] { display:none !important; }
-        .bg { position:fixed; inset:0; background:radial-gradient(ellipse at 50% 85%,#2A1804,#060402); z-index:-1; }
-        .cw { display:flex; flex-direction:column; align-items:center; transform-origin:top center; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha Asdrubal — Portfolio</title>
+<style>
 
-        /* MONITOR */
-        .monitor { width:560px; background:linear-gradient(170deg,#DCC090,#CEAA76 15%,#C6A46A 40%,#BA9458 72%,#C4A268); border-radius:18px 18px 10px 10px; padding:14px 18px 12px 18px; box-shadow:inset 4px 4px 10px rgba(255,228,168,0.5),inset -3px -3px 7px rgba(0,0,0,0.4),0 30px 60px rgba(0,0,0,0.85),0 10px 20px rgba(0,0,0,0.5); }
-        .screen-cavity { background:#0E0A06; border-radius:9px; padding:6px; box-shadow:inset 8px 8px 24px #000,inset -8px -8px 24px #000; }
-        .screen-wrap { position:relative; width:100%; padding-bottom:75%; border-radius:7px; overflow:hidden; }
-        .screen-inner { position:absolute; inset:0; }
-        .scanlines { position:absolute; inset:0; pointer-events:none; z-index:100; background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.07) 2px,rgba(0,0,0,0.07) 4px); }
-        .vignette { position:absolute; inset:0; pointer-events:none; z-index:101; background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,0.45) 100%); }
-        .glare { position:absolute; top:4%; left:10%; width:38%; height:24%; pointer-events:none; z-index:102; background:radial-gradient(ellipse,rgba(255,255,255,0.13) 0%,transparent 70%); border-radius:50%; transform:rotate(-6deg); }
-        .chin { display:flex; align-items:center; justify-content:flex-end; gap:10px; padding-top:8px; }
-        .led { width:6px; height:6px; border-radius:50%; background:#00E040; box-shadow:0 0 5px #00E040; }
-        .floppy { width:28px; height:4px; background:rgba(0,0,0,0.38); border-radius:1px; }
-        .pwrbtn { width:11px; height:11px; border-radius:2px; background:linear-gradient(135deg,#B89060,#9A7840); border:1px solid rgba(0,0,0,0.3); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* NECK & KEYBOARD */
-        .neck { width:70px; height:16px; background:linear-gradient(to bottom,#BC9A5A,#9C8040); clip-path:polygon(8% 0%,92% 0%,100% 100%,0% 100%); margin-top:2px; }
-        .keyboard { width:560px; background:linear-gradient(175deg,#D6BA8A,#CAA870 22%,#C2A268 50%,#B69260 78%,#BEA068); border-radius:6px 6px 12px 12px; padding:7px 12px 12px; margin-top:3px; box-shadow:inset 3px 3px 6px rgba(255,220,160,0.4),inset -2px -2px 5px rgba(0,0,0,0.3),0 10px 25px rgba(0,0,0,0.6); }
-        .key-row { display:flex; gap:2px; margin-bottom:2px; }
-        .key { flex:1; height:9px; background:linear-gradient(160deg,#D4BC8C,#C8A870 45%,#B89658); border-radius:2px; border:1px solid rgba(80,50,10,0.2); box-shadow:0 2px 0 rgba(0,0,0,0.42),inset 0 1px 0 rgba(255,235,188,0.7); }
+body {
+  background: #2b2b2b;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  font-family: Tahoma, Arial, sans-serif;
+  overflow-x: hidden;
+}
 
-        /* XP DESKTOP */
-        .xp-desktop { position:absolute; inset:0; overflow:hidden; background:radial-gradient(ellipse 80% 40% at 55% 40%,rgba(255,255,255,0.2) 0%,transparent 60%),linear-gradient(to bottom,#3E82CC 0%,#5A9ED8 12%,#82BAEC 26%,#A8D4F8 38%,#78BA78 44%,#60AA60 50%,#48A048 58%,#389038 68%,#2A7A28 100%); }
-        .cloud { position:absolute; border-radius:50%; background:rgba(255,255,255,0.88); filter:blur(7px); }
-        .icons-col { position:absolute; top:4px; left:4px; display:flex; flex-direction:column; gap:3px; }
-        .d-icon { display:flex; flex-direction:column; align-items:center; width:56px; padding:3px 2px; border-radius:3px; cursor:pointer; user-select:none; border:1px solid transparent; }
-        .d-icon:hover { background:rgba(49,106,197,0.35); border-color:rgba(49,106,197,0.6); }
-        .d-icon.active { background:rgba(49,106,197,0.55); border-color:rgba(255,255,255,0.6); }
-        .d-icon svg { width:28px; height:28px; }
-        .d-lbl { font-size:9px; color:#fff; text-align:center; margin-top:2px; text-shadow:1px 1px 2px #000,0 0 4px #000; line-height:1.2; max-width:54px; word-break:break-word; }
-        .welcome { position:absolute; top:38%; left:50%; transform:translate(-50%,-50%); text-align:center; pointer-events:none; }
-        .wname { color:#fff; font-size:20px; font-weight:bold; text-shadow:2px 2px 6px #000; }
-        .wrole { color:rgba(255,255,255,0.9); font-size:13px; text-shadow:1px 1px 5px #000; margin-top:5px; }
-        .whint { color:rgba(255,255,255,0.6); font-size:9px; text-shadow:1px 1px 3px #000; margin-top:8px; }
+/* ===== MONITOR WRAP ===== */
+#monitor-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: top center;
+}
 
-        /* XP WINDOW */
-        .xp-win { position:absolute; top:3%; left:8%; right:2%; bottom:10%; display:none; flex-direction:column; border-radius:7px 7px 3px 3px; box-shadow:3px 5px 20px rgba(0,0,0,0.7); overflow:hidden; z-index:10; }
-        .xp-win.open { display:flex; }
-        .xp-tb { flex-shrink:0; background:linear-gradient(to bottom,#0A246A 0%,#0A246A 5%,#2C68C8 40%,#4A8EE0 70%,#3A7ED0 100%); padding:3px 4px 3px 7px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.35); }
-        .xp-tt { color:#fff; font-size:10px; font-weight:bold; display:flex; align-items:center; gap:4px; flex:1; overflow:hidden; white-space:nowrap; }
-        .xp-bs { display:flex; gap:2px; }
-        .xp-b { width:19px; height:19px; border-radius:3px; border:1px solid rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:bold; color:#fff; cursor:pointer; }
-        .xp-bm { background:linear-gradient(to bottom,#5098E0,#2260C0); }
-        .xp-bx { background:linear-gradient(to bottom,#5098E0,#2260C0); }
-        .xp-bc { background:linear-gradient(to bottom,#E86060,#C01818); }
-        .xp-bc:hover { background:linear-gradient(to bottom,#FF7070,#D03030); }
-        .xp-mb { flex-shrink:0; background:#ECE9D8; border-bottom:1px solid #ACA89C; padding:1px 2px; display:flex; }
-        .xp-mi { font-size:10px; padding:2px 5px; cursor:default; color:#000; border-radius:2px; }
-        .xp-mi:hover { background:#316AC5; color:#fff; }
-        .xp-body { flex:1; background:#fff; overflow-y:auto; }
-        .xp-body::-webkit-scrollbar { width:14px; }
-        .xp-body::-webkit-scrollbar-track { background:#F0EDE5; }
-        .xp-body::-webkit-scrollbar-thumb { background:linear-gradient(to right,#D8D4CC,#B8B5AD); border:1px solid #999; }
+/* ===== MONITOR BODY ===== */
+.monitor-body {
+  background: linear-gradient(145deg, #e8dcc8 0%, #c9b99a 40%, #b8a882 100%);
+  border-radius: 16px 16px 10px 10px;
+  padding: 18px 18px 30px;
+  box-shadow:
+    inset 0 3px 6px rgba(255,255,255,0.5),
+    inset 0 -2px 4px rgba(0,0,0,0.2),
+    0 12px 40px rgba(0,0,0,0.6),
+    0 4px 10px rgba(0,0,0,0.4);
+}
 
-        /* TASKBAR */
-        .xp-task { position:absolute; bottom:0; left:0; right:0; height:26px; background:linear-gradient(to bottom,#2560C4,#1A4AAA 40%,#1A4AAA 80%,#2A5AC4); display:flex; align-items:center; padding:0 3px; gap:3px; z-index:20; border-top:1px solid rgba(255,255,255,0.22); }
-        .start-btn { display:flex; align-items:center; gap:3px; padding:2px 8px 2px 5px; height:21px; background:linear-gradient(to bottom,#60CE28,#3EA012 45%,#2A8808); border-radius:0 12px 12px 0; border:1px solid #186008; cursor:pointer; color:#fff; font-weight:bold; font-size:10px; font-style:italic; font-family:'Tahoma',Arial,sans-serif; }
-        .tb-item { display:none; align-items:center; gap:3px; padding:2px 7px; height:19px; background:linear-gradient(to bottom,#3060A8,#1A4090); border:1px solid rgba(255,255,255,0.2); border-radius:3px; color:#fff; font-size:9px; max-width:140px; overflow:hidden; white-space:nowrap; }
-        .tb-item.visible { display:flex; }
-        .systray { margin-left:auto; display:flex; align-items:center; gap:5px; background:rgba(0,20,100,0.28); border:1px solid rgba(100,150,255,0.28); border-radius:3px; padding:0 6px; height:19px; font-size:9px; color:#fff; }
-        .lang-btn { background:none; border:none; color:#fff; cursor:pointer; font-size:9px; font-family:'Tahoma',Arial,sans-serif; }
+.screen-bezel {
+  background: #1c1c1c;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+}
 
-        /* WINDOW CONTENT */
-        .w-pad { padding:12px; }
-        .w-hero { display:flex; align-items:center; gap:12px; margin-bottom:12px; padding:10px; background:linear-gradient(to right,#EEF4FF,#F4F8FF); border:1px solid #C0CCE8; border-radius:4px; }
-        .w-av { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#316AC5,#4A8EE0); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:13px; flex-shrink:0; }
-        .w-sec { font-weight:bold; color:#003087; border-bottom:1px solid #316AC5; padding-bottom:3px; margin-bottom:10px; font-size:11px; }
-        .w-par { padding:9px; background:#FAFAF8; border:1px solid #E0DDD5; border-radius:3px; margin-bottom:8px; font-size:10px; line-height:1.7; color:#333; }
-        .sk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-        .sk-cat { background:linear-gradient(135deg,#ECE9D8,#E0DDD0); border:1px solid #C0BDB5; border-radius:4px; padding:8px; }
-        .sk-ttl { font-weight:bold; color:#316AC5; font-size:10px; margin-bottom:6px; border-bottom:1px solid #D0CCCC; padding-bottom:2px; }
-        .sk-item { font-size:10px; color:#333; padding:1px 0; }
-        .pj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(80px,1fr)); gap:6px; }
-        .pj-fold { display:flex; flex-direction:column; align-items:center; padding:6px 3px; cursor:pointer; border-radius:3px; text-align:center; border:1px solid transparent; }
-        .pj-fold:hover { background:#EEF2FC; border-color:#316AC5; }
-        .pj-fold span { font-size:9px; color:#333; margin-top:3px; line-height:1.2; }
-        .pj-back { font-size:10px; color:#316AC5; background:none; border:none; cursor:pointer; text-decoration:underline; margin-bottom:8px; padding:0; display:block; font-family:'Tahoma',Arial,sans-serif; }
-        .pj-card { border:1px solid #D0CCC4; border-radius:4px; padding:10px; background:#F8F8F4; }
-        .pj-t { font-weight:bold; color:#003087; font-size:11px; margin-bottom:6px; }
-        .pj-d { color:#333; font-size:10px; line-height:1.6; margin-bottom:6px; }
-        .tag { display:inline-block; background:#E8E8F8; border:1px solid #316AC5; border-radius:2px; padding:1px 5px; font-size:9px; color:#316AC5; margin:1px; }
-        .ct-card { background:linear-gradient(to right,#EEF4FF,#F4F8FF); border:1px solid #C0CCE8; border-radius:4px; padding:12px; margin-bottom:10px; }
-        .ct-link { display:flex; align-items:center; gap:7px; padding:6px 10px; background:#fff; border:1px solid #C0CCE8; border-radius:3px; color:#316AC5; font-size:10px; margin-bottom:5px; text-decoration:none; }
-        .ct-link:hover { background:#EEF2FC; }
-        .ct-send { display:inline-block; padding:5px 14px; background:linear-gradient(to bottom,#316AC5,#1A50A0); color:#fff; border:1px solid #1A4080; border-radius:3px; font-size:10px; text-decoration:none; }
+/* ===== SCREEN ===== */
+.screen {
+  width: 560px;
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #3a6ea5;
+}
 
-        /* MOBILE */
-        @media (max-width:640px) {
-            .cw { width:100vw !important; height:100vh !important; transform:none !important; }
-            .monitor { width:100vw !important; border-radius:0; padding:0; box-shadow:none; background:none; }
-            .screen-cavity { border-radius:0; padding:0; box-shadow:none; background:none; }
-            .screen-wrap { padding-bottom:0; }
-            .screen-inner { position:relative; height:100vh; }
-            .neck, .keyboard, .chin, .scanlines, .vignette, .glare { display:none; }
-        }
-    </style>
+/* Bliss wallpaper */
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 130% 60% at 50% 115%, #5a9e3a 0%, #3d7a20 30%, transparent 60%),
+    linear-gradient(180deg, #3a7bd5 0%, #6aabf5 40%, #a8d4f7 65%, #c8e8ff 80%, #e8f4ff 100%);
+}
+.wallpaper::before {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 8%;
+  width: 100px;
+  height: 35px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50px;
+  box-shadow:
+    35px -8px 0 18px rgba(255,255,255,0.7),
+    70px 4px 0 9px rgba(255,255,255,0.6),
+    190px 6px 0 28px rgba(255,255,255,0.75),
+    230px -4px 0 14px rgba(255,255,255,0.65),
+    340px 8px 0 22px rgba(255,255,255,0.7);
+}
+
+/* Scanlines */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Phosphor tint */
+.phosphor {
+  position: absolute;
+  inset: 0;
+  background: rgba(80,160,80,0.04);
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* Glare */
+.glare {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 101;
+  border-radius: 3px 3px 0 0;
+}
+
+/* ===== DESKTOP ICONS ===== */
+.desktop-icons {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  width: 58px;
+  padding: 4px;
+  border-radius: 3px;
+  user-select: none;
+  transition: background 0.1s;
+}
+.icon:hover { background: rgba(49,106,197,0.35); }
+.icon.active-icon { background: rgba(49,106,197,0.55); }
+
+.icon-img {
+  font-size: 26px;
+  line-height: 1;
+  filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.6));
+}
+
+.icon-label {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.9), -1px -1px 2px rgba(0,0,0,0.7);
+  line-height: 1.2;
+  word-break: break-word;
+  width: 100%;
+}
+
+/* ===== XP WINDOWS ===== */
+.xp-window {
+  position: absolute;
+  top: 18px;
+  left: 72px;
+  right: 4px;
+  bottom: 30px;
+  background: #ece9d8;
+  border: 1px solid #0a246a;
+  border-radius: 6px 6px 3px 3px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.55);
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+  overflow: hidden;
+}
+.xp-window.active { display: flex; }
+
+/* Title bar */
+.title-bar {
+  background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 40%, #1e4fd9 60%, #3a7bd5 100%);
+  padding: 4px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 25px;
+  border-radius: 5px 5px 0 0;
+  flex-shrink: 0;
+}
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.title-icon { font-size: 13px; }
+.title-text {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+.title-buttons { display: flex; gap: 2px; }
+.tb-btn {
+  width: 18px;
+  height: 15px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%);
+}
+.tb-btn:hover { background: linear-gradient(180deg, #7ab5e5 0%, #5a9be5 50%, #4070c0 100%); }
+.tb-btn.close-btn { background: linear-gradient(180deg, #d55b5b 0%, #c03030 50%, #902020 100%); }
+.tb-btn.close-btn:hover { background: linear-gradient(180deg, #e57b7b 0%, #d04040 50%, #a03030 100%); }
+
+/* Menu bar */
+.menu-bar {
+  background: #ece9d8;
+  border-bottom: 1px solid #aca899;
+  padding: 1px 5px;
+  display: flex;
+  gap: 1px;
+  flex-shrink: 0;
+}
+.menu-item {
+  font-size: 11px;
+  padding: 2px 5px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.menu-item:hover { background: #316ac5; color: white; }
+
+/* Address bar */
+.address-bar {
+  background: white;
+  border: 1px solid #7f9db9;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #333;
+  margin: 3px 5px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Window content */
+.window-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: #333;
+  background: white;
+  margin: 0 4px 4px;
+  border: 1px solid #aca899;
+}
+.window-content::-webkit-scrollbar { width: 14px; }
+.window-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
+.window-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
+
+/* ===== CONTENT STYLES ===== */
+.about-grid {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.about-photo {
+  width: 68px;
+  height: 68px;
+  border-radius: 4px;
+  border: 2px solid #7f9db9;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #dce6f8;
+}
+.about-text h2 { font-size: 13px; color: #1a3b8c; margin-bottom: 2px; }
+.about-text .role { font-size: 10px; color: #316ac5; margin-bottom: 5px; font-style: italic; }
+.about-text p { font-size: 10px; line-height: 1.5; color: #444; }
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 0;
+  border-bottom: 1px solid #ece9d8;
+  font-size: 10px;
+}
+.info-label { font-weight: bold; color: #1a3b8c; min-width: 80px; }
+
+.skill-category { margin-bottom: 10px; }
+.skill-category h3 {
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%);
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.skill-tag {
+  background: #dce6f8;
+  border: 1px solid #7f9db9;
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-size: 10px;
+  color: #1a3b8c;
+}
+
+.project-card {
+  background: #f5f3ed;
+  border: 1px solid #aca899;
+  border-radius: 4px;
+  padding: 7px 9px;
+  margin-bottom: 7px;
+}
+.project-card h3 { font-size: 11px; color: #1a3b8c; margin-bottom: 3px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 3px; }
+.ptag {
+  background: #316ac5;
+  color: white;
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+.project-card p { font-size: 10px; line-height: 1.4; color: #555; }
+
+.contact-links { display: flex; flex-direction: column; gap: 6px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #f0eee8;
+  border: 1px solid #aca899;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #1a3b8c;
+  font-size: 11px;
+  transition: background 0.1s;
+}
+.contact-link:hover { background: #dce6f8; }
+.contact-link .cl-icon { font-size: 15px; }
+.contact-intro { margin-bottom: 10px; font-size: 11px; color: #555; }
+
+/* ===== TASKBAR ===== */
+.taskbar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 29px;
+  background: linear-gradient(180deg, #245edb 0%, #1a4bc7 40%, #1e52d4 60%, #2460e0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  z-index: 50;
+  border-top: 1px solid #4a8af5;
+}
+
+.start-btn {
+  background: linear-gradient(180deg, #5aa334 0%, #3a8a1a 40%, #2d7010 60%, #4a9a28 100%);
+  border: 1px solid #2a6a10;
+  border-radius: 0 10px 10px 0;
+  padding: 2px 10px 2px 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  height: 22px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.start-btn:hover { background: linear-gradient(180deg, #6ab344 0%, #4a9a2a 40%, #3d8020 60%, #5aaa38 100%); }
+.start-icon { font-size: 13px; }
+.start-text {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.taskbar-tasks { flex: 1; margin: 0 5px; display: flex; gap: 2px; }
+.task-btn {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 3px;
+  padding: 2px 6px;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100px;
+  text-overflow: ellipsis;
+}
+.task-btn.active-task {
+  background: rgba(0,0,0,0.25);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.system-tray {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  padding: 2px 6px;
+  height: 21px;
+}
+.lang-toggle {
+  color: white;
+  font-size: 9px;
+  cursor: pointer;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 2px;
+  padding: 1px 4px;
+}
+.lang-toggle:hover { background: rgba(255,255,255,0.3); }
+.clock { color: white; font-size: 9px; }
+
+/* ===== MONITOR CHIN ===== */
+.monitor-chin {
+  background: linear-gradient(180deg, #c9b99a 0%, #b0a07a 100%);
+  height: 20px;
+  border-radius: 0 0 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.4);
+}
+.power-led {
+  width: 6px; height: 6px;
+  background: #44ff44;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #44ff44;
+  animation: blink 4s infinite;
+}
+@keyframes blink {
+  0%, 88%, 100% { opacity: 1; }
+  93% { opacity: 0.2; }
+}
+.monitor-brand {
+  font-size: 7px;
+  color: #7a6a4a;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ===== STAND ===== */
+.monitor-stand { display: flex; flex-direction: column; align-items: center; }
+.stand-neck {
+  width: 55px; height: 16px;
+  background: linear-gradient(90deg, #b0a070 0%, #cdbf9e 40%, #b0a070 100%);
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.stand-base {
+  width: 130px; height: 11px;
+  background: linear-gradient(180deg, #c9b99a 0%, #a89270 100%);
+  border-radius: 3px 3px 6px 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* ===== KEYBOARD ===== */
+.keyboard-wrap {
+  margin-top: 14px;
+  perspective: 200px;
+}
+.keyboard {
+  background: linear-gradient(180deg, #ddd4b8 0%, #c9bfa0 100%);
+  border-radius: 7px 7px 5px 5px;
+  padding: 7px 8px 10px;
+  box-shadow:
+    inset 0 1px 3px rgba(255,255,255,0.5),
+    0 6px 16px rgba(0,0,0,0.5),
+    0 2px 4px rgba(0,0,0,0.3);
+  transform: rotateX(8deg);
+  transform-origin: top center;
+}
+.key-row { display: flex; gap: 2px; margin-bottom: 2px; justify-content: center; }
+.key {
+  background: linear-gradient(180deg, #f5f0e4 0%, #ddd8c8 100%);
+  border: 1px solid #b0a888;
+  border-radius: 3px;
+  width: 20px; height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6px;
+  color: #555;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 0 rgba(0,0,0,0.25);
+  cursor: default;
+  user-select: none;
+}
+.key.wide { width: 32px; }
+.key.wider { width: 44px; }
+.key.space { width: 160px; }
+.key.enter { width: 40px; }
+
+/* ===== BILINGUAL ===== */
+[data-fr], [data-en] { display: none; }
+body.lang-fr [data-fr] { display: inline; }
+body.lang-en [data-en] { display: inline; }
+.block-fr, .block-en { display: none !important; }
+body.lang-fr .block-fr { display: block !important; }
+body.lang-en .block-en { display: block !important; }
+
+/* ===== STARTUP ===== */
+#startup-screen {
+  position: absolute;
+  inset: 0;
+  background: #003399;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  transition: opacity 0.6s;
+}
+#startup-screen.hidden { opacity: 0; pointer-events: none; }
+.xp-logo {
+  font-size: 32px;
+  color: white;
+  font-family: 'Trebuchet MS', Tahoma, sans-serif;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.xp-logo span { color: #ff6600; font-weight: bold; }
+.xp-tagline { color: rgba(255,255,255,0.7); font-size: 10px; margin-bottom: 20px; }
+.loading-bar-outer {
+  width: 180px; height: 9px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.loading-bar-inner {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, #4488ff, #88bbff);
+  animation: loadAnim 2.4s ease-out forwards;
+}
+@keyframes loadAnim {
+  0% { width: 0; }
+  25% { width: 35%; }
+  55% { width: 65%; }
+  80% { width: 85%; }
+  100% { width: 100%; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+  body { background: #3a7bd5; padding: 0; align-items: stretch; }
+  #monitor-wrap { transform: none !important; }
+  .monitor-body, .screen-bezel { display: contents; }
+  .screen { width: 100vw !important; height: 100vh !important; border-radius: 0; }
+  .monitor-chin, .monitor-stand, .keyboard-wrap { display: none !important; }
+}
+
+</style>
 </head>
 <body class="lang-fr">
-<div class="bg"></div>
-<div class="cw" id="cw">
 
-    <div class="monitor">
-        <div class="screen-cavity">
-            <div class="screen-wrap">
-                <div class="screen-inner">
-                    <div class="xp-desktop">
-                        <div class="cloud" style="width:110px;height:38px;top:3%;left:18%"></div>
-                        <div class="cloud" style="width:160px;height:50px;top:0%;left:40%"></div>
-                        <div class="cloud" style="width:90px;height:32px;top:7%;left:72%"></div>
-                        <div class="cloud" style="width:70px;height:26px;top:12%;left:8%;opacity:.6"></div>
+<div id="monitor-wrap">
 
-                        <div class="icons-col">
-                            <div class="d-icon" onclick="selI(this)">
-                                <svg viewBox="0 0 40 40"><rect x="3" y="2" width="34" height="24" rx="2" fill="#B8D0E8" stroke="#6090C0" stroke-width="1"/><rect x="5" y="4" width="30" height="20" rx="1" fill="#4A8CD4"/><rect x="14" y="26" width="12" height="5" fill="#A0B8D0"/><rect x="9" y="31" width="22" height="3" rx="1" fill="#A0B8D0"/></svg>
-                                <span class="d-lbl"><span data-lang="fr">Poste de travail</span><span data-lang="en">My Computer</span></span>
-                            </div>
-                            <div class="d-icon" onclick="openW('about');selI(this)">
-                                <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="3" fill="#316AC5"/><circle cx="20" cy="15" r="7" fill="white"/><path d="M6 37c0-7.7 6.3-14 14-14s14 6.3 14 14" fill="white"/></svg>
-                                <span class="d-lbl"><span data-lang="fr">À propos</span><span data-lang="en">About</span></span>
-                            </div>
-                            <div class="d-icon" onclick="openW('skills');selI(this)">
-                                <svg viewBox="0 0 32 40"><rect x="0" y="0" width="26" height="40" rx="2" fill="white" stroke="#AAA" stroke-width="1"/><polygon points="26,0 32,6 26,6" fill="#CCC"/><rect x="4" y="10" width="18" height="2" rx="1" fill="#316AC5"/><rect x="4" y="15" width="18" height="1.5" rx="1" fill="#AAA"/><rect x="4" y="19" width="14" height="1.5" rx="1" fill="#AAA"/></svg>
-                                <span class="d-lbl"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></span>
-                            </div>
-                            <div class="d-icon" onclick="openW('projects');selI(this)">
-                                <svg viewBox="0 0 48 40"><rect x="0" y="12" width="48" height="28" rx="2" fill="#C8860A"/><rect x="0" y="8" width="20" height="6" rx="2" fill="#C8860A"/><rect x="0" y="12" width="48" height="26" rx="2" fill="#F0BC30"/><rect x="1" y="16" width="46" height="20" rx="1" fill="#FAD660"/></svg>
-                                <span class="d-lbl"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></span>
-                            </div>
-                            <div class="d-icon" onclick="openW('contact');selI(this)">
-                                <svg viewBox="0 0 40 32"><rect width="40" height="32" rx="2" fill="#EEF4FF" stroke="#316AC5" stroke-width="1"/><rect x="0" y="0" width="40" height="10" rx="2" fill="#316AC5"/><path d="M2 2 L20 11 L38 2" stroke="white" stroke-width="1.5" fill="none"/></svg>
-                                <span class="d-lbl">Contact</span>
-                            </div>
-                            <div class="d-icon" onclick="selI(this)">
-                                <svg viewBox="0 0 34 42"><path d="M17 2 L22 10 H19 V20 H15 V10 H12 Z" fill="#6898D0"/><path d="M7 18 L2 26 H7 C7 33 11 38 17 38 C23 38 27 33 27 26 H32 L27 18" stroke="#6898D0" stroke-width="2.2" fill="none"/></svg>
-                                <span class="d-lbl"><span data-lang="fr">Corbeille</span><span data-lang="en">Recycle Bin</span></span>
-                            </div>
-                        </div>
+  <!-- MONITOR -->
+  <div class="monitor-body">
+    <div class="screen-bezel">
+      <div class="screen">
 
-                        <div class="welcome" id="welcome">
-                            <div class="wname">Samantha Asdrubal</div>
-                            <div class="wrole">Business Analyst</div>
-                            <div class="whint"><span data-lang="fr">Cliquez sur une icône pour ouvrir</span><span data-lang="en">Click an icon to open</span></div>
-                        </div>
-
-                        <!-- ABOUT -->
-                        <div class="xp-win" id="win-about">
-                            <div class="xp-tb"><div class="xp-tt">👤 <span data-lang="fr">À propos de moi</span><span data-lang="en">About Me</span></div><div class="xp-bs"><div class="xp-b xp-bm">—</div><div class="xp-b xp-bx">□</div><div class="xp-b xp-bc" onclick="closeW()">✕</div></div></div>
-                            <div class="xp-mb"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
-                            <div class="xp-body"><div class="w-pad">
-                                <div class="w-hero"><div class="w-av">SA</div><div><div style="font-weight:bold;font-size:13px;color:#003087">Samantha Asdrubal</div><div style="color:#316AC5;font-size:10px">Business Analyst</div></div></div>
-                                <div class="w-sec">📋 <span data-lang="fr">À propos de moi</span><span data-lang="en">About Me</span></div>
-                                <p class="w-par" data-lang="fr">Étudiante en Master Data &amp; IA, alternante Business Analyst chez Mailinblack (cybersécurité). Passionnée par la transformation des données en leviers de décision stratégiques.</p>
-                                <p class="w-par" data-lang="en">Master's student in Data &amp; AI, apprentice Business Analyst at Mailinblack (cybersecurity). Passionate about transforming data into strategic decision levers.</p>
-                                <p class="w-par" data-lang="fr">Au fil de mes expériences, j'ai développé une expertise en création de dashboards de reporting et d'analyse pour piloter efficacement l'activité.</p>
-                                <p class="w-par" data-lang="en">I have developed expertise in creating reporting and analysis dashboards to effectively drive business activity.</p>
-                                <p class="w-par" data-lang="fr">Curieuse et orientée résultats : transformer des données complexes en insights actionnables et visualisations impactantes.</p>
-                                <p class="w-par" data-lang="en">Curious and results-oriented: transforming complex data into actionable insights and impactful visualizations.</p>
-                            </div></div>
-                        </div>
-
-                        <!-- SKILLS -->
-                        <div class="xp-win" id="win-skills">
-                            <div class="xp-tb"><div class="xp-tt">📄 <span data-lang="fr">Mes Compétences</span><span data-lang="en">My Skills</span></div><div class="xp-bs"><div class="xp-b xp-bm">—</div><div class="xp-b xp-bx">□</div><div class="xp-b xp-bc" onclick="closeW()">✕</div></div></div>
-                            <div class="xp-mb"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
-                            <div class="xp-body"><div class="w-pad">
-                                <div class="w-sec">⚙️ <span data-lang="fr">Mes Compétences</span><span data-lang="en">My Skills</span></div>
-                                <div class="sk-grid">
-                                    <div class="sk-cat"><div class="sk-ttl">📁 Data &amp; <span data-lang="fr">Analyse</span><span data-lang="en">Analysis</span></div><div class="sk-item">▶ Python</div><div class="sk-item">▶ SQL</div><div class="sk-item">▶ Excel / Google Sheets</div></div>
-                                    <div class="sk-cat"><div class="sk-ttl">📁 <span data-lang="fr">Visualisation</span><span data-lang="en">Visualization</span> &amp; Reporting</div><div class="sk-item">▶ Tableau</div><div class="sk-item">▶ Salesforce</div><div class="sk-item">▶ Notion</div></div>
-                                    <div class="sk-cat"><div class="sk-ttl">📁 <span data-lang="fr">Automatisation</span><span data-lang="en">Automation</span> &amp; <span data-lang="fr">Outils</span><span data-lang="en">Tools</span></div><div class="sk-item">▶ Make</div><div class="sk-item">▶ N8N</div><div class="sk-item">▶ Dust (agents IA)</div><div class="sk-item">▶ API Integration</div><div class="sk-item">▶ GitHub / VS Code</div></div>
-                                </div>
-                            </div></div>
-                        </div>
-
-                        <!-- PROJECTS -->
-                        <div class="xp-win" id="win-projects">
-                            <div class="xp-tb"><div class="xp-tt">📁 <span data-lang="fr">Mes Projets</span><span data-lang="en">My Projects</span></div><div class="xp-bs"><div class="xp-b xp-bm">—</div><div class="xp-b xp-bx">□</div><div class="xp-b xp-bc" onclick="closeW()">✕</div></div></div>
-                            <div class="xp-mb"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
-                            <div class="xp-body">
-                                <div class="w-pad" id="pj-list"><div class="w-sec">🗂️ <span data-lang="fr">Mes Projets</span><span data-lang="en">My Projects</span></div><div class="pj-grid" id="pj-grid"></div></div>
-                                <div class="w-pad" id="pj-detail" style="display:none"><button class="pj-back" onclick="backP()">← <span data-lang="fr">Retour</span><span data-lang="en">Back</span></button><div class="pj-card"><div class="pj-t" id="pj-t"></div><div class="pj-d" id="pj-d"></div><div id="pj-g"></div></div></div>
-                            </div>
-                        </div>
-
-                        <!-- CONTACT -->
-                        <div class="xp-win" id="win-contact">
-                            <div class="xp-tb"><div class="xp-tt">✉️ Contact</div><div class="xp-bs"><div class="xp-b xp-bm">—</div><div class="xp-b xp-bx">□</div><div class="xp-b xp-bc" onclick="closeW()">✕</div></div></div>
-                            <div class="xp-mb"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
-                            <div class="xp-body"><div class="w-pad">
-                                <div class="w-sec">✉️ Contact</div>
-                                <div class="ct-card">
-                                    <p style="font-size:10px;color:#333;margin-bottom:10px;line-height:1.7" data-lang="fr">Un projet data en tête ? N'hésitez pas à me contacter !</p>
-                                    <p style="font-size:10px;color:#333;margin-bottom:10px;line-height:1.7" data-lang="en">Have a data project in mind? Feel free to contact me!</p>
-                                    <a href="mailto:sasdrubal@eugeniaschool.com" class="ct-link">📧 sasdrubal@eugeniaschool.com</a>
-                                    <a href="https://github.com/samasdrr" target="_blank" class="ct-link">💻 github.com/samasdrr</a>
-                                    <a href="https://linkedin.com" target="_blank" class="ct-link">🔗 LinkedIn</a>
-                                </div>
-                                <a href="mailto:sasdrubal@eugeniaschool.com" class="ct-send"><span data-lang="fr">Envoyer un message</span><span data-lang="en">Send a message</span></a>
-                            </div></div>
-                        </div>
-
-                        <!-- TASKBAR -->
-                        <div class="xp-task">
-                            <button class="start-btn">⊞ <span data-lang="fr">Démarrer</span><span data-lang="en">Start</span></button>
-                            <div class="tb-item" id="tb-a"><span id="tb-ic"></span> <span id="tb-lb"></span></div>
-                            <div class="systray"><button class="lang-btn" id="lng" onclick="togL()">🇬🇧 EN</button><span>|</span><span id="clk">--:--</span></div>
-                        </div>
-                    </div>
-                    <div class="scanlines"></div><div class="vignette"></div><div class="glare"></div>
-                </div>
-            </div>
+        <!-- Démarrage -->
+        <div id="startup-screen">
+          <div class="xp-logo">windows <span>XP</span></div>
+          <div class="xp-tagline">Portfolio Edition</div>
+          <div class="loading-bar-outer">
+            <div class="loading-bar-inner"></div>
+          </div>
         </div>
-        <div class="chin"><div class="led"></div><div class="floppy"></div><div class="pwrbtn"></div></div>
+
+        <!-- Fond -->
+        <div class="wallpaper"></div>
+
+        <!-- Icônes bureau -->
+        <div class="desktop-icons">
+          <div class="icon" id="icon-about" onclick="openWindow('about')">
+            <div class="icon-img">👤</div>
+            <div class="icon-label"><span data-fr>À propos</span><span data-en>About</span></div>
+          </div>
+          <div class="icon" id="icon-skills" onclick="openWindow('skills')">
+            <div class="icon-img">💼</div>
+            <div class="icon-label"><span data-fr>Compétences</span><span data-en>Skills</span></div>
+          </div>
+          <div class="icon" id="icon-projects" onclick="openWindow('projects')">
+            <div class="icon-img">📁</div>
+            <div class="icon-label"><span data-fr>Projets</span><span data-en>Projects</span></div>
+          </div>
+          <div class="icon" id="icon-contact" onclick="openWindow('contact')">
+            <div class="icon-img">✉️</div>
+            <div class="icon-label">Contact</div>
+          </div>
+        </div>
+
+        <!-- FENÊTRE À PROPOS -->
+        <div class="xp-window" id="win-about">
+          <div class="title-bar">
+            <div class="title-bar-left">
+              <span class="title-icon">👤</span>
+              <span class="title-text"><span data-fr>À propos de moi</span><span data-en>About Me</span></span>
+            </div>
+            <div class="title-buttons">
+              <div class="tb-btn" onclick="minimizeWindow('about')">_</div>
+              <div class="tb-btn">□</div>
+              <div class="tb-btn close-btn" onclick="closeWindow('about')">✕</div>
+            </div>
+          </div>
+          <div class="menu-bar">
+            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
+            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
+          </div>
+          <div class="address-bar">C:\Portfolio\<span data-fr>A_Propos</span><span data-en>About</span>\</div>
+          <div class="window-content">
+            <div class="about-grid">
+              <img class="about-photo"
+                src="https://raw.githubusercontent.com/samasdrr/portefolio/main/photo.png.png"
+                alt="Samantha Asdrubal"
+                onerror="this.style.fontSize='28px'; this.src=''; this.alt='👤';" />
+              <div class="about-text">
+                <h2>Samantha Asdrubal</h2>
+                <div class="role">Business Analyst &mdash; <span data-fr>Alternante chez</span><span data-en>Apprentice at</span> Mailinblack</div>
+                <div class="block-fr">
+                  <p>Étudiante en Master Data &amp; IA, passionnée par la donnée et l'automatisation. J'aime concevoir des solutions qui transforment les données brutes en insights actionnables, et explorer les outils no-code et IA pour créer de la valeur concrète.</p>
+                </div>
+                <div class="block-en">
+                  <p>Master Data &amp; AI student, passionate about data and automation. I love designing solutions that turn raw data into actionable insights, and exploring no-code and AI tools to create real business value.</p>
+                </div>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="info-label">🎓 <span data-fr>Formation</span><span data-en>Studies</span></span>
+              <span>Master Data &amp; IA</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">🏢 <span data-fr>Entreprise</span><span data-en>Company</span></span>
+              <span>Mailinblack (<span data-fr>cybersécurité</span><span data-en>cybersecurity</span>)</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">📍 <span data-fr>Lieu</span><span data-en>Location</span></span>
+              <span>France</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FENÊTRE COMPÉTENCES -->
+        <div class="xp-window" id="win-skills">
+          <div class="title-bar">
+            <div class="title-bar-left">
+              <span class="title-icon">💼</span>
+              <span class="title-text"><span data-fr>Mes Compétences</span><span data-en>My Skills</span></span>
+            </div>
+            <div class="title-buttons">
+              <div class="tb-btn" onclick="minimizeWindow('skills')">_</div>
+              <div class="tb-btn">□</div>
+              <div class="tb-btn close-btn" onclick="closeWindow('skills')">✕</div>
+            </div>
+          </div>
+          <div class="menu-bar">
+            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
+            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
+          </div>
+          <div class="address-bar">C:\Portfolio\<span data-fr>Competences</span><span data-en>Skills</span>\</div>
+          <div class="window-content">
+            <div class="skill-category">
+              <h3>📊 Data &amp; <span data-fr>Analyse</span><span data-en>Analysis</span></h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Excel / Google Sheets</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Salesforce</span>
+                <span class="skill-tag">Notion</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></h3>
+              <div class="skill-tags">
+                <span class="skill-tag">Make</span>
+                <span class="skill-tag">N8N</span>
+                <span class="skill-tag">Dust</span>
+                <span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span>
+                <span class="skill-tag">GitHub / VS Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FENÊTRE PROJETS -->
+        <div class="xp-window" id="win-projects">
+          <div class="title-bar">
+            <div class="title-bar-left">
+              <span class="title-icon">📁</span>
+              <span class="title-text"><span data-fr>Mes Projets</span><span data-en>My Projects</span></span>
+            </div>
+            <div class="title-buttons">
+              <div class="tb-btn" onclick="minimizeWindow('projects')">_</div>
+              <div class="tb-btn">□</div>
+              <div class="tb-btn close-btn" onclick="closeWindow('projects')">✕</div>
+            </div>
+          </div>
+          <div class="menu-bar">
+            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
+            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
+          </div>
+          <div class="address-bar">C:\Portfolio\<span data-fr>Projets</span><span data-en>Projects</span>\</div>
+          <div class="window-content">
+
+            <div class="project-card">
+              <h3>🔍 Workflow SEO Ranking
+                <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon)</span>
+              </h3>
+              <div class="project-tags">
+                <span class="ptag">N8N</span>
+                <span class="ptag">Make</span>
+                <span class="ptag">Google Sheets</span>
+              </div>
+              <div class="block-fr"><p>Workflow automatisé pour scorer des mots-clés selon leur intention de recherche, réalisé lors d'un hackathon.</p></div>
+              <div class="block-en"><p>Automated workflow to score keywords by search intent, built during a hackathon.</p></div>
+            </div>
+
+            <div class="project-card">
+              <h3>🏇 <span data-fr>Prédiction Courses Hippiques</span><span data-en>Horse Racing Prediction</span></h3>
+              <div class="project-tags">
+                <span class="ptag">Google Sheets</span>
+                <span class="ptag">Dashboard</span>
+                <span class="ptag">Dataset 2020</span>
+              </div>
+              <div class="block-fr"><p>Dashboard Google Sheets prédisant les 3 et 5 premiers chevaux à partir d'un jeu de données de 2020.</p></div>
+              <div class="block-en"><p>Google Sheets dashboard predicting the top 3 and 5 horses from a 2020 dataset.</p></div>
+            </div>
+
+            <div class="project-card">
+              <h3>🎬 <span data-fr>Scraping Films &amp; Séries</span><span data-en>Movies &amp; Series Scraping</span></h3>
+              <div class="project-tags">
+                <span class="ptag">Python</span>
+                <span class="ptag">Web Scraping</span>
+                <span class="ptag">JustWatch</span>
+              </div>
+              <div class="block-fr"><p>Scraping de JustWatch pour générer des recommandations personnalisées de films et séries.</p></div>
+              <div class="block-en"><p>Scraping JustWatch to generate personalized movie and series recommendations.</p></div>
+            </div>
+
+            <div class="project-card">
+              <h3>🎵 <span data-fr>Chatbot Paroles de Musique</span><span data-en>Music Lyrics Chatbot</span></h3>
+              <div class="project-tags">
+                <span class="ptag">Python</span>
+                <span class="ptag">Scraping</span>
+                <span class="ptag">LyricsTranslate</span>
+              </div>
+              <div class="block-fr"><p>Chatbot permettant de retrouver le titre d'une chanson à partir de paroles, via scraping de LyricsTranslate.</p></div>
+              <div class="block-en"><p>Chatbot to find a song title from lyrics, scraping LyricsTranslate.</p></div>
+            </div>
+
+            <div class="project-card">
+              <h3>🛒 Hub Supply Marketplace
+                <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon Mirakl)</span>
+              </h3>
+              <div class="project-tags">
+                <span class="ptag">Supply Chain</span>
+                <span class="ptag">Marketplace</span>
+                <span class="ptag">Mirakl</span>
+              </div>
+              <div class="block-fr"><p>Hub de gestion de la chaîne d'approvisionnement pour vendeurs marketplace, conçu lors du hackathon Mirakl.</p></div>
+              <div class="block-en"><p>Supply chain management hub for marketplace sellers, built at the Mirakl hackathon.</p></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- FENÊTRE CONTACT -->
+        <div class="xp-window" id="win-contact">
+          <div class="title-bar">
+            <div class="title-bar-left">
+              <span class="title-icon">✉️</span>
+              <span class="title-text">Contact</span>
+            </div>
+            <div class="title-buttons">
+              <div class="tb-btn" onclick="minimizeWindow('contact')">_</div>
+              <div class="tb-btn">□</div>
+              <div class="tb-btn close-btn" onclick="closeWindow('contact')">✕</div>
+            </div>
+          </div>
+          <div class="menu-bar">
+            <div class="menu-item"><span data-fr>Fichier</span><span data-en>File</span></div>
+            <div class="menu-item"><span data-fr>Affichage</span><span data-en>View</span></div>
+          </div>
+          <div class="address-bar">C:\Portfolio\Contact\</div>
+          <div class="window-content">
+            <p class="contact-intro block-fr">N'hésitez pas à me contacter !</p>
+            <p class="contact-intro block-en">Feel free to reach out!</p>
+            <div class="contact-links">
+              <a href="mailto:sasdrubal@eugeniaschool.com" class="contact-link">
+                <span class="cl-icon">📧</span>
+                <span>sasdrubal@eugeniaschool.com</span>
+              </a>
+              <a href="https://github.com/samasdrr" target="_blank" rel="noopener" class="contact-link">
+                <span class="cl-icon">🐙</span>
+                <span>github.com/samasdrr</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
+                <span class="cl-icon">🔗</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- BARRE DES TÂCHES -->
+        <div class="taskbar">
+          <div class="start-btn">
+            <span class="start-icon">⊞</span>
+            <span class="start-text">start</span>
+          </div>
+          <div class="taskbar-tasks" id="taskbar-tasks"></div>
+          <div class="system-tray">
+            <div class="lang-toggle" id="lang-btn" onclick="toggleLang()">EN</div>
+            <div class="clock" id="clock">00:00</div>
+          </div>
+        </div>
+
+        <!-- Effets écran -->
+        <div class="scanlines"></div>
+        <div class="phosphor"></div>
+        <div class="glare"></div>
+
+      </div><!-- .screen -->
+    </div><!-- .screen-bezel -->
+
+    <div class="monitor-chin">
+      <div class="power-led"></div>
+      <div class="monitor-brand">SamTech XP</div>
     </div>
-    <div class="neck"></div>
-    <div class="keyboard" id="kb"></div>
-</div>
+
+  </div><!-- .monitor-body -->
+
+  <!-- Pied -->
+  <div class="monitor-stand">
+    <div class="stand-neck"></div>
+    <div class="stand-base"></div>
+  </div>
+
+  <!-- Clavier -->
+  <div class="keyboard-wrap">
+    <div class="keyboard">
+      <div class="key-row">
+        <div class="key wide">Esc</div>
+        <div class="key">F1</div><div class="key">F2</div><div class="key">F3</div><div class="key">F4</div>
+        <div class="key">F5</div><div class="key">F6</div><div class="key">F7</div><div class="key">F8</div>
+        <div class="key">F9</div><div class="key">F10</div><div class="key">F11</div><div class="key">F12</div>
+      </div>
+      <div class="key-row">
+        <div class="key">~</div>
+        <div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div>
+        <div class="key">5</div><div class="key">6</div><div class="key">7</div><div class="key">8</div>
+        <div class="key">9</div><div class="key">0</div><div class="key">-</div><div class="key">=</div>
+        <div class="key wider">Del</div>
+      </div>
+      <div class="key-row">
+        <div class="key wider">Tab</div>
+        <div class="key">Q</div><div class="key">W</div><div class="key">E</div><div class="key">R</div>
+        <div class="key">T</div><div class="key">Y</div><div class="key">U</div><div class="key">I</div>
+        <div class="key">O</div><div class="key">P</div><div class="key">[</div><div class="key">]</div>
+        <div class="key enter">Enter</div>
+      </div>
+      <div class="key-row">
+        <div class="key wider">Caps</div>
+        <div class="key">A</div><div class="key">S</div><div class="key">D</div><div class="key">F</div>
+        <div class="key">G</div><div class="key">H</div><div class="key">J</div><div class="key">K</div>
+        <div class="key">L</div><div class="key">;</div><div class="key">'</div>
+      </div>
+      <div class="key-row">
+        <div class="key wider">Shift</div>
+        <div class="key">Z</div><div class="key">X</div><div class="key">C</div><div class="key">V</div>
+        <div class="key">B</div><div class="key">N</div><div class="key">M</div>
+        <div class="key">,</div><div class="key">.</div><div class="key">/</div>
+        <div class="key wider">Shift</div>
+      </div>
+      <div class="key-row">
+        <div class="key wide">Ctrl</div>
+        <div class="key wide">Alt</div>
+        <div class="key space"></div>
+        <div class="key wide">Alt</div>
+        <div class="key wide">Ctrl</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- #monitor-wrap -->
 
 <script>
-var PROJ = {
-    fr:[
-        {t:"Workflow SEO Ranking (Hackathon)",d:"Workflow N8N qui récupère des mots-clés depuis Google Sheets et fait un scoring selon les intentions de recherche.",g:["Make","N8N","Google Sheets","Hackathon"]},
-        {t:"Prédiction Courses Hippiques",d:"Dashboard Google Sheets — prédiction top 3/5 via scoring sur dataset 2020.",g:["Google Sheets","Data Analysis","Dashboard"]},
-        {t:"Scraping Films et Séries",d:"Scraping JustWatch pour recommandation personnalisée de films et séries.",g:["Python","Scraping","Web"]},
-        {t:"Chatbot Paroles Musique",d:"Scraping LyricsTranslate — chatbot pour retrouver un titre depuis ses paroles.",g:["Python","Scraping","Chatbot"]},
-        {t:"Hub Supply Marketplace Mirakl",d:"Plateforme hackathon Mirakl pour gérer la supply chain des vendeurs.",g:["Hackathon","Mirakl","Supply Chain"]}
-    ],
-    en:[
-        {t:"SEO Ranking Workflow (Hackathon)",d:"N8N workflow retrieving keywords from Google Sheets and scoring by search intent.",g:["Make","N8N","Google Sheets","Hackathon"]},
-        {t:"Horse Racing Prediction",d:"Google Sheets dashboard — top 3/5 prediction via scoring on 2020 dataset.",g:["Google Sheets","Data Analysis","Dashboard"]},
-        {t:"Film and Series Scraping",d:"Scraping JustWatch for personalized movie and series recommendations.",g:["Python","Scraping","Web"]},
-        {t:"Lyrics Chatbot",d:"Scraping LyricsTranslate — chatbot to find a song title from its lyrics.",g:["Python","Scraping","Chatbot"]},
-        {t:"Marketplace Supply Hub Mirakl",d:"Mirakl hackathon platform to manage sellers supply chain.",g:["Hackathon","Mirakl","Supply Chain"]}
-    ]
-};
-var WI = {
-    about:{ic:"👤",fr:"À propos de moi",en:"About Me"},
-    skills:{ic:"📄",fr:"Mes Compétences",en:"My Skills"},
-    projects:{ic:"📁",fr:"Mes Projets",en:"My Projects"},
-    contact:{ic:"✉️",fr:"Contact",en:"Contact"}
-};
-var lang="fr", cw=null, acEl=null;
+var currentWindow = null;
+var taskbarItems = {};
 
-function updClk(){ document.getElementById("clk").textContent=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}); }
-updClk(); setInterval(updClk,10000);
+function openWindow(name) {
+  var wins = document.querySelectorAll('.xp-window');
+  for (var i = 0; i < wins.length; i++) {
+    wins[i].classList.remove('active');
+  }
+  var icons = document.querySelectorAll('.icon');
+  for (var j = 0; j < icons.length; j++) {
+    icons[j].classList.remove('active-icon');
+  }
+  var win = document.getElementById('win-' + name);
+  if (win) { win.classList.add('active'); }
+  var icon = document.getElementById('icon-' + name);
+  if (icon) { icon.classList.add('active-icon'); }
+  currentWindow = name;
+  taskbarItems[name] = true;
+  renderTaskbar();
+}
 
-/* Keyboard */
-(function(){
-    var rows=[[1,1,1,1,1,1,1,1,1,1,1,1,1,2],[1.7,1,1,1,1,1,1,1,1,1,1,1,1,1],[2,1,1,1,1,1,1,1,1,1,1,2.1],[2.5,1,1,1,1,1,1,1,1,1,2.5],[1.4,1.4,6,1.4,1.4,1.4]];
-    var kb=document.getElementById("kb");
-    rows.forEach(function(r){ var d=document.createElement("div"); d.className="key-row"; r.forEach(function(f){ var k=document.createElement("div"); k.className="key"; k.style.flex=f; d.appendChild(k); }); kb.appendChild(d); });
-})();
+function closeWindow(name) {
+  var win = document.getElementById('win-' + name);
+  if (win) { win.classList.remove('active'); }
+  var icon = document.getElementById('icon-' + name);
+  if (icon) { icon.classList.remove('active-icon'); }
+  delete taskbarItems[name];
+  if (currentWindow === name) { currentWindow = null; }
+  renderTaskbar();
+}
 
-/* Scale to fit */
-function scaleToFit(){
-    if(window.innerWidth<=640) return;
-    var el=document.getElementById("cw");
-    el.style.transform="none";
-    el.style.transformOrigin="top center";
-    setTimeout(function(){
-        var h=el.offsetHeight;
-        var w=el.offsetWidth;
-        var sh=window.innerHeight*0.94;
-        var sw=window.innerWidth*0.96;
-        var s=Math.min(1, sh/h, sw/w);
-        if(s<1){
-            el.style.transform="scale("+s+")";
-            var newH=h*s;
-            var topPad=Math.max(4,(window.innerHeight-newH)/2);
-            document.body.style.paddingTop=topPad+"px";
-            document.body.style.alignItems="flex-start";
+function minimizeWindow(name) {
+  var win = document.getElementById('win-' + name);
+  if (win) { win.classList.remove('active'); }
+  var icon = document.getElementById('icon-' + name);
+  if (icon) { icon.classList.remove('active-icon'); }
+  if (currentWindow === name) { currentWindow = null; }
+}
+
+function renderTaskbar() {
+  var container = document.getElementById('taskbar-tasks');
+  if (!container) { return; }
+  container.innerHTML = '';
+  var labels = {
+    about:    { fr: 'A propos',     en: 'About'    },
+    skills:   { fr: 'Competences',  en: 'Skills'   },
+    projects: { fr: 'Projets',      en: 'Projects' },
+    contact:  { fr: 'Contact',      en: 'Contact'  }
+  };
+  var lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  for (var key in taskbarItems) {
+    (function(k) {
+      var btn = document.createElement('div');
+      var isActive = (currentWindow === k);
+      btn.className = isActive ? 'task-btn active-task' : 'task-btn';
+      btn.textContent = labels[k] ? labels[k][lang] : k;
+      btn.onclick = function() {
+        var w = document.getElementById('win-' + k);
+        if (w && w.classList.contains('active')) {
+          minimizeWindow(k);
         } else {
-            document.body.style.paddingTop="";
-            document.body.style.alignItems="center";
+          openWindow(k);
         }
-    },100);
-}
-window.addEventListener("load", scaleToFit);
-window.addEventListener("resize", scaleToFit);
-
-/* Language */
-function togL(){
-    lang=lang==="fr"?"en":"fr";
-    document.body.className="lang-"+lang;
-    document.getElementById("lng").textContent=lang==="fr"?"🇬🇧 EN":"🇫🇷 FR";
-    if(cw){ document.getElementById("tb-lb").textContent=WI[cw][lang]; }
-    if(cw==="projects") buildPJ();
+      };
+      container.appendChild(btn);
+    })(key);
+  }
 }
 
-/* Icon */
-function selI(el){ if(acEl) acEl.classList.remove("active"); el.classList.add("active"); acEl=el; }
-
-/* Open */
-function openW(id){
-    document.querySelectorAll(".xp-win").forEach(function(w){ w.classList.remove("open"); });
-    document.getElementById("welcome").style.display="none";
-    document.getElementById("win-"+id).classList.add("open");
-    cw=id;
-    document.getElementById("tb-ic").textContent=WI[id].ic;
-    document.getElementById("tb-lb").textContent=WI[id][lang];
-    document.getElementById("tb-a").classList.add("visible");
-    if(id==="projects") buildPJ();
+function toggleLang() {
+  var body = document.body;
+  var btn = document.getElementById('lang-btn');
+  if (body.classList.contains('lang-fr')) {
+    body.classList.remove('lang-fr');
+    body.classList.add('lang-en');
+    if (btn) { btn.textContent = 'FR'; }
+  } else {
+    body.classList.remove('lang-en');
+    body.classList.add('lang-fr');
+    if (btn) { btn.textContent = 'EN'; }
+  }
+  renderTaskbar();
 }
 
-/* Close */
-function closeW(){
-    document.querySelectorAll(".xp-win").forEach(function(w){ w.classList.remove("open"); });
-    document.getElementById("welcome").style.display="block";
-    document.getElementById("tb-a").classList.remove("visible");
-    cw=null;
-    if(acEl){ acEl.classList.remove("active"); acEl=null; }
+function updateClock() {
+  var now = new Date();
+  var h = now.getHours();
+  var m = now.getMinutes();
+  var hh = (h < 10) ? ('0' + h) : ('' + h);
+  var mm = (m < 10) ? ('0' + m) : ('' + m);
+  var el = document.getElementById('clock');
+  if (el) { el.textContent = hh + ':' + mm; }
+}
+updateClock();
+setInterval(updateClock, 10000);
+
+function scaleToFit() {
+  var el = document.getElementById('monitor-wrap');
+  if (!el) { return; }
+  var vw = window.innerWidth;
+  var vh = window.innerHeight;
+  el.style.transform = '';
+  var mw = el.offsetWidth;
+  var mh = el.offsetHeight;
+  if (mw === 0 || mh === 0) { return; }
+  var sx = vw / mw;
+  var sy = vh / mh;
+  var scale = Math.min(sx, sy, 1) * 0.95;
+  el.style.transform = 'scale(' + scale + ')';
+  el.style.transformOrigin = 'top center';
 }
 
-/* Projects */
-function buildPJ(){
-    var g=document.getElementById("pj-grid"); g.innerHTML="";
-    PROJ[lang].forEach(function(p,i){
-        var d=document.createElement("div"); d.className="pj-fold";
-        d.innerHTML='<svg viewBox="0 0 48 40" width="34" height="28"><rect x="0" y="12" width="48" height="28" rx="2" fill="#C8860A"/><rect x="0" y="8" width="20" height="6" rx="2" fill="#C8860A"/><rect x="0" y="12" width="48" height="26" rx="2" fill="#F0BC30"/><rect x="1" y="16" width="46" height="20" rx="1" fill="#FAD660"/></svg><span>'+p.t+'</span>';
-        d.onclick=function(){ openPJ(i); };
-        g.appendChild(d);
-    });
-    document.getElementById("pj-list").style.display="block";
-    document.getElementById("pj-detail").style.display="none";
-}
-function openPJ(i){
-    var p=PROJ[lang][i];
-    document.getElementById("pj-t").textContent=p.t;
-    document.getElementById("pj-d").textContent=p.d;
-    document.getElementById("pj-g").innerHTML=p.g.map(function(g){ return '<span class="tag">'+g+'</span>'; }).join("");
-    document.getElementById("pj-list").style.display="none";
-    document.getElementById("pj-detail").style.display="block";
-}
-function backP(){
-    document.getElementById("pj-list").style.display="block";
-    document.getElementById("pj-detail").style.display="none";
-}
+window.addEventListener('resize', scaleToFit);
+window.addEventListener('load', function() {
+  setTimeout(scaleToFit, 50);
+  setTimeout(scaleToFit, 400);
+});
+setTimeout(scaleToFit, 100);
+
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var ss = document.getElementById('startup-screen');
+    if (ss) { ss.classList.add('hidden'); }
+    setTimeout(function() {
+      openWindow('about');
+    }, 700);
+  }, 2600);
+});
 </script>
+
 </body>
 </html>
