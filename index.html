@@ -121,16 +121,10 @@ body {
   );
   pointer-events: none; z-index: 100;
 }
-.phosphor {
-  position: absolute; inset: 0;
-  background: rgba(60,140,60,0.06);
-  pointer-events: none; z-index: 99;
-}
+.phosphor { position: absolute; inset: 0; background: rgba(60,140,60,0.06); pointer-events: none; z-index: 99; }
 .glare {
   position: absolute; top: 0; left: 0; right: 0; height: 45%;
-  background: linear-gradient(170deg,
-    rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 60%, transparent 100%
-  );
+  background: linear-gradient(170deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 60%, transparent 100%);
   pointer-events: none; z-index: 102; border-radius: 6px 6px 0 0;
 }
 .glare-side {
@@ -214,9 +208,7 @@ body {
 }
 
 /* ===== CONTENU À PROPOS ===== */
-.about-header {
-  display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;
-}
+.about-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
 .about-photo {
   width: 72px; height: 72px; border-radius: 4px;
   border: 2px solid #7f9db9; object-fit: cover; flex-shrink: 0; background: #dce6f8;
@@ -247,17 +239,50 @@ body {
 .info-label { font-weight: bold; color: #1a3b8c; min-width: 80px; }
 
 /* ===== COMPÉTENCES ===== */
-.skill-category { margin-bottom: 12px; }
-.skill-category h3 {
-  font-size: 12px; font-weight: bold; color: white;
+.skill-category { margin-bottom: 11px; }
+
+.skill-cat-title {
+  font-size: 11px; font-weight: bold; color: white;
   background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%);
   padding: 4px 9px; border-radius: 3px; margin-bottom: 6px;
+  display: flex; align-items: center; gap: 5px;
 }
+
 .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
 .skill-tag {
   background: #dce6f8; border: 1px solid #7f9db9;
-  border-radius: 3px; padding: 3px 9px; font-size: 11px; color: #1a3b8c;
+  border-radius: 3px; padding: 3px 9px; font-size: 10px; color: #1a3b8c;
+  display: flex; align-items: center; gap: 4px;
 }
+
+/* Badge certification */
+.skill-tag.certified {
+  background: linear-gradient(135deg, #fff8e1, #fff3cd);
+  border: 1px solid #f0c040;
+  color: #7a5800;
+  font-weight: bold;
+}
+.cert-badge {
+  background: #f0c040;
+  color: #7a5800;
+  font-size: 8px;
+  padding: 1px 4px;
+  border-radius: 2px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Soft skills */
+.soft-skills-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+.soft-tag {
+  background: linear-gradient(135deg, #eef4ee, #d8ecd8);
+  border: 1px solid #80b880;
+  border-radius: 3px; padding: 4px 9px;
+  font-size: 10px; color: #2a5a2a;
+  display: flex; align-items: center; gap: 4px;
+}
+.soft-tag .sticon { font-size: 11px; }
 
 /* ===== PROJETS ===== */
 .project-card {
@@ -529,8 +554,6 @@ body.lang-en .block-en { display: block !important; }
           </div>
           <div class="address-bar">C:\Portfolio\<span data-fr>A_Propos</span><span data-en>About</span>\</div>
           <div class="window-content">
-
-            <!-- En-tête photo + nom -->
             <div class="about-header">
               <img class="about-photo"
                 src="https://raw.githubusercontent.com/samasdrr/portefolio/main/photo.png.png"
@@ -547,24 +570,18 @@ body.lang-en .block-en { display: block !important; }
                 </div>
               </div>
             </div>
-
-            <!-- Expériences -->
             <div class="section-title block-fr">💼 Expériences</div>
             <div class="section-title block-en">💼 Experience</div>
-
             <div class="exp-card">
               <h4>Mailinblack &mdash; <span data-fr>Business Analyst (Alternance)</span><span data-en>Business Analyst (Apprenticeship)</span></h4>
               <div class="exp-meta">2024 – 2027 &nbsp;|&nbsp; Marseille</div>
               <p><span data-fr>Automatisation des processus commerciaux et création d'outils de pilotage.</span><span data-en>Automation of sales processes and creation of performance management tools.</span></p>
             </div>
-
             <div class="exp-card">
               <h4>CNP Assurances &mdash; <span data-fr>Chargée d'indemnisation</span><span data-en>Claims Officer</span></h4>
               <div class="exp-meta">2022 – 2024 &nbsp;|&nbsp; Nantes</div>
               <p><span data-fr>Gestion de dossiers MRH et corporels.</span><span data-en>Management of home insurance and personal injury claims.</span></p>
             </div>
-
-            <!-- Infos -->
             <div class="info-row">
               <span class="info-label">🎓 <span data-fr>Formation</span><span data-en>Studies</span></span>
               <span>Master Data &amp; AI for Business</span>
@@ -573,7 +590,6 @@ body.lang-en .block-en { display: block !important; }
               <span class="info-label">📍 <span data-fr>Lieu</span><span data-en>Location</span></span>
               <span>Marseille, Nantes &amp; Paris</span>
             </div>
-
           </div>
         </div>
 
@@ -596,32 +612,57 @@ body.lang-en .block-en { display: block !important; }
           </div>
           <div class="address-bar">C:\Portfolio\<span data-fr>Competences</span><span data-en>Skills</span>\</div>
           <div class="window-content">
+
+            <!-- Data & Analyse -->
             <div class="skill-category">
-              <h3>📊 Data &amp; <span data-fr>Analyse</span><span data-en>Analysis</span></h3>
+              <div class="skill-cat-title">📊 Data &amp; <span data-fr>Analyse</span><span data-en>Analysis</span></div>
               <div class="skill-tags">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQL</span>
                 <span class="skill-tag">Excel / Google Sheets</span>
+                <span class="skill-tag certified">
+                  Dataiku <span class="cert-badge"><span data-fr>Certif. Designer Core</span><span data-en>Designer Core Cert.</span></span>
+                </span>
               </div>
             </div>
+
+            <!-- Visualisation & Reporting -->
             <div class="skill-category">
-              <h3>📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></h3>
+              <div class="skill-cat-title">📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></div>
               <div class="skill-tags">
                 <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">Power BI</span>
                 <span class="skill-tag">Salesforce</span>
                 <span class="skill-tag">Notion</span>
               </div>
             </div>
+
+            <!-- Automatisation & Outils -->
             <div class="skill-category">
-              <h3>⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></h3>
+              <div class="skill-cat-title">⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></div>
               <div class="skill-tags">
                 <span class="skill-tag">Make</span>
                 <span class="skill-tag">N8N</span>
+                <span class="skill-tag">Power Automate</span>
                 <span class="skill-tag">Dust</span>
                 <span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span>
                 <span class="skill-tag">GitHub / VS Code</span>
               </div>
             </div>
+
+            <!-- Soft Skills -->
+            <div class="skill-category">
+              <div class="skill-cat-title">🧠 Soft Skills</div>
+              <div class="soft-skills-grid">
+                <span class="soft-tag"><span class="sticon">⚡</span> <span data-fr>Prise en main rapide</span><span data-en>Quick learner</span></span>
+                <span class="soft-tag"><span class="sticon">🎯</span> <span data-fr>Autonomie</span><span data-en>Self-starter</span></span>
+                <span class="soft-tag"><span class="sticon">🤝</span> <span data-fr>Esprit d'équipe</span><span data-en>Team player</span></span>
+                <span class="soft-tag"><span class="sticon">🔍</span> <span data-fr>Curiosité</span><span data-en>Curiosity</span></span>
+                <span class="soft-tag"><span class="sticon">🧩</span> <span data-fr>Résolution de problèmes</span><span data-en>Problem solving</span></span>
+                <span class="soft-tag"><span class="sticon">📐</span> <span data-fr>Rigueur</span><span data-en>Attention to detail</span></span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -746,7 +787,6 @@ body.lang-en .block-en { display: block !important; }
       </div>
     </div>
 
-    <!-- Chin -->
     <div class="monitor-chin">
       <div class="chin-left">
         <div class="power-btn"><div class="power-led"></div></div>
@@ -761,13 +801,11 @@ body.lang-en .block-en { display: block !important; }
     </div>
   </div>
 
-  <!-- Pied -->
   <div class="monitor-stand">
     <div class="stand-neck"></div>
     <div class="stand-base"></div>
   </div>
 
-  <!-- Clavier -->
   <div class="keyboard-wrap">
     <div class="keyboard">
       <div class="key-row">
