@@ -42,55 +42,39 @@ body {
     0 6px 16px rgba(0,0,0,0.5);
   position: relative;
 }
-
 .monitor-body::after {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   border-radius: 22px 22px 14px 14px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
+  pointer-events: none; z-index: 0;
 }
 
 .screen-bezel {
   background: radial-gradient(ellipse at center, #0f0f0f 60%, #1a1a1a 100%);
-  border-radius: 10px;
-  padding: 14px;
+  border-radius: 10px; padding: 14px;
   box-shadow:
     inset 0 0 30px rgba(0,0,0,1),
     inset 0 4px 12px rgba(0,0,0,0.9),
-    0 0 0 3px #a09070,
-    0 0 0 5px #887860;
-  position: relative;
-  z-index: 1;
+    0 0 0 3px #a09070, 0 0 0 5px #887860;
+  position: relative; z-index: 1;
 }
 
 .screen {
-  width: 700px;
-  height: 525px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
-  background: #1a3a6a;
+  width: 700px; height: 525px;
+  position: relative; overflow: hidden;
+  border-radius: 6px; background: #1a3a6a;
 }
 
 .wallpaper {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background:
     radial-gradient(ellipse 140% 65% at 50% 118%, #4a9030 0%, #2d6015 35%, transparent 60%),
-    linear-gradient(180deg,
-      #2a6bc5 0%, #5a9bf0 35%, #90c8fa 60%,
-      #b8dcff 78%, #d8eeff 90%, #eef8ff 100%
-    );
+    linear-gradient(180deg, #2a6bc5 0%, #5a9bf0 35%, #90c8fa 60%, #b8dcff 78%, #d8eeff 90%, #eef8ff 100%);
 }
-
 .wallpaper::before {
-  content: '';
-  position: absolute;
-  top: 16%; left: 0; right: 0;
-  height: 60px;
+  content: ''; position: absolute;
+  top: 16%; left: 0; right: 0; height: 60px;
   background:
     radial-gradient(ellipse 90px 28px at 12% 50%, rgba(255,255,255,0.9) 0%, transparent 70%),
     radial-gradient(ellipse 60px 20px at 22% 40%, rgba(255,255,255,0.75) 0%, transparent 70%),
@@ -100,25 +84,15 @@ body {
     radial-gradient(ellipse 55px 18px at 90% 35%, rgba(255,255,255,0.65) 0%, transparent 70%);
   pointer-events: none;
 }
-
 .screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse 85% 85% at 50% 50%,
-    transparent 65%, rgba(0,0,0,0.18) 80%, rgba(0,0,0,0.45) 100%
-  );
-  pointer-events: none;
-  z-index: 98;
-  border-radius: 6px;
+    transparent 65%, rgba(0,0,0,0.18) 80%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none; z-index: 98; border-radius: 6px;
 }
-
 .scanlines {
   position: absolute; inset: 0;
-  background: repeating-linear-gradient(
-    0deg, transparent, transparent 1px,
-    rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 3px
-  );
+  background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 3px);
   pointer-events: none; z-index: 100;
 }
 .phosphor { position: absolute; inset: 0; background: rgba(60,140,60,0.06); pointer-events: none; z-index: 99; }
@@ -216,13 +190,11 @@ body {
 .about-text h2 { font-size: 13px; color: #1a3b8c; margin-bottom: 2px; }
 .about-text .role { font-size: 10px; color: #316ac5; margin-bottom: 5px; font-style: italic; }
 .about-text .bio { font-size: 10px; line-height: 1.5; color: #444; }
-
 .section-title {
   font-size: 11px; font-weight: bold; color: white;
   background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%);
   padding: 3px 8px; border-radius: 3px; margin: 9px 0 5px;
 }
-
 .exp-card {
   background: #f5f3ed; border: 1px solid #d0ccc0;
   border-left: 3px solid #316ac5;
@@ -231,7 +203,6 @@ body {
 .exp-card h4 { font-size: 11px; color: #1a3b8c; margin-bottom: 2px; }
 .exp-meta { font-size: 9px; color: #888; margin-bottom: 3px; }
 .exp-card p { font-size: 10px; color: #555; line-height: 1.4; }
-
 .info-row {
   display: flex; align-items: center; gap: 8px;
   padding: 3px 0; border-bottom: 1px solid #ece9d8; font-size: 10px;
@@ -240,59 +211,106 @@ body {
 
 /* ===== COMPÉTENCES ===== */
 .skill-category { margin-bottom: 11px; }
-
 .skill-cat-title {
   font-size: 11px; font-weight: bold; color: white;
   background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%);
   padding: 4px 9px; border-radius: 3px; margin-bottom: 6px;
   display: flex; align-items: center; gap: 5px;
 }
-
 .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-
 .skill-tag {
   background: #dce6f8; border: 1px solid #7f9db9;
   border-radius: 3px; padding: 3px 9px; font-size: 10px; color: #1a3b8c;
   display: flex; align-items: center; gap: 4px;
 }
-
-/* Badge certification */
 .skill-tag.certified {
   background: linear-gradient(135deg, #fff8e1, #fff3cd);
-  border: 1px solid #f0c040;
-  color: #7a5800;
-  font-weight: bold;
+  border: 1px solid #f0c040; color: #7a5800; font-weight: bold;
 }
 .cert-badge {
-  background: #f0c040;
-  color: #7a5800;
-  font-size: 8px;
-  padding: 1px 4px;
-  border-radius: 2px;
-  font-weight: bold;
-  white-space: nowrap;
+  background: #f0c040; color: #7a5800; font-size: 8px;
+  padding: 1px 4px; border-radius: 2px; font-weight: bold; white-space: nowrap;
 }
-
-/* Soft skills */
 .soft-skills-grid { display: flex; flex-wrap: wrap; gap: 5px; }
 .soft-tag {
   background: linear-gradient(135deg, #eef4ee, #d8ecd8);
-  border: 1px solid #80b880;
-  border-radius: 3px; padding: 4px 9px;
-  font-size: 10px; color: #2a5a2a;
-  display: flex; align-items: center; gap: 4px;
+  border: 1px solid #80b880; border-radius: 3px; padding: 4px 9px;
+  font-size: 10px; color: #2a5a2a; display: flex; align-items: center; gap: 4px;
 }
 .soft-tag .sticon { font-size: 11px; }
 
 /* ===== PROJETS ===== */
 .project-card {
   background: #f5f3ed; border: 1px solid #aca899;
-  border-radius: 4px; padding: 8px 10px; margin-bottom: 8px;
+  border-radius: 4px; padding: 8px 10px; margin-bottom: 7px;
+  transition: background 0.12s, border-color 0.12s;
 }
-.project-card h3 { font-size: 12px; color: #1a3b8c; margin-bottom: 4px; }
+.project-card.clickable {
+  cursor: pointer;
+}
+.project-card.clickable:hover {
+  background: #e8e4d8;
+  border-color: #316ac5;
+}
+.project-card h3 { font-size: 12px; color: #1a3b8c; margin-bottom: 3px; }
+.project-sub { font-size: 9px; color: #888; font-style: italic; margin-bottom: 3px; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
 .ptag { background: #316ac5; color: white; font-size: 10px; padding: 1px 6px; border-radius: 2px; }
-.project-card p { font-size: 11px; line-height: 1.45; color: #555; }
+.ptag.green { background: #3a8a3a; }
+.project-card p { font-size: 10px; line-height: 1.45; color: #555; }
+.project-hint {
+  margin-top: 5px;
+  font-size: 9px; color: #316ac5;
+  display: flex; align-items: center; gap: 3px;
+}
+.project-hint::before { content: '📂'; font-size: 10px; }
+
+/* ===== MODAL PROJET (XP style) ===== */
+#project-modal {
+  display: none;
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 40;
+}
+#modal-win {
+  position: absolute;
+  top: 15px; left: 78px; right: 4px; bottom: 34px;
+  background: #ece9d8;
+  border: 1px solid #0a246a;
+  border-radius: 7px 7px 4px 4px;
+  box-shadow: 4px 4px 20px rgba(0,0,0,0.7);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.modal-content {
+  flex: 1; overflow-y: auto; background: white;
+  margin: 0 5px 5px; border: 1px solid #aca899; padding: 10px;
+}
+.modal-content::-webkit-scrollbar { width: 16px; }
+.modal-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
+.modal-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
+#modal-img {
+  width: 100%; border: 1px solid #aca899; border-radius: 3px;
+  margin-bottom: 10px; display: none;
+  cursor: zoom-in;
+}
+#modal-project-title { font-size: 13px; font-weight: bold; color: #1a3b8c; margin-bottom: 2px; }
+#modal-project-sub { font-size: 10px; color: #888; font-style: italic; margin-bottom: 6px; }
+#modal-project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+#modal-project-desc { font-size: 11px; line-height: 1.6; color: #444; margin-bottom: 10px; }
+.modal-rag-note {
+  background: #f0f4ff; border: 1px solid #7f9db9; border-radius: 3px;
+  padding: 5px 8px; font-size: 10px; color: #1a3b8c; margin-bottom: 10px;
+  line-height: 1.5;
+}
+#modal-link {
+  display: none;
+  background: linear-gradient(180deg, #4a7fd5 0%, #2a5ab5 100%);
+  color: white; text-decoration: none;
+  padding: 5px 14px; border-radius: 3px; font-size: 11px;
+  border: 1px solid #1a3b8c;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 3px rgba(0,0,0,0.2);
+}
+#modal-link:hover { background: linear-gradient(180deg, #5a8fe5 0%, #3a6ac5 100%); }
 
 /* ===== CONTACT ===== */
 .contact-links { display: flex; flex-direction: column; gap: 7px; }
@@ -351,19 +369,14 @@ body {
 .monitor-chin {
   background: linear-gradient(180deg, #d4c49a 0%, #b8a870 50%, #c8b888 100%);
   height: 52px; border-radius: 0 0 18px 18px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 20px;
-  box-shadow:
-    inset 0 3px 6px rgba(255,255,255,0.25),
-    inset 0 -2px 5px rgba(0,0,0,0.2),
-    0 6px 14px rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+  box-shadow: inset 0 3px 6px rgba(255,255,255,0.25), inset 0 -2px 5px rgba(0,0,0,0.2), 0 6px 14px rgba(0,0,0,0.5);
   margin: 0 -28px; position: relative; z-index: 1;
 }
 .chin-left { display: flex; align-items: center; gap: 10px; }
 .power-btn {
   width: 22px; height: 22px; border-radius: 50%;
-  background: linear-gradient(145deg, #c8b870, #a09050);
-  border: 2px solid #807040;
+  background: linear-gradient(145deg, #c8b870, #a09050); border: 2px solid #807040;
   box-shadow: inset 0 2px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
   display: flex; align-items: center; justify-content: center; cursor: pointer;
 }
@@ -372,42 +385,32 @@ body {
   box-shadow: 0 0 7px #44ff44, 0 0 14px rgba(68,255,68,0.4);
   animation: blink 5s infinite;
 }
-@keyframes blink {
-  0%, 85%, 100% { opacity: 1; }
-  91% { opacity: 0.15; }
-}
+@keyframes blink { 0%, 85%, 100% { opacity: 1; } 91% { opacity: 0.15; } }
 .chin-controls { display: flex; gap: 7px; align-items: center; }
 .ctrl-btn {
   width: 14px; height: 28px;
   background: linear-gradient(180deg, #c8b870 0%, #907840 50%, #b0a060 100%);
   border: 1px solid #706030; border-radius: 3px;
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 2px 3px rgba(0,0,0,0.3);
-  cursor: pointer;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 2px 3px rgba(0,0,0,0.3); cursor: pointer;
 }
 .ctrl-knob {
   width: 20px; height: 20px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #d8c880, #907840);
-  border: 1px solid #706030;
+  background: radial-gradient(circle at 35% 35%, #d8c880, #907840); border: 1px solid #706030;
   box-shadow: inset 0 1px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
   cursor: pointer; position: relative;
 }
 .ctrl-knob::after {
   content: ''; position: absolute; top: 3px; left: 50%;
-  transform: translateX(-50%); width: 2px; height: 6px;
-  background: #403010; border-radius: 1px;
+  transform: translateX(-50%); width: 2px; height: 6px; background: #403010; border-radius: 1px;
 }
-.monitor-brand {
-  font-size: 9px; color: #6a5a30; font-weight: bold;
-  letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 0 rgba(255,255,255,0.3);
-}
+.monitor-brand { font-size: 9px; color: #6a5a30; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 0 rgba(255,255,255,0.3); }
 
 /* ===== PIED ===== */
 .monitor-stand { display: flex; flex-direction: column; align-items: center; }
 .stand-neck {
   width: 70px; height: 22px;
   background: linear-gradient(90deg, #a89060 0%, #d4c498 40%, #c0aa78 60%, #a89060 100%);
-  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); box-shadow: 0 3px 6px rgba(0,0,0,0.4);
 }
 .stand-base {
   width: 160px; height: 14px;
@@ -421,10 +424,7 @@ body {
 .keyboard {
   background: linear-gradient(180deg, #e8d8b8 0%, #d4c498 40%, #c4b488 100%);
   border-radius: 10px 10px 6px 6px; padding: 10px 10px 14px;
-  box-shadow:
-    inset 0 2px 4px rgba(255,255,255,0.55),
-    inset 0 -2px 4px rgba(0,0,0,0.2),
-    0 8px 24px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.4);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.55), inset 0 -2px 4px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.4);
   border: 1px solid #a09060;
 }
 .key-row { display: flex; gap: 3px; margin-bottom: 3px; justify-content: center; }
@@ -433,19 +433,14 @@ body {
   border: 1px solid #a8a090; border-radius: 4px;
   width: 24px; height: 21px; display: flex; align-items: center; justify-content: center;
   font-size: 7px; color: #444;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.9),
-    inset 1px 0 0 rgba(255,255,255,0.4),
-    0 3px 0 rgba(0,0,0,0.3), 0 3px 1px rgba(0,0,0,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 1px 0 0 rgba(255,255,255,0.4), 0 3px 0 rgba(0,0,0,0.3), 0 3px 1px rgba(0,0,0,0.2);
   cursor: default; user-select: none; font-family: Arial, sans-serif;
   font-weight: bold; text-transform: uppercase; position: relative; top: 0;
   transition: top 0.05s, box-shadow 0.05s;
 }
 .key:hover { top: 2px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 0 rgba(0,0,0,0.3); }
-.key.wide { width: 38px; }
-.key.wider { width: 52px; }
-.key.space { width: 190px; }
-.key.enter { width: 48px; }
+.key.wide { width: 38px; } .key.wider { width: 52px; }
+.key.space { width: 190px; } .key.enter { width: 48px; }
 .key.fn { background: linear-gradient(180deg, #e8e0cc 0%, #d0c8b0 100%); font-size: 6px; }
 
 /* ===== BILINGUE ===== */
@@ -463,29 +458,17 @@ body.lang-en .block-en { display: block !important; }
   z-index: 200; transition: opacity 0.8s;
 }
 #startup-screen.hidden { opacity: 0; pointer-events: none; }
-.xp-logo {
-  font-size: 38px; color: white;
-  font-family: 'Trebuchet MS', Tahoma, sans-serif;
-  font-weight: 300; letter-spacing: 3px; margin-bottom: 4px;
-}
+.xp-logo { font-size: 38px; color: white; font-family: 'Trebuchet MS', Tahoma, sans-serif; font-weight: 300; letter-spacing: 3px; margin-bottom: 4px; }
 .xp-logo span { color: #ff6600; font-weight: bold; }
 .xp-tagline { color: rgba(255,255,255,0.65); font-size: 11px; margin-bottom: 28px; letter-spacing: 1px; }
-.loading-bar-outer {
-  width: 200px; height: 10px; background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; overflow: hidden;
-}
+.loading-bar-outer { width: 200px; height: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; overflow: hidden; }
 .loading-bar-inner {
   height: 100%; width: 0;
-  background: linear-gradient(90deg, #3377ff, #66aaff, #3377ff);
-  background-size: 200% 100%;
+  background: linear-gradient(90deg, #3377ff, #66aaff, #3377ff); background-size: 200% 100%;
   animation: loadAnim 2.6s ease-out forwards, shimmer 0.8s linear infinite;
 }
-@keyframes loadAnim {
-  0% { width: 0; } 20% { width: 30%; } 50% { width: 62%; } 78% { width: 84%; } 100% { width: 100%; }
-}
-@keyframes shimmer {
-  0% { background-position: 200% 0; } 100% { background-position: -200% 0; }
-}
+@keyframes loadAnim { 0% { width: 0; } 20% { width: 30%; } 50% { width: 62%; } 78% { width: 84%; } 100% { width: 100%; } }
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
 /* ===== MOBILE ===== */
 @media (max-width: 760px) {
@@ -501,7 +484,6 @@ body.lang-en .block-en { display: block !important; }
 <body class="lang-fr">
 
 <div id="monitor-wrap">
-
   <div class="monitor-body">
     <div class="screen-bezel">
       <div class="screen">
@@ -535,7 +517,7 @@ body.lang-en .block-en { display: block !important; }
           </div>
         </div>
 
-        <!-- ===== FENÊTRE À PROPOS ===== -->
+        <!-- ===== À PROPOS ===== -->
         <div class="xp-window" id="win-about">
           <div class="title-bar">
             <div class="title-bar-left">
@@ -593,7 +575,7 @@ body.lang-en .block-en { display: block !important; }
           </div>
         </div>
 
-        <!-- ===== FENÊTRE COMPÉTENCES ===== -->
+        <!-- ===== COMPÉTENCES ===== -->
         <div class="xp-window" id="win-skills">
           <div class="title-bar">
             <div class="title-bar-left">
@@ -612,21 +594,15 @@ body.lang-en .block-en { display: block !important; }
           </div>
           <div class="address-bar">C:\Portfolio\<span data-fr>Competences</span><span data-en>Skills</span>\</div>
           <div class="window-content">
-
-            <!-- Data & Analyse -->
             <div class="skill-category">
               <div class="skill-cat-title">📊 Data &amp; <span data-fr>Analyse</span><span data-en>Analysis</span></div>
               <div class="skill-tags">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQL</span>
                 <span class="skill-tag">Excel / Google Sheets</span>
-                <span class="skill-tag certified">
-                  Dataiku <span class="cert-badge"><span data-fr>Certif. Designer Core</span><span data-en>Designer Core Cert.</span></span>
-                </span>
+                <span class="skill-tag certified">Dataiku <span class="cert-badge"><span data-fr>Certif. Designer Core</span><span data-en>Designer Core Cert.</span></span></span>
               </div>
             </div>
-
-            <!-- Visualisation & Reporting -->
             <div class="skill-category">
               <div class="skill-cat-title">📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></div>
               <div class="skill-tags">
@@ -636,8 +612,6 @@ body.lang-en .block-en { display: block !important; }
                 <span class="skill-tag">Notion</span>
               </div>
             </div>
-
-            <!-- Automatisation & Outils -->
             <div class="skill-category">
               <div class="skill-cat-title">⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></div>
               <div class="skill-tags">
@@ -649,8 +623,6 @@ body.lang-en .block-en { display: block !important; }
                 <span class="skill-tag">GitHub / VS Code</span>
               </div>
             </div>
-
-            <!-- Soft Skills -->
             <div class="skill-category">
               <div class="skill-cat-title">🧠 Soft Skills</div>
               <div class="soft-skills-grid">
@@ -662,11 +634,10 @@ body.lang-en .block-en { display: block !important; }
                 <span class="soft-tag"><span class="sticon">📐</span> <span data-fr>Rigueur</span><span data-en>Attention to detail</span></span>
               </div>
             </div>
-
           </div>
         </div>
 
-        <!-- ===== FENÊTRE PROJETS ===== -->
+        <!-- ===== PROJETS ===== -->
         <div class="xp-window" id="win-projects">
           <div class="title-bar">
             <div class="title-bar-left">
@@ -685,50 +656,117 @@ body.lang-en .block-en { display: block !important; }
           </div>
           <div class="address-bar">C:\Portfolio\<span data-fr>Projets</span><span data-en>Projects</span>\</div>
           <div class="window-content">
-            <div class="project-card">
-              <h3>🔍 Workflow SEO Ranking <span style="font-weight:normal;font-size:10px;color:#888;">(Hackathon)</span></h3>
+
+            <!-- 1. SEO Workflow -->
+            <div class="project-card clickable" onclick="openProject('seo')">
+              <h3>🔍 Workflow SEO Ranking</h3>
+              <div class="project-sub"><span data-fr>Hackathon payant</span><span data-en>Paid Hackathon</span></div>
               <div class="project-tags">
-                <span class="ptag">N8N</span><span class="ptag">Make</span><span class="ptag">Google Sheets</span>
+                <span class="ptag">Make</span>
+                <span class="ptag">Google Sheets</span>
+                <span class="ptag">API Google Trends</span>
               </div>
-              <div class="block-fr"><p>Workflow automatisé pour scorer des mots-clés selon leur intention de recherche, réalisé lors d'un hackathon.</p></div>
-              <div class="block-en"><p>Automated workflow to score keywords by search intent, built during a hackathon.</p></div>
+              <p><span data-fr>Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.</span><span data-en>Fully automated workflow scoring keywords based on search intent.</span></p>
+              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
-            <div class="project-card">
+
+            <!-- 2. Courses Hippiques -->
+            <div class="project-card clickable" onclick="openProject('courses')">
               <h3>🏇 <span data-fr>Prédiction Courses Hippiques</span><span data-en>Horse Racing Prediction</span></h3>
               <div class="project-tags">
-                <span class="ptag">Google Sheets</span><span class="ptag">Dashboard</span><span class="ptag">Dataset 2020</span>
+                <span class="ptag">Google Sheets</span>
+                <span class="ptag">Excel</span>
+                <span class="ptag">Dashboard</span>
+                <span class="ptag">Kaggle</span>
               </div>
-              <div class="block-fr"><p>Dashboard Google Sheets prédisant les 3 et 5 premiers chevaux à partir d'un jeu de données de 2020.</p></div>
-              <div class="block-en"><p>Google Sheets dashboard predicting the top 3 and 5 horses from a 2020 dataset.</p></div>
+              <p><span data-fr>Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d'un jeu de données récupéré sur Kaggle.</span><span data-en>Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.</span></p>
+              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
-            <div class="project-card">
+
+            <!-- 3. Scraping Films -->
+            <div class="project-card clickable" onclick="openProject('films')">
               <h3>🎬 <span data-fr>Scraping Films &amp; Séries</span><span data-en>Movies &amp; Series Scraping</span></h3>
               <div class="project-tags">
-                <span class="ptag">Python</span><span class="ptag">Web Scraping</span><span class="ptag">JustWatch</span>
+                <span class="ptag">Python</span>
+                <span class="ptag">HTML</span>
+                <span class="ptag">Web Scraping</span>
               </div>
-              <div class="block-fr"><p>Scraping de JustWatch pour générer des recommandations personnalisées de films et séries.</p></div>
-              <div class="block-en"><p>Scraping JustWatch to generate personalized movie and series recommendations.</p></div>
+              <p><span data-fr>Scraping du site JustWatch afin de générer des recommandations personnalisées sur les films et séries.</span><span data-en>Scraping JustWatch to generate personalized movie and series recommendations.</span></p>
+              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
-            <div class="project-card">
+
+            <!-- 4. Chatbot Paroles -->
+            <div class="project-card clickable" onclick="openProject('chatbot')">
               <h3>🎵 <span data-fr>Chatbot Paroles de Musique</span><span data-en>Music Lyrics Chatbot</span></h3>
               <div class="project-tags">
-                <span class="ptag">Python</span><span class="ptag">Scraping</span><span class="ptag">LyricsTranslate</span>
+                <span class="ptag">Python</span>
+                <span class="ptag">Scraping</span>
+                <span class="ptag">RAG</span>
               </div>
-              <div class="block-fr"><p>Chatbot permettant de retrouver le titre d'une chanson à partir de paroles, via scraping de LyricsTranslate.</p></div>
-              <div class="block-en"><p>Chatbot to find a song title from lyrics, scraping LyricsTranslate.</p></div>
+              <p><span data-fr>Scraping de LyricsTranslate puis vectorisation des données pour créer un chatbot qui retrouve le titre d'une chanson à partir de paroles.</span><span data-en>Scraping LyricsTranslate then vectorizing data to build a chatbot that finds a song title from lyrics.</span></p>
+              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
-            <div class="project-card">
-              <h3>🛒 Hub Supply Marketplace <span style="font-weight:normal;font-size:10px;color:#888;">(Hackathon Mirakl)</span></h3>
+
+            <!-- 5. Hub Supply -->
+            <div class="project-card clickable" onclick="openProject('hub')">
+              <h3>🛒 Hub Supply Marketplace <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon Mirakl)</span></h3>
               <div class="project-tags">
-                <span class="ptag">Supply Chain</span><span class="ptag">Marketplace</span><span class="ptag">Mirakl</span>
+                <span class="ptag">Supply Chain</span>
+                <span class="ptag green">Agentique</span>
+                <span class="ptag green">Vibe Coding</span>
               </div>
-              <div class="block-fr"><p>Hub de gestion de la chaîne d'approvisionnement pour vendeurs marketplace, conçu lors du hackathon Mirakl.</p></div>
-              <div class="block-en"><p>Supply chain management hub for marketplace sellers, built at the Mirakl hackathon.</p></div>
+              <p><span data-fr>Hub de gestion de la chaîne d'approvisionnement pour les vendeurs marketplace. Prédiction de stock, gestion de pertes et de l'approvisionnement.</span><span data-en>Supply chain management hub for marketplace sellers. Stock prediction, loss management and supply management.</span></p>
+              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
+            </div>
+
+            <!-- 6. Power Automate -->
+            <div class="project-card clickable" onclick="openProject('powerauto')">
+              <h3>⚡ <span data-fr>Workflow Power Automate — Gestion des leads</span><span data-en>Power Automate Workflow — Lead Management</span></h3>
+              <div class="project-tags">
+                <span class="ptag">Power Automate</span>
+                <span class="ptag">Salesforce</span>
+                <span class="ptag">CRM</span>
+              </div>
+              <p><span data-fr>Plusieurs flows Power Automate connectés à Salesforce : top 5 sales de la semaine, top 10 leads closés, top leads à closer par commercial.</span><span data-en>Multiple Power Automate flows connected to Salesforce: top 5 weekly sales, top 10 closed leads, top leads to close per salesperson.</span></p>
+              <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ===== MODAL PROJET ===== -->
+        <div id="project-modal">
+          <div id="modal-win">
+            <div class="title-bar">
+              <div class="title-bar-left">
+                <span class="title-icon" id="modal-icon">📁</span>
+                <span class="title-text" id="modal-win-title">Projet</span>
+              </div>
+              <div class="title-buttons">
+                <div class="tb-btn close-btn" onclick="closeModal()">✕</div>
+              </div>
+            </div>
+            <div class="menu-bar">
+              <div class="menu-item" onclick="closeModal()"><span data-fr>Fermer</span><span data-en>Close</span></div>
+            </div>
+            <div class="modal-content">
+              <img id="modal-img" src="" alt=""
+                onerror="this.style.display='none';" />
+              <div id="modal-project-title"></div>
+              <div id="modal-project-sub"></div>
+              <div id="modal-project-tags"></div>
+              <div id="modal-project-desc"></div>
+              <div id="modal-rag-note" class="modal-rag-note" style="display:none;">
+                <strong>💡 RAG</strong> &mdash; <span data-fr>Retrieval-Augmented Generation : technique qui consiste à vectoriser des données textuelles pour permettre à un chatbot de retrouver les informations les plus proches sémantiquement d'une requête, sans avoir à tout mémoriser.</span><span data-en>Retrieval-Augmented Generation: a technique that vectorizes text data so a chatbot can retrieve the most semantically similar information to a query, without memorizing everything.</span>
+              </div>
+              <a id="modal-link" href="#" target="_blank" rel="noopener">
+                🔗 <span data-fr>Voir le projet</span><span data-en>View project</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- ===== FENÊTRE CONTACT ===== -->
+        <!-- ===== CONTACT ===== -->
         <div class="xp-window" id="win-contact">
           <div class="title-bar">
             <div class="title-bar-left">
@@ -751,16 +789,13 @@ body.lang-en .block-en { display: block !important; }
             <p class="contact-intro block-en">Feel free to reach out!</p>
             <div class="contact-links">
               <a href="mailto:sasdrubal@eugeniaschool.com" class="contact-link">
-                <span class="cl-icon">📧</span>
-                <span>sasdrubal@eugeniaschool.com</span>
+                <span class="cl-icon">📧</span><span>sasdrubal@eugeniaschool.com</span>
               </a>
               <a href="https://github.com/samasdrr" target="_blank" rel="noopener" class="contact-link">
-                <span class="cl-icon">🐙</span>
-                <span>github.com/samasdrr</span>
+                <span class="cl-icon">🐙</span><span>github.com/samasdrr</span>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
-                <span class="cl-icon">🔗</span>
-                <span>LinkedIn</span>
+                <span class="cl-icon">🔗</span><span>LinkedIn</span>
               </a>
             </div>
           </div>
@@ -793,10 +828,8 @@ body.lang-en .block-en { display: block !important; }
         <div class="monitor-brand">SamTech XP</div>
       </div>
       <div class="chin-controls">
-        <div class="ctrl-btn"></div>
-        <div class="ctrl-btn"></div>
-        <div class="ctrl-knob"></div>
-        <div class="ctrl-knob"></div>
+        <div class="ctrl-btn"></div><div class="ctrl-btn"></div>
+        <div class="ctrl-knob"></div><div class="ctrl-knob"></div>
       </div>
     </div>
   </div>
@@ -842,11 +875,9 @@ body.lang-en .block-en { display: block !important; }
         <div class="key wider">Shift</div>
       </div>
       <div class="key-row">
-        <div class="key wide fn">Ctrl</div>
-        <div class="key wide fn">Alt</div>
+        <div class="key wide fn">Ctrl</div><div class="key wide fn">Alt</div>
         <div class="key space"></div>
-        <div class="key wide fn">Alt</div>
-        <div class="key wide fn">Ctrl</div>
+        <div class="key wide fn">Alt</div><div class="key wide fn">Ctrl</div>
       </div>
     </div>
   </div>
@@ -857,11 +888,151 @@ body.lang-en .block-en { display: block !important; }
 var currentWindow = null;
 var taskbarItems = {};
 
+/* ===== DONNÉES PROJETS ===== */
+var PROJECTS = {
+  seo: {
+    icon: '🔍',
+    titleFr: 'Workflow SEO Ranking',
+    titleEn: 'Workflow SEO Ranking',
+    subFr: 'Hackathon payant',
+    subEn: 'Paid Hackathon',
+    tags: ['Make', 'Google Sheets', 'API Google Trends'],
+    descFr: 'Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche. Connecté à Google Trends via API pour récupérer les volumes et tendances, puis un scoring automatique classe les mots-clés par potentiel SEO dans Google Sheets.',
+    descEn: 'Fully automated workflow scoring keywords based on search intent. Connected to Google Trends via API to retrieve volumes and trends, then automatic scoring ranks keywords by SEO potential in Google Sheets.',
+    img: 'img/seo-workflow.png',
+    link: null,
+    rag: false
+  },
+  courses: {
+    icon: '🏇',
+    titleFr: 'Prédiction Courses Hippiques',
+    titleEn: 'Horse Racing Prediction',
+    subFr: '',
+    subEn: '',
+    tags: ['Google Sheets', 'Excel', 'Dashboard', 'Kaggle'],
+    descFr: 'Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d\'un jeu de données récupéré sur Kaggle. Le dashboard intègre des formules de scoring basées sur les performances passées des chevaux, jockeys et conditions de course.',
+    descEn: 'Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset. The dashboard includes scoring formulas based on past performance of horses, jockeys and race conditions.',
+    img: 'img/courses-hippiques.png',
+    link: '#LIEN_FICHIER',
+    rag: false
+  },
+  films: {
+    icon: '🎬',
+    titleFr: 'Scraping Films & Séries',
+    titleEn: 'Movies & Series Scraping',
+    subFr: '',
+    subEn: '',
+    tags: ['Python', 'HTML', 'Web Scraping', 'JustWatch'],
+    descFr: 'Script Python de scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries selon les préférences de l\'utilisateur (genre, plateforme, note).',
+    descEn: 'Python scraping script for JustWatch to generate personalized movie and series recommendations based on user preferences (genre, platform, rating).',
+    img: 'img/scraping-films.png',
+    link: '#LIEN_SITE',
+    rag: false
+  },
+  chatbot: {
+    icon: '🎵',
+    titleFr: 'Chatbot Paroles de Musique',
+    titleEn: 'Music Lyrics Chatbot',
+    subFr: '',
+    subEn: '',
+    tags: ['Python', 'Scraping', 'RAG', 'LyricsTranslate'],
+    descFr: 'Scraping du site LyricsTranslate puis vectorisation des paroles (RAG) pour créer un chatbot capable de retrouver le titre d\'une chanson à partir d\'un extrait de paroles.',
+    descEn: 'Scraping LyricsTranslate then vectorizing lyrics (RAG) to build a chatbot that can find a song title from a lyrics snippet.',
+    img: null,
+    link: '#LIEN_CHATBOT',
+    rag: true
+  },
+  hub: {
+    icon: '🛒',
+    titleFr: 'Hub Supply Marketplace',
+    titleEn: 'Hub Supply Marketplace',
+    subFr: 'Hackathon Mirakl',
+    subEn: 'Mirakl Hackathon',
+    tags: ['Supply Chain', 'Agentique', 'Vibe Coding', 'Mirakl'],
+    descFr: 'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace. Fonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement. Développé en mode vibe coding lors du hackathon Mirakl.',
+    descEn: 'Supply chain management hub for marketplace sellers. Features: stock prediction, loss management and supply automation. Built with vibe coding during the Mirakl hackathon.',
+    img: 'img/hub-supply.png',
+    link: '#LIEN_PROJET',
+    rag: false
+  },
+  powerauto: {
+    icon: '⚡',
+    titleFr: 'Workflow Power Automate — Gestion des leads',
+    titleEn: 'Power Automate Workflow — Lead Management',
+    subFr: 'Mailinblack',
+    subEn: 'Mailinblack',
+    tags: ['Power Automate', 'Salesforce', 'CRM'],
+    descFr: 'Création de plusieurs flows Power Automate connectés au CRM Salesforce : \n• Top 5 sales de la semaine \n• Top 10 leads closés de la semaine \n• Top leads à closer par commercial \nEnvoi automatique des rapports aux équipes commerciales.',
+    descEn: 'Multiple Power Automate flows connected to Salesforce CRM: \n• Top 5 weekly sales reps \n• Top 10 closed leads of the week \n• Top leads to close per salesperson \nAutomatic report delivery to sales teams.',
+    img: 'img/power-automate.png',
+    link: null,
+    rag: false
+  }
+};
+
+function openProject(key) {
+  var d = PROJECTS[key];
+  if (!d) { return; }
+  var lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+
+  document.getElementById('modal-icon').textContent = d.icon;
+  document.getElementById('modal-win-title').textContent = (lang === 'en') ? d.titleEn : d.titleFr;
+  document.getElementById('modal-project-title').textContent = (lang === 'en') ? d.titleEn : d.titleFr;
+  document.getElementById('modal-project-title').style.cssText = 'font-size:13px;font-weight:bold;color:#1a3b8c;margin-bottom:2px;';
+
+  var sub = (lang === 'en') ? d.subEn : d.subFr;
+  var subEl = document.getElementById('modal-project-sub');
+  subEl.textContent = sub;
+  subEl.style.cssText = 'font-size:10px;color:#888;font-style:italic;margin-bottom:6px;';
+
+  var tagsEl = document.getElementById('modal-project-tags');
+  tagsEl.innerHTML = '';
+  tagsEl.style.cssText = 'display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;';
+  for (var i = 0; i < d.tags.length; i++) {
+    var span = document.createElement('span');
+    span.textContent = d.tags[i];
+    span.style.cssText = 'background:#316ac5;color:white;font-size:10px;padding:1px 6px;border-radius:2px;';
+    tagsEl.appendChild(span);
+  }
+
+  var descText = (lang === 'en') ? d.descEn : d.descFr;
+  var descEl = document.getElementById('modal-project-desc');
+  descEl.style.cssText = 'font-size:11px;line-height:1.6;color:#444;margin-bottom:10px;white-space:pre-line;';
+  descEl.textContent = descText;
+
+  var ragNote = document.getElementById('modal-rag-note');
+  ragNote.style.display = d.rag ? 'block' : 'none';
+
+  var imgEl = document.getElementById('modal-img');
+  if (d.img) {
+    imgEl.src = d.img;
+    imgEl.style.display = 'block';
+  } else {
+    imgEl.style.display = 'none';
+  }
+
+  var linkEl = document.getElementById('modal-link');
+  if (d.link && d.link !== null) {
+    linkEl.href = d.link;
+    linkEl.style.display = 'inline-block';
+  } else {
+    linkEl.style.display = 'none';
+  }
+
+  document.getElementById('project-modal').style.display = 'block';
+}
+
+function closeModal() {
+  document.getElementById('project-modal').style.display = 'none';
+}
+
+/* ===== FENÊTRES ===== */
 function openWindow(name) {
   var wins = document.querySelectorAll('.xp-window');
   for (var i = 0; i < wins.length; i++) { wins[i].classList.remove('active'); }
   var icons = document.querySelectorAll('.icon');
   for (var j = 0; j < icons.length; j++) { icons[j].classList.remove('active-icon'); }
+  closeModal();
   var win = document.getElementById('win-' + name);
   if (win) { win.classList.add('active'); }
   var icon = document.getElementById('icon-' + name);
@@ -878,6 +1049,7 @@ function closeWindow(name) {
   if (icon) { icon.classList.remove('active-icon'); }
   delete taskbarItems[name];
   if (currentWindow === name) { currentWindow = null; }
+  closeModal();
   renderTaskbar();
 }
 
@@ -887,6 +1059,7 @@ function minimizeWindow(name) {
   var icon = document.getElementById('icon-' + name);
   if (icon) { icon.classList.remove('active-icon'); }
   if (currentWindow === name) { currentWindow = null; }
+  closeModal();
 }
 
 function renderTaskbar() {
