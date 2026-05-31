@@ -3,107 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samantha Asdrubal - Portfolio Business Analyst</title>
+    <title>Samantha Asdrubal - Portfolio</title>
     <style>
         *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         html, body { height:100%; overflow:hidden; }
         body {
             font-family:'Tahoma', Arial, sans-serif;
-            background: radial-gradient(ellipse at center, #1a1a3e 0%, #05050f 100%);
-            display:flex; align-items:center; justify-content:center; height:100vh;
+            background:radial-gradient(ellipse at 50% 85%,#2A1804,#060402);
+            display:flex; align-items:center; justify-content:center;
+            height:100vh;
         }
-
-        /* Language toggle */
         body.lang-fr [data-lang="en"] { display:none !important; }
         body.lang-en [data-lang="fr"] { display:none !important; }
 
         /* ── MONITOR ── */
-        .monitor-wrapper { display:flex; flex-direction:column; align-items:center; }
-        .monitor-body {
+        .monitor {
             position:relative;
-            background:linear-gradient(160deg,#E2DFD7 0%,#CACAC0 40%,#B8B5AD 80%,#C6C3BB 100%);
-            border-radius:18px 18px 10px 10px;
-            padding:16px 16px 46px 16px;
+            width:min(80vw,820px);
+            background:linear-gradient(170deg,#DCC090 0%,#CEAA76 15%,#C6A46A 40%,#BA9458 72%,#C4A268 100%);
+            border-radius:22px 22px 12px 12px;
+            padding:18px 22px 18px 22px;
             box-shadow:
-                inset 2px 2px 0 rgba(255,255,255,0.55),
-                inset -1px -1px 0 rgba(0,0,0,0.25),
-                0 22px 60px rgba(0,0,0,0.75),
-                0 0 0 1px #9999;
-            width:min(90vw,1040px);
+                inset 4px 4px 10px rgba(255,228,168,0.5),
+                inset -3px -3px 7px rgba(0,0,0,0.4),
+                0 40px 80px rgba(0,0,0,0.85),
+                0 15px 30px rgba(0,0,0,0.5),
+                0 4px 8px rgba(0,0,0,0.4);
         }
-        .screen-bezel {
-            background:#111; border-radius:6px 6px 4px 4px; padding:6px;
-            box-shadow:inset 0 0 30px rgba(0,0,0,0.9);
+        .screen-cavity {
+            background:#0E0A06;
+            border-radius:10px;
+            padding:7px;
+            box-shadow:inset 8px 8px 28px #000,inset -8px -8px 28px #000;
         }
-        .screen-inner {
-            position:relative; width:100%;
-            aspect-ratio:4/3; max-height:64vh;
-            overflow:hidden; border-radius:3px;
+        .screen-wrap {
+            position:relative; width:100%; padding-bottom:75%;
+            border-radius:8px; overflow:hidden;
+            box-shadow:0 0 14px rgba(80,160,80,0.2);
+        }
+        .screen-inner { position:absolute; inset:0; }
+        .scanlines {
+            position:absolute; inset:0; pointer-events:none; z-index:100;
+            background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.07) 2px,rgba(0,0,0,0.07) 4px);
+        }
+        .vignette {
+            position:absolute; inset:0; pointer-events:none; z-index:101;
+            background:radial-gradient(ellipse at center,rgba(255,255,255,0.04) 0%,transparent 52%,rgba(0,0,0,0.48) 100%);
+        }
+        .glare {
+            position:absolute; top:4%; left:10%; width:40%; height:26%;
+            pointer-events:none; z-index:102;
+            background:radial-gradient(ellipse,rgba(255,255,255,0.14) 0%,transparent 70%);
+            border-radius:50%; transform:rotate(-6deg);
+        }
+        .phosphor {
+            position:absolute; inset:0; pointer-events:none; z-index:99;
+            background:rgba(8,24,6,0.09);
+        }
+        .chin {
+            display:flex; align-items:center; justify-content:flex-end;
+            gap:10px; padding-top:10px;
+        }
+        .led { width:7px; height:7px; border-radius:50%; background:#00E040; box-shadow:0 0 5px #00E040; }
+        .floppy { width:34px; height:5px; background:rgba(0,0,0,0.38); border-radius:1px; box-shadow:inset 0 1px 3px rgba(0,0,0,0.65); }
+        .btn-power { width:13px; height:13px; border-radius:2px; background:linear-gradient(135deg,#B89060,#9A7840); border:1px solid rgba(0,0,0,0.3); box-shadow:0 2px 0 rgba(0,0,0,0.42); }
+
+        /* ── NECK & KEYBOARD ── */
+        .neck { width:90px; height:22px; background:linear-gradient(to bottom,#BC9A5A,#9C8040); clip-path:polygon(8% 0%,92% 0%,100% 100%,0% 100%); margin-top:2px; }
+        .keyboard {
+            width:min(80vw,820px);
+            background:linear-gradient(175deg,#D6BA8A,#CAA870 22%,#C2A268 50%,#B69260 78%,#BEA068);
+            border-radius:8px 8px 14px 14px;
+            padding:10px 16px 18px;
+            margin-top:4px;
+            box-shadow:inset 3px 3px 6px rgba(255,220,160,0.4),inset -2px -2px 5px rgba(0,0,0,0.3),0 12px 30px rgba(0,0,0,0.65);
+        }
+        .key-row { display:flex; gap:3px; margin-bottom:3px; }
+        .key {
+            flex:1; height:13px;
+            background:linear-gradient(160deg,#D4BC8C,#C8A870 45%,#B89658);
+            border-radius:3px; border:1px solid rgba(80,50,10,0.22);
+            box-shadow:0 3px 0 rgba(0,0,0,0.45),inset 0 1px 0 rgba(255,235,188,0.75);
         }
 
         /* ── XP DESKTOP ── */
         .xp-desktop {
-            position:absolute; inset:0;
-            background:linear-gradient(to bottom,
-                #4B90D6 0%,#6AAEE2 18%,#8EC4EC 33%,#B2DAF7 42%,
-                #8CC28C 48%,#6AAD6A 56%,#4A9A4A 66%,#3A8838 76%,#2A7020 100%);
-            overflow:hidden;
+            position:absolute; inset:0; overflow:hidden;
+            background:
+                radial-gradient(ellipse 80% 40% at 55% 40%,rgba(255,255,255,0.2) 0%,transparent 60%),
+                linear-gradient(to bottom,#3E82CC 0%,#5A9ED8 12%,#82BAEC 26%,#A8D4F8 38%,#78BA78 44%,#60AA60 50%,#48A048 58%,#389038 68%,#2A7A28 100%);
         }
-        .cloud { position:absolute; border-radius:50px; background:rgba(255,255,255,0.82); filter:blur(7px); }
-
-        /* ── DESKTOP ICONS ── */
-        .icons-col { position:absolute; top:6px; left:6px; display:flex; flex-direction:column; gap:6px; }
+        .cloud { position:absolute; border-radius:50%; background:rgba(255,255,255,0.88); filter:blur(8px); }
+        .icons-col { position:absolute; top:6px; left:6px; display:flex; flex-direction:column; gap:5px; }
         .d-icon {
             display:flex; flex-direction:column; align-items:center;
-            width:64px; padding:4px 3px 3px; border-radius:3px;
+            width:66px; padding:4px 3px 3px; border-radius:3px;
             cursor:pointer; user-select:none; border:1px solid transparent;
         }
         .d-icon:hover  { background:rgba(49,106,197,0.35); border-color:rgba(49,106,197,0.6); }
         .d-icon.active { background:rgba(49,106,197,0.55); border-color:rgba(255,255,255,0.6); }
         .d-icon svg    { width:36px; height:36px; }
-        .d-lbl {
-            font-size:10px; color:#fff; text-align:center; margin-top:2px;
-            text-shadow:1px 1px 2px #000,0 0 4px #000;
-            line-height:1.2; max-width:60px; word-break:break-word;
-        }
+        .d-lbl { font-size:10px; color:#fff; text-align:center; margin-top:2px; text-shadow:1px 1px 2px #000,0 0 5px #000; line-height:1.2; max-width:62px; word-break:break-word; }
+        .welcome { position:absolute; top:38%; left:50%; transform:translate(-50%,-50%); text-align:center; pointer-events:none; }
+        .welcome-name { color:#fff; font-size:22px; font-weight:bold; text-shadow:2px 2px 6px #000; }
+        .welcome-role { color:rgba(255,255,255,0.9); font-size:14px; text-shadow:1px 1px 5px #000; margin-top:6px; }
+        .welcome-hint { color:rgba(255,255,255,0.6); font-size:10px; text-shadow:1px 1px 3px #000; margin-top:10px; }
 
         /* ── XP WINDOW ── */
         .xp-win {
-            position:absolute; top:3%; left:8%; right:3%; bottom:11%;
-            flex-direction:column;
+            position:absolute; top:3%; left:9%; right:2%; bottom:11%;
+            display:none; flex-direction:column;
             border-radius:8px 8px 4px 4px;
-            box-shadow:3px 5px 22px rgba(0,0,0,0.65);
-            overflow:hidden; z-index:10;
-            display:none;
+            box-shadow:3px 5px 24px rgba(0,0,0,0.7); overflow:hidden; z-index:10;
         }
         .xp-win.open { display:flex; }
         .xp-titlebar {
             flex-shrink:0;
-            background:linear-gradient(to bottom,#0A246A 0%,#2E6BC6 50%,#4A8EE0 100%);
-            padding:3px 4px 3px 8px;
-            display:flex; align-items:center; justify-content:space-between; gap:4px;
+            background:linear-gradient(to bottom,#0A246A 0%,#0A246A 5%,#2C68C8 40%,#4A8EE0 70%,#3A7ED0 100%);
+            padding:3px 4px 4px 8px; display:flex; align-items:center; justify-content:space-between;
+            border-top:1px solid rgba(255,255,255,0.35);
         }
-        .xp-title-text {
-            color:#fff; font-size:11px; font-weight:bold;
-            text-shadow:1px 1px 2px rgba(0,0,0,0.5);
-            display:flex; align-items:center; gap:5px;
-            flex:1; overflow:hidden; white-space:nowrap;
-        }
-        .xp-win-btns { display:flex; gap:2px; flex-shrink:0; }
-        .xp-btn {
-            width:21px; height:21px; border-radius:4px;
-            border:1px solid rgba(0,0,0,0.4);
-            display:flex; align-items:center; justify-content:center;
-            font-size:10px; font-weight:bold; color:#fff; cursor:pointer;
-        }
-        .xp-btn-min { background:linear-gradient(to bottom,#52A0E8,#2268C0); }
-        .xp-btn-max { background:linear-gradient(to bottom,#52A0E8,#2268C0); }
-        .xp-btn-cls { background:linear-gradient(to bottom,#E85A5A,#B82020); }
-        .xp-btn-cls:hover { background:linear-gradient(to bottom,#FF7070,#D03030); }
-        .xp-menubar {
-            flex-shrink:0; background:#ECE9D8;
-            border-bottom:1px solid #ACA89C; padding:1px 2px; display:flex;
-        }
+        .xp-title-text { color:#fff; font-size:11px; font-weight:bold; display:flex; align-items:center; gap:5px; flex:1; overflow:hidden; white-space:nowrap; text-shadow:1px 1px 2px rgba(0,0,0,0.6); }
+        .xp-win-btns { display:flex; gap:2px; }
+        .xp-btn { width:21px; height:21px; border-radius:3px; border:1px solid rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:bold; color:#fff; cursor:pointer; text-shadow:1px 1px rgba(0,0,0,0.5); }
+        .xp-btn-m { background:linear-gradient(to bottom,#5098E0,#2260C0); }
+        .xp-btn-x { background:linear-gradient(to bottom,#5098E0,#2260C0); }
+        .xp-btn-c { background:linear-gradient(to bottom,#E86060,#C01818); }
+        .xp-btn-c:hover { background:linear-gradient(to bottom,#FF7070,#D03030); }
+        .xp-menubar { flex-shrink:0; background:#ECE9D8; border-bottom:1px solid #ACA89C; padding:1px 2px; display:flex; }
         .xp-mi { font-size:11px; padding:2px 6px; cursor:default; color:#000; border-radius:2px; }
         .xp-mi:hover { background:#316AC5; color:#fff; }
         .xp-body { flex:1; background:#fff; overflow-y:auto; overflow-x:hidden; }
@@ -114,59 +141,26 @@
         /* ── TASKBAR ── */
         .xp-taskbar {
             position:absolute; bottom:0; left:0; right:0; height:30px;
-            background:linear-gradient(to bottom,#2560C4 0%,#1A4AAA 40%,#1A4AAA 80%,#2A5AC4 100%);
+            background:linear-gradient(to bottom,#2560C4,#1A4AAA 40%,#1A4AAA 80%,#2A5AC4);
             display:flex; align-items:center; padding:0 4px; gap:3px; z-index:20;
-            border-top:1px solid rgba(255,255,255,0.28);
+            border-top:1px solid rgba(255,255,255,0.22);
         }
-        .start-btn {
-            display:flex; align-items:center; gap:3px; padding:2px 10px 2px 5px; height:24px;
-            background:linear-gradient(to bottom,#59CC2A,#3DA018 50%,#2D8810);
-            border-radius:0 12px 12px 0; border:1px solid #1A5A08;
-            cursor:pointer; color:#fff; font-weight:bold; font-size:11px;
-            font-family:'Tahoma',Arial,sans-serif;
-        }
-        .tb-item {
-            display:none; align-items:center; gap:3px; padding:2px 8px; height:22px;
-            background:linear-gradient(to bottom,#3A70BC,#1E50A0);
-            border:1px solid rgba(255,255,255,0.2); border-radius:3px;
-            color:#fff; font-size:10px; cursor:pointer;
-            max-width:160px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
-        }
+        .start-btn { display:flex; align-items:center; gap:4px; padding:2px 10px 2px 6px; height:24px; background:linear-gradient(to bottom,#60CE28,#3EA012 45%,#2A8808); border-radius:0 14px 14px 0; border:1px solid #186008; cursor:pointer; color:#fff; font-weight:bold; font-size:12px; font-style:italic; text-shadow:1px 1px rgba(0,0,0,0.45); font-family:'Tahoma',Arial,sans-serif; }
+        .tb-item { display:none; align-items:center; gap:3px; padding:2px 8px; height:22px; background:linear-gradient(to bottom,#3060A8,#1A4090); border:1px solid rgba(255,255,255,0.2); border-radius:3px; color:#fff; font-size:10px; cursor:pointer; max-width:160px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
         .tb-item.visible { display:flex; }
-        .systray {
-            margin-left:auto; display:flex; align-items:center; gap:6px;
-            background:rgba(0,20,100,0.28); border:1px solid rgba(100,150,255,0.28);
-            border-radius:3px; padding:0 7px; height:22px; font-size:10px; color:#fff;
-        }
+        .systray { margin-left:auto; display:flex; align-items:center; gap:6px; background:rgba(0,20,100,0.28); border:1px solid rgba(100,150,255,0.28); border-radius:3px; padding:0 8px; height:22px; font-size:10px; color:#fff; }
         .lang-btn { background:none; border:none; color:#fff; cursor:pointer; font-size:10px; font-family:'Tahoma',Arial,sans-serif; }
-
-        /* ── MONITOR STAND ── */
-        .monitor-neck { width:90px; height:22px; background:linear-gradient(to bottom,#B8B5AD,#A0A098); clip-path:polygon(15% 0%,85% 0%,100% 100%,0% 100%); margin:0 auto; }
-        .monitor-base { width:210px; height:16px; background:linear-gradient(to bottom,#C8C5BD,#A8A5A0); border-radius:3px 3px 6px 6px; margin:0 auto; box-shadow:0 4px 10px rgba(0,0,0,0.45); }
-        .monitor-deco { position:absolute; bottom:9px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:10px; }
-        .brand { font-size:9px; color:#888; letter-spacing:3px; font-family:Arial; }
-        .power-ring { width:13px; height:13px; border:2px solid #888; border-radius:50%; position:relative; }
-        .power-ring::after { content:''; position:absolute; top:-4px; left:50%; transform:translateX(-50%); width:2px; height:7px; background:#888; }
-        .led { width:5px; height:5px; border-radius:50%; background:#00ff88; box-shadow:0 0 5px #00ff88; animation:ledBlink 2s ease-in-out infinite; }
-        @keyframes ledBlink { 0%,100%{opacity:.7} 50%{opacity:1;box-shadow:0 0 9px #00ff88} }
-
-        /* ── WELCOME ── */
-        .welcome { position:absolute; top:40%; left:50%; transform:translate(-50%,-50%); text-align:center; pointer-events:none; }
-        .welcome-name { color:#fff; font-size:20px; font-weight:bold; text-shadow:2px 2px 5px #000; margin-bottom:6px; }
-        .welcome-role { color:rgba(255,255,255,0.88); font-size:13px; text-shadow:1px 1px 4px #000; }
-        .welcome-hint { color:rgba(255,255,255,0.6); font-size:10px; text-shadow:1px 1px 3px #000; margin-top:8px; }
 
         /* ── WINDOW CONTENT ── */
         .w-pad { padding:14px; }
         .w-hero { display:flex; align-items:center; gap:14px; margin-bottom:14px; padding:12px; background:linear-gradient(to right,#EEF4FF,#F4F8FF); border:1px solid #C0CCE8; border-radius:4px; }
-        .w-avatar { width:52px; height:52px; border-radius:50%; flex-shrink:0; background:linear-gradient(135deg,#316AC5,#4A8EE0); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:16px; border:3px solid #316AC5; }
-        .w-section { font-size:13px; font-weight:bold; color:#003087; border-bottom:1px solid #316AC5; padding-bottom:4px; margin-bottom:12px; display:flex; align-items:center; gap:5px; }
-        .w-para { font-size:11px; color:#333; line-height:1.7; margin-bottom:10px; padding:10px; background:#FAFAF8; border:1px solid #E0DDD5; border-radius:3px; }
+        .w-avatar { width:50px; height:50px; border-radius:50%; background:linear-gradient(135deg,#316AC5,#4A8EE0); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:15px; flex-shrink:0; }
+        .w-section { font-weight:bold; color:#003087; border-bottom:1px solid #316AC5; padding-bottom:4px; margin-bottom:12px; font-size:12px; }
+        .w-para { padding:10px; background:#FAFAF8; border:1px solid #E0DDD5; border-radius:3px; margin-bottom:10px; font-size:11px; line-height:1.7; color:#333; }
         .skill-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
         .skill-cat { background:linear-gradient(135deg,#ECE9D8,#E0DDD0); border:1px solid #C0BDB5; border-radius:4px; padding:10px; }
         .skill-cat-ttl { font-weight:bold; color:#316AC5; font-size:11px; margin-bottom:7px; border-bottom:1px solid #D0CCCC; padding-bottom:3px; }
-        .skill-item { font-size:11px; color:#333; padding:2px 0; display:flex; align-items:flex-start; gap:4px; }
-        .skill-arrow { color:#316AC5; flex-shrink:0; }
+        .skill-item { font-size:11px; color:#333; padding:2px 0; }
         .proj-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(90px,1fr)); gap:8px; }
         .proj-folder { display:flex; flex-direction:column; align-items:center; padding:8px 4px; cursor:pointer; border-radius:3px; text-align:center; border:1px solid transparent; }
         .proj-folder:hover { background:#EEF2FC; border-color:#316AC5; }
@@ -177,346 +171,280 @@
         .proj-desc { color:#333; font-size:11px; line-height:1.6; margin-bottom:8px; }
         .tag { display:inline-block; background:#E8E8F8; border:1px solid #316AC5; border-radius:2px; padding:1px 6px; font-size:10px; color:#316AC5; margin:2px; }
         .contact-card { background:linear-gradient(to right,#EEF4FF,#F4F8FF); border:1px solid #C0CCE8; border-radius:4px; padding:14px; margin-bottom:12px; }
-        .contact-link { display:flex; align-items:center; gap:8px; padding:7px 12px; background:#fff; border:1px solid #C0CCE8; border-radius:3px; color:#316AC5; text-decoration:none; font-size:11px; margin-bottom:6px; }
+        .contact-link { display:flex; align-items:center; gap:8px; padding:7px 12px; background:#fff; border:1px solid #C0CCE8; border-radius:3px; color:#316AC5; font-size:11px; margin-bottom:6px; text-decoration:none; }
         .contact-link:hover { background:#EEF2FC; }
-        .send-btn { display:inline-block; padding:6px 16px; background:linear-gradient(to bottom,#316AC5,#1A50A0); color:#fff; border:1px solid #1A4080; border-radius:3px; font-size:11px; text-decoration:none; }
+        .send-btn { display:inline-block; padding:6px 16px; background:linear-gradient(to bottom,#316AC5,#1A50A0); color:#fff; border:1px solid #1A4080; border-radius:3px; font-size:11px; cursor:pointer; text-decoration:none; }
     </style>
 </head>
 <body class="lang-fr">
 
-<div class="monitor-wrapper">
-    <div class="monitor-body">
-        <div class="screen-bezel">
-            <div class="screen-inner">
-                <div class="xp-desktop" id="desktop">
+<div style="display:flex;flex-direction:column;align-items:center;">
 
-                    <!-- Clouds -->
-                    <div class="cloud" style="width:110px;height:36px;top:5%;left:22%"></div>
-                    <div class="cloud" style="width:170px;height:48px;top:2%;left:46%"></div>
-                    <div class="cloud" style="width:90px;height:30px;top:9%;left:72%"></div>
-                    <div class="cloud" style="width:70px;height:24px;top:14%;left:12%;opacity:.6"></div>
+    <!-- MONITOR -->
+    <div class="monitor">
+        <div class="screen-cavity">
+            <div class="screen-wrap">
+                <div class="screen-inner">
+                    <div class="xp-desktop" id="desktop">
 
-                    <!-- Desktop icons -->
-                    <div class="icons-col">
-                        <div class="d-icon" onclick="selectIcon(this)">
-                            <svg viewBox="0 0 40 40"><rect x="4" y="2" width="32" height="24" rx="2" fill="#C0D8F0" stroke="#6090C0" stroke-width="1"/><rect x="6" y="4" width="28" height="20" rx="1" fill="#4A8CD4"/><rect x="14" y="26" width="12" height="4" fill="#A0B8D0"/><rect x="10" y="30" width="20" height="3" rx="1" fill="#A0B8D0"/></svg>
-                            <span class="d-lbl"><span data-lang="fr">Poste de travail</span><span data-lang="en">My Computer</span></span>
-                        </div>
-                        <div class="d-icon" id="icon-about" onclick="openWin('about');selectIcon(this)">
-                            <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="4" fill="#316AC5"/><circle cx="20" cy="15" r="7" fill="white"/><path d="M6 38c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="white" stroke-width="2" fill="none"/></svg>
-                            <span class="d-lbl"><span data-lang="fr">À propos</span><span data-lang="en">About</span></span>
-                        </div>
-                        <div class="d-icon" id="icon-skills" onclick="openWin('skills');selectIcon(this)">
-                            <svg viewBox="0 0 36 44"><rect x="0" y="0" width="29" height="44" rx="2" fill="white" stroke="#999" stroke-width="1"/><polygon points="29,0 36,8 29,8" fill="#DDD"/><rect x="4" y="12" width="20" height="2" rx="1" fill="#316AC5"/><rect x="4" y="17" width="20" height="1.5" rx="1" fill="#999"/><rect x="4" y="21" width="16" height="1.5" rx="1" fill="#999"/><rect x="4" y="25" width="18" height="1.5" rx="1" fill="#999"/><rect x="4" y="29" width="14" height="1.5" rx="1" fill="#999"/></svg>
-                            <span class="d-lbl"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></span>
-                        </div>
-                        <div class="d-icon" id="icon-projects" onclick="openWin('projects');selectIcon(this)">
-                            <svg viewBox="0 0 48 40"><rect x="0" y="14" width="48" height="26" rx="3" fill="#E8A400"/><rect x="0" y="10" width="22" height="6" rx="3" fill="#E8A400"/><rect x="0" y="14" width="48" height="24" rx="3" fill="#F5C842"/><rect x="1" y="18" width="46" height="19" rx="2" fill="#FADA6B"/><rect x="0" y="14" width="48" height="5" fill="#E8A400" opacity="0.5"/></svg>
-                            <span class="d-lbl"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></span>
-                        </div>
-                        <div class="d-icon" id="icon-contact" onclick="openWin('contact');selectIcon(this)">
-                            <svg viewBox="0 0 40 32"><rect width="40" height="32" rx="3" fill="#E8F0FF" stroke="#316AC5" stroke-width="1.5"/><rect x="0" y="0" width="40" height="11" rx="3" fill="#316AC5"/><path d="M2 2 L20 12 L38 2" stroke="white" stroke-width="1.5" fill="none"/><rect x="4" y="16" width="22" height="2" rx="1" fill="#999"/><rect x="4" y="21" width="16" height="2" rx="1" fill="#999"/></svg>
-                            <span class="d-lbl">Contact</span>
-                        </div>
-                        <div class="d-icon" onclick="selectIcon(this)">
-                            <svg viewBox="0 0 40 44"><path d="M20 2 L26 10 H22 V22 H18 V10 H14 Z" fill="#7098D8"/><path d="M8 18 L2 26 H8 C8 33 13 38 20 38 C27 38 32 33 32 26 H38 L32 18" stroke="#7098D8" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>
-                            <span class="d-lbl"><span data-lang="fr">Corbeille</span><span data-lang="en">Recycle Bin</span></span>
-                        </div>
-                    </div>
+                        <!-- Clouds -->
+                        <div class="cloud" style="width:130px;height:48px;top:3%;left:18%"></div>
+                        <div class="cloud" style="width:200px;height:60px;top:0%;left:40%"></div>
+                        <div class="cloud" style="width:110px;height:42px;top:7%;left:72%"></div>
+                        <div class="cloud" style="width:85px;height:32px;top:12%;left:8%;opacity:.6"></div>
 
-                    <!-- Welcome -->
-                    <div class="welcome" id="welcome">
-                        <div class="welcome-name">Samantha Asdrubal</div>
-                        <div class="welcome-role">Business Analyst</div>
-                        <div class="welcome-hint">
-                            <span data-lang="fr">Cliquez sur une icône pour ouvrir</span>
-                            <span data-lang="en">Click an icon to open</span>
-                        </div>
-                    </div>
-
-                    <!-- ══ WINDOW: ABOUT ══ -->
-                    <div class="xp-win" id="win-about">
-                        <div class="xp-titlebar">
-                            <div class="xp-title-text">👤 <span data-lang="fr">À propos de moi</span><span data-lang="en">About Me</span></div>
-                            <div class="xp-win-btns">
-                                <div class="xp-btn xp-btn-min">_</div>
-                                <div class="xp-btn xp-btn-max">□</div>
-                                <div class="xp-btn xp-btn-cls" onclick="closeWin()">✕</div>
+                        <!-- Desktop icons -->
+                        <div class="icons-col">
+                            <div class="d-icon" onclick="selectIcon(this)">
+                                <svg viewBox="0 0 40 40"><rect x="3" y="2" width="34" height="24" rx="2" fill="#B8D0E8" stroke="#6090C0" stroke-width="1"/><rect x="5" y="4" width="30" height="20" rx="1" fill="#4A8CD4"/><rect x="14" y="26" width="12" height="5" fill="#A0B8D0"/><rect x="9" y="31" width="22" height="3" rx="1" fill="#A0B8D0"/></svg>
+                                <span class="d-lbl"><span data-lang="fr">Poste de travail</span><span data-lang="en">My Computer</span></span>
+                            </div>
+                            <div class="d-icon" onclick="openWin('about');selectIcon(this)">
+                                <svg viewBox="0 0 40 40"><rect width="40" height="40" rx="3" fill="#316AC5"/><circle cx="20" cy="15" r="7" fill="white"/><path d="M6 37c0-7.7 6.3-14 14-14s14 6.3 14 14" fill="white"/></svg>
+                                <span class="d-lbl"><span data-lang="fr">À propos</span><span data-lang="en">About</span></span>
+                            </div>
+                            <div class="d-icon" onclick="openWin('skills');selectIcon(this)">
+                                <svg viewBox="0 0 32 40"><rect x="0" y="0" width="26" height="40" rx="2" fill="white" stroke="#AAA" stroke-width="1"/><polygon points="26,0 32,6 26,6" fill="#CCC"/><rect x="4" y="10" width="18" height="2" rx="1" fill="#316AC5"/><rect x="4" y="15" width="18" height="1.5" rx="1" fill="#AAA"/><rect x="4" y="19" width="14" height="1.5" rx="1" fill="#AAA"/><rect x="4" y="23" width="16" height="1.5" rx="1" fill="#AAA"/></svg>
+                                <span class="d-lbl"><span data-lang="fr">Compétences</span><span data-lang="en">Skills</span></span>
+                            </div>
+                            <div class="d-icon" onclick="openWin('projects');selectIcon(this)">
+                                <svg viewBox="0 0 48 40"><rect x="0" y="12" width="48" height="28" rx="2" fill="#C8860A"/><rect x="0" y="8" width="20" height="6" rx="2" fill="#C8860A"/><rect x="0" y="12" width="48" height="26" rx="2" fill="#F0BC30"/><rect x="1" y="16" width="46" height="20" rx="1" fill="#FAD660"/></svg>
+                                <span class="d-lbl"><span data-lang="fr">Projets</span><span data-lang="en">Projects</span></span>
+                            </div>
+                            <div class="d-icon" onclick="openWin('contact');selectIcon(this)">
+                                <svg viewBox="0 0 40 32"><rect width="40" height="32" rx="2" fill="#EEF4FF" stroke="#316AC5" stroke-width="1"/><rect x="0" y="0" width="40" height="10" rx="2" fill="#316AC5"/><path d="M2 2 L20 11 L38 2" stroke="white" stroke-width="1.5" fill="none"/></svg>
+                                <span class="d-lbl">Contact</span>
+                            </div>
+                            <div class="d-icon" onclick="selectIcon(this)">
+                                <svg viewBox="0 0 34 42"><path d="M17 2 L22 10 H19 V20 H15 V10 H12 Z" fill="#6898D0"/><path d="M7 18 L2 26 H7 C7 33 11 38 17 38 C23 38 27 33 27 26 H32 L27 18" stroke="#6898D0" stroke-width="2.2" fill="none"/></svg>
+                                <span class="d-lbl"><span data-lang="fr">Corbeille</span><span data-lang="en">Recycle Bin</span></span>
                             </div>
                         </div>
-                        <div class="xp-menubar">
-                            <span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span>
-                            <span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span>
-                            <span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span>
-                            <span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span>
+
+                        <!-- Welcome -->
+                        <div class="welcome" id="welcome">
+                            <div class="welcome-name">Samantha Asdrubal</div>
+                            <div class="welcome-role">Business Analyst</div>
+                            <div class="welcome-hint"><span data-lang="fr">Cliquez sur une icône pour ouvrir</span><span data-lang="en">Click an icon to open</span></div>
                         </div>
-                        <div class="xp-body">
-                            <div class="w-pad">
-                                <div class="w-hero">
-                                    <div class="w-avatar">SA</div>
-                                    <div>
-                                        <div style="font-weight:bold;font-size:14px;color:#003087">Samantha Asdrubal</div>
-                                        <div style="color:#316AC5;font-size:11px">Business Analyst</div>
-                                    </div>
-                                </div>
+
+                        <!-- WINDOW: ABOUT -->
+                        <div class="xp-win" id="win-about">
+                            <div class="xp-titlebar">
+                                <div class="xp-title-text">👤 <span data-lang="fr">À propos de moi</span><span data-lang="en">About Me</span></div>
+                                <div class="xp-win-btns"><div class="xp-btn xp-btn-m">—</div><div class="xp-btn xp-btn-x">□</div><div class="xp-btn xp-btn-c" onclick="closeWin()">✕</div></div>
+                            </div>
+                            <div class="xp-menubar"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
+                            <div class="xp-body"><div class="w-pad">
+                                <div class="w-hero"><div class="w-avatar">SA</div><div><div style="font-weight:bold;font-size:14px;color:#003087">Samantha Asdrubal</div><div style="color:#316AC5;font-size:11px">Business Analyst</div></div></div>
                                 <div class="w-section">📋 <span data-lang="fr">À propos de moi</span><span data-lang="en">About Me</span></div>
-                                <p class="w-para" data-lang="fr">Bienvenue dans mon univers numérique ! Étudiante en Master Data &amp; IA et alternante en tant que Business Analyst chez Mailinblack, une entreprise spécialisée en cybersécurité, je suis passionnée par la transformation des données en leviers de décision stratégiques.</p>
-                                <p class="w-para" data-lang="en">Welcome to my digital universe! A Master's student in Data &amp; AI and apprentice Business Analyst at Mailinblack, a cybersecurity company, I am passionate about transforming data into strategic decision levers.</p>
-                                <p class="w-para" data-lang="fr">Au fil de mes expériences, j'ai développé une expertise en création et optimisation de processus, ainsi qu'en conception de dashboards de reporting et d'analyse permettant de piloter efficacement l'activité et de faciliter la prise de décision.</p>
-                                <p class="w-para" data-lang="en">Through my experiences, I have developed expertise in process creation and optimization, as well as in designing reporting and analysis dashboards that effectively drive business activity and facilitate decision-making.</p>
-                                <p class="w-para" data-lang="fr">Curieuse et orientée résultats, mon objectif est de transformer des données complexes en insights actionnables et de concevoir des visualisations claires, impactantes et utiles aux équipes métiers.</p>
-                                <p class="w-para" data-lang="en">Curious and results-oriented, my goal is to transform complex data into actionable insights and design clear, impactful visualizations that are useful to business teams.</p>
-                            </div>
+                                <p class="w-para" data-lang="fr">Étudiante en Master Data &amp; IA, alternante Business Analyst chez Mailinblack (cybersécurité). Passionnée par la transformation des données en leviers de décision stratégiques.</p>
+                                <p class="w-para" data-lang="en">Master's student in Data &amp; AI, apprentice Business Analyst at Mailinblack (cybersecurity). Passionate about transforming data into strategic decision levers.</p>
+                                <p class="w-para" data-lang="fr">Expertise en création de dashboards de reporting et d'analyse pour piloter efficacement l'activité et faciliter la prise de décision.</p>
+                                <p class="w-para" data-lang="en">Expertise in creating reporting and analysis dashboards to effectively drive business activity and facilitate decision-making.</p>
+                                <p class="w-para" data-lang="fr">Curieuse et orientée résultats : transformer des données complexes en insights actionnables et visualisations impactantes.</p>
+                                <p class="w-para" data-lang="en">Curious and results-oriented: transforming complex data into actionable insights and impactful visualizations.</p>
+                            </div></div>
                         </div>
-                    </div>
 
-                    <!-- ══ WINDOW: SKILLS ══ -->
-                    <div class="xp-win" id="win-skills">
-                        <div class="xp-titlebar">
-                            <div class="xp-title-text">📊 <span data-lang="fr">Mes Compétences</span><span data-lang="en">My Skills</span></div>
-                            <div class="xp-win-btns">
-                                <div class="xp-btn xp-btn-min">_</div>
-                                <div class="xp-btn xp-btn-max">□</div>
-                                <div class="xp-btn xp-btn-cls" onclick="closeWin()">✕</div>
+                        <!-- WINDOW: SKILLS -->
+                        <div class="xp-win" id="win-skills">
+                            <div class="xp-titlebar">
+                                <div class="xp-title-text">📄 <span data-lang="fr">Mes Compétences</span><span data-lang="en">My Skills</span></div>
+                                <div class="xp-win-btns"><div class="xp-btn xp-btn-m">—</div><div class="xp-btn xp-btn-x">□</div><div class="xp-btn xp-btn-c" onclick="closeWin()">✕</div></div>
                             </div>
-                        </div>
-                        <div class="xp-menubar">
-                            <span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span>
-                            <span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span>
-                            <span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span>
-                            <span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span>
-                        </div>
-                        <div class="xp-body">
-                            <div class="w-pad">
+                            <div class="xp-menubar"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
+                            <div class="xp-body"><div class="w-pad">
                                 <div class="w-section">⚙️ <span data-lang="fr">Mes Compétences</span><span data-lang="en">My Skills</span></div>
                                 <div class="skill-grid">
-                                    <div class="skill-cat">
-                                        <div class="skill-cat-ttl">📁 Data &amp; <span data-lang="fr">Analyse</span><span data-lang="en">Analysis</span></div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> Python</div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> SQL</div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> Excel / Google Sheets</div>
-                                    </div>
-                                    <div class="skill-cat">
-                                        <div class="skill-cat-ttl">📁 <span data-lang="fr">Visualisation</span><span data-lang="en">Visualization</span> &amp; Reporting</div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> Tableau</div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> <span data-lang="fr">Salesforce (dashboards &amp; rapports)</span><span data-lang="en">Salesforce (dashboards &amp; reports)</span></div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> <span data-lang="fr">Notion (espaces &amp; automatisation)</span><span data-lang="en">Notion (spaces &amp; automation)</span></div>
-                                    </div>
-                                    <div class="skill-cat">
-                                        <div class="skill-cat-ttl">📁 <span data-lang="fr">Automatisation &amp; Outils</span><span data-lang="en">Automation &amp; Tools</span></div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> Make</div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> N8N</div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> <span data-lang="fr">Dust (création d'agents IA)</span><span data-lang="en">Dust (AI agent creation)</span></div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> <span data-lang="fr">Intégration d'API</span><span data-lang="en">API Integration</span></div>
-                                        <div class="skill-item"><span class="skill-arrow">▶</span> GitHub / VS Code</div>
-                                    </div>
+                                    <div class="skill-cat"><div class="skill-cat-ttl">📁 Data &amp; <span data-lang="fr">Analyse</span><span data-lang="en">Analysis</span></div><div class="skill-item">▶ Python</div><div class="skill-item">▶ SQL</div><div class="skill-item">▶ Excel / Google Sheets</div></div>
+                                    <div class="skill-cat"><div class="skill-cat-ttl">📁 <span data-lang="fr">Visualisation</span><span data-lang="en">Visualization</span> &amp; Reporting</div><div class="skill-item">▶ Tableau</div><div class="skill-item">▶ <span data-lang="fr">Salesforce (dashboards)</span><span data-lang="en">Salesforce (dashboards)</span></div><div class="skill-item">▶ Notion</div></div>
+                                    <div class="skill-cat"><div class="skill-cat-ttl">📁 <span data-lang="fr">Automatisation</span><span data-lang="en">Automation</span> &amp; <span data-lang="fr">Outils</span><span data-lang="en">Tools</span></div><div class="skill-item">▶ Make</div><div class="skill-item">▶ N8N</div><div class="skill-item">▶ <span data-lang="fr">Dust (agents IA)</span><span data-lang="en">Dust (AI agents)</span></div><div class="skill-item">▶ <span data-lang="fr">Intégration API</span><span data-lang="en">API Integration</span></div><div class="skill-item">▶ GitHub / VS Code</div></div>
+                                </div>
+                            </div></div>
+                        </div>
+
+                        <!-- WINDOW: PROJECTS -->
+                        <div class="xp-win" id="win-projects">
+                            <div class="xp-titlebar">
+                                <div class="xp-title-text">📁 <span data-lang="fr">Mes Projets</span><span data-lang="en">My Projects</span></div>
+                                <div class="xp-win-btns"><div class="xp-btn xp-btn-m">—</div><div class="xp-btn xp-btn-x">□</div><div class="xp-btn xp-btn-c" onclick="closeWin()">✕</div></div>
+                            </div>
+                            <div class="xp-menubar"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
+                            <div class="xp-body">
+                                <div class="w-pad" id="proj-list">
+                                    <div class="w-section">🗂️ <span data-lang="fr">Mes Projets</span><span data-lang="en">My Projects</span></div>
+                                    <div class="proj-grid" id="proj-grid"></div>
+                                </div>
+                                <div class="w-pad" id="proj-detail" style="display:none">
+                                    <button class="proj-back" onclick="backProj()">← <span data-lang="fr">Retour</span><span data-lang="en">Back</span></button>
+                                    <div class="proj-card"><div class="proj-title" id="proj-t"></div><div class="proj-desc" id="proj-d"></div><div id="proj-g"></div></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- ══ WINDOW: PROJECTS ══ -->
-                    <div class="xp-win" id="win-projects">
-                        <div class="xp-titlebar">
-                            <div class="xp-title-text">📁 <span data-lang="fr">Mes Projets</span><span data-lang="en">My Projects</span></div>
-                            <div class="xp-win-btns">
-                                <div class="xp-btn xp-btn-min">_</div>
-                                <div class="xp-btn xp-btn-max">□</div>
-                                <div class="xp-btn xp-btn-cls" onclick="closeWin()">✕</div>
+                        <!-- WINDOW: CONTACT -->
+                        <div class="xp-win" id="win-contact">
+                            <div class="xp-titlebar">
+                                <div class="xp-title-text">✉️ Contact</div>
+                                <div class="xp-win-btns"><div class="xp-btn xp-btn-m">—</div><div class="xp-btn xp-btn-x">□</div><div class="xp-btn xp-btn-c" onclick="closeWin()">✕</div></div>
                             </div>
-                        </div>
-                        <div class="xp-menubar">
-                            <span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span>
-                            <span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span>
-                            <span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span>
-                            <span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span>
-                        </div>
-                        <div class="xp-body">
-                            <div class="w-pad" id="projects-list-view">
-                                <div class="w-section">🗂️ <span data-lang="fr">Mes Projets</span><span data-lang="en">My Projects</span></div>
-                                <div class="proj-grid" id="proj-grid"></div>
-                            </div>
-                            <div class="w-pad" id="projects-detail-view" style="display:none">
-                                <button class="proj-back" onclick="backToProjects()">← <span data-lang="fr">Retour</span><span data-lang="en">Back</span></button>
-                                <div class="proj-card">
-                                    <div class="proj-title" id="proj-detail-title"></div>
-                                    <div class="proj-desc"  id="proj-detail-desc"></div>
-                                    <div id="proj-detail-tags"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ══ WINDOW: CONTACT ══ -->
-                    <div class="xp-win" id="win-contact">
-                        <div class="xp-titlebar">
-                            <div class="xp-title-text">✉️ Contact</div>
-                            <div class="xp-win-btns">
-                                <div class="xp-btn xp-btn-min">_</div>
-                                <div class="xp-btn xp-btn-max">□</div>
-                                <div class="xp-btn xp-btn-cls" onclick="closeWin()">✕</div>
-                            </div>
-                        </div>
-                        <div class="xp-menubar">
-                            <span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span>
-                            <span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span>
-                            <span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span>
-                            <span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span>
-                        </div>
-                        <div class="xp-body">
-                            <div class="w-pad">
+                            <div class="xp-menubar"><span class="xp-mi" data-lang="fr">Fichier</span><span class="xp-mi" data-lang="en">File</span><span class="xp-mi" data-lang="fr">Edition</span><span class="xp-mi" data-lang="en">Edit</span><span class="xp-mi" data-lang="fr">Affichage</span><span class="xp-mi" data-lang="en">View</span><span class="xp-mi" data-lang="fr">Aide</span><span class="xp-mi" data-lang="en">Help</span></div>
+                            <div class="xp-body"><div class="w-pad">
                                 <div class="w-section">✉️ Contact</div>
                                 <div class="contact-card">
-                                    <p class="w-para" style="border:none;background:none;padding:0;margin-bottom:12px" data-lang="fr">Envoyez-moi un message ! Vous avez un projet data en tête ? N'hésitez pas à me contacter.</p>
-                                    <p class="w-para" style="border:none;background:none;padding:0;margin-bottom:12px" data-lang="en">Send me a message! Have a data project in mind? Feel free to contact me.</p>
+                                    <p class="w-para" style="border:none;background:none;padding:0;margin-bottom:12px" data-lang="fr">Un projet data en tête ? N'hésitez pas à me contacter !</p>
+                                    <p class="w-para" style="border:none;background:none;padding:0;margin-bottom:12px" data-lang="en">Have a data project in mind? Feel free to contact me!</p>
                                     <a href="mailto:sasdrubal@eugeniaschool.com" class="contact-link">📧 sasdrubal@eugeniaschool.com</a>
                                     <a href="https://github.com/samasdrr" target="_blank" class="contact-link">💻 github.com/samasdrr</a>
                                     <a href="https://linkedin.com" target="_blank" class="contact-link">🔗 LinkedIn</a>
                                 </div>
-                                <a href="mailto:sasdrubal@eugeniaschool.com" class="send-btn">
-                                    <span data-lang="fr">Envoyer un message</span><span data-lang="en">Send a message</span>
-                                </a>
+                                <a href="mailto:sasdrubal@eugeniaschool.com" class="send-btn"><span data-lang="fr">Envoyer un message</span><span data-lang="en">Send a message</span></a>
+                            </div></div>
+                        </div>
+
+                        <!-- TASKBAR -->
+                        <div class="xp-taskbar">
+                            <button class="start-btn">⊞ <span data-lang="fr">Démarrer</span><span data-lang="en">Start</span></button>
+                            <div class="tb-item" id="tb-active"><span id="tb-icon"></span> <span id="tb-label"></span></div>
+                            <div class="systray">
+                                <button class="lang-btn" id="lang-btn" onclick="toggleLang()">🇬🇧 EN</button>
+                                <span>|</span><span id="clock">--:--</span>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Taskbar -->
-                    <div class="xp-taskbar">
-                        <button class="start-btn">⊞ <span data-lang="fr">Démarrer</span><span data-lang="en">Start</span></button>
-                        <div class="tb-item" id="tb-active">
-                            <span id="tb-icon"></span> <span id="tb-label"></span>
-                        </div>
-                        <div class="systray">
-                            <button class="lang-btn" id="lang-btn" onclick="toggleLang()">🇬🇧 EN</button>
-                            <span>|</span>
-                            <span id="clock">--:--</span>
-                        </div>
-                    </div>
-
+                    </div><!-- .xp-desktop -->
+                    <div class="scanlines"></div>
+                    <div class="vignette"></div>
+                    <div class="glare"></div>
+                    <div class="phosphor"></div>
                 </div>
             </div>
         </div>
-        <div class="monitor-deco">
-            <div class="power-ring"></div>
-            <div class="brand">EUGENIA</div>
-            <div class="led"></div>
-        </div>
+        <div class="chin"><div class="led"></div><div class="floppy"></div><div class="btn-power"></div></div>
     </div>
-    <div class="monitor-neck"></div>
-    <div class="monitor-base"></div>
+
+    <!-- NECK -->
+    <div class="neck"></div>
+
+    <!-- KEYBOARD -->
+    <div class="keyboard" id="kb"></div>
+
 </div>
 
 <script>
-    /* ── PROJECTS DATA ── */
+    /* ── DATA ── */
     const PROJECTS = {
-        fr: [
-            { title:"Workflow SEO Ranking (Hackathon)", desc:"Workflow N8N qui récupère une liste de mots-clés depuis Google Sheets et effectue un scoring basé sur le volume d'intentions de recherche de la veille.", tags:["Make","N8N","Google Sheets","Hackathon"] },
-            { title:"Prédiction Courses Hippiques",     desc:"Tableau de bord Google Sheets basé sur un dataset 2020. L'utilisateur indique les partants et reçoit une prédiction du top 3/5 via un scoring basé sur les performances passées.", tags:["Google Sheets","Data Analysis","Dashboard"] },
-            { title:"Scraping Films & Séries",          desc:"Scraping de JustWatch pour créer un site de recommandation de films et séries personnalisé selon les goûts de l'utilisateur.", tags:["Python","Scraping","Web"] },
-            { title:"Chatbot Paroles de Musique",       desc:"Scraping de LyricsTranslate pour créer un chatbot aidant les utilisateurs à retrouver le titre d'une chanson à partir de ses paroles.", tags:["Python","Scraping","Chatbot"] },
-            { title:"Hub Supply Marketplace (Mirakl)",  desc:"Plateforme créée lors d'un hackathon avec Mirakl, permettant aux vendeurs d'un marketplace de gérer leur supply chain depuis un hub centralisé.", tags:["Hackathon","Mirakl","Supply Chain"] }
+        fr:[
+            { t:"Workflow SEO Ranking (Hackathon)", d:"Workflow N8N récupère des mots-clés depuis Google Sheets et fait un scoring selon les intentions de recherche.", g:["Make","N8N","Google Sheets","Hackathon"] },
+            { t:"Prédiction Courses Hippiques", d:"Dashboard Google Sheets — prédiction top 3/5 via scoring sur dataset 2020.", g:["Google Sheets","Data Analysis","Dashboard"] },
+            { t:"Scraping Films & Séries", d:"Scraping JustWatch pour recommandation personnalisée.", g:["Python","Scraping","Web"] },
+            { t:"Chatbot Paroles Musique", d:"Scraping LyricsTranslate — chatbot pour retrouver un titre depuis ses paroles.", g:["Python","Scraping","Chatbot"] },
+            { t:"Hub Supply Marketplace (Mirakl)", d:"Plateforme hackathon Mirakl pour gérer la supply chain des vendeurs.", g:["Hackathon","Mirakl","Supply Chain"] },
         ],
-        en: [
-            { title:"SEO Ranking Workflow (Hackathon)", desc:"N8N workflow that retrieves a list of keywords from Google Sheets and scores them based on the previous day's search intent volume.", tags:["Make","N8N","Google Sheets","Hackathon"] },
-            { title:"Horse Racing Prediction",          desc:"Google Sheets dashboard based on a 2020 dataset. The user enters the competing horses and receives a top 3/5 prediction based on a pre-built scoring model.", tags:["Google Sheets","Data Analysis","Dashboard"] },
-            { title:"Film & Series Scraping",           desc:"Scraping JustWatch to create a personalized movie and series recommendation site based on user tastes.", tags:["Python","Scraping","Web"] },
-            { title:"Lyrics Chatbot",                   desc:"Scraping LyricsTranslate to create a chatbot helping users find a song title from its lyrics.", tags:["Python","Scraping","Chatbot"] },
-            { title:"Marketplace Supply Hub (Mirakl)",  desc:"Platform created during a hackathon with Mirakl, allowing marketplace sellers to manage their supply chain from a centralized hub.", tags:["Hackathon","Mirakl","Supply Chain"] }
+        en:[
+            { t:"SEO Ranking Workflow (Hackathon)", d:"N8N workflow retrieving keywords from Google Sheets and scoring them by search intent.", g:["Make","N8N","Google Sheets","Hackathon"] },
+            { t:"Horse Racing Prediction", d:"Google Sheets dashboard — top 3/5 prediction via scoring on 2020 dataset.", g:["Google Sheets","Data Analysis","Dashboard"] },
+            { t:"Film & Series Scraping", d:"Scraping JustWatch for personalized recommendations.", g:["Python","Scraping","Web"] },
+            { t:"Lyrics Chatbot", d:"Scraping LyricsTranslate — chatbot to find a song title from its lyrics.", g:["Python","Scraping","Chatbot"] },
+            { t:"Marketplace Supply Hub (Mirakl)", d:"Mirakl hackathon platform to manage sellers' supply chain.", g:["Hackathon","Mirakl","Supply Chain"] },
         ]
     };
-
     const WIN_INFO = {
-        about:    { icon:'👤', fr:'À propos de moi',  en:'About Me'    },
-        skills:   { icon:'📊', fr:'Mes Compétences',  en:'My Skills'   },
-        projects: { icon:'📁', fr:'Mes Projets',      en:'My Projects' },
-        contact:  { icon:'✉️', fr:'Contact',           en:'Contact'     }
+        about:   { icon:"👤", fr:"À propos de moi",  en:"About Me"     },
+        skills:  { icon:"📄", fr:"Mes Compétences",  en:"My Skills"    },
+        projects:{ icon:"📁", fr:"Mes Projets",      en:"My Projects"  },
+        contact: { icon:"✉️", fr:"Contact",           en:"Contact"      }
     };
 
-    let lang = 'fr';
-    let currentWin = null;
-    let activeIconEl = null;
+    let lang = "fr", currentWin = null, activeEl = null;
 
-    /* Clock */
-    function updateClock() {
-        document.getElementById('clock').textContent =
-            new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    /* ── CLOCK ── */
+    function updateClock() { document.getElementById("clock").textContent = new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}); }
+    updateClock(); setInterval(updateClock,10000);
+
+    /* ── KEYBOARD ── */
+    function buildKb() {
+        const rows = [[1,1,1,1,1,1,1,1,1,1,1,1,1,2],[1.7,1,1,1,1,1,1,1,1,1,1,1,1,1],[2,1,1,1,1,1,1,1,1,1,1,2.1],[2.5,1,1,1,1,1,1,1,1,1,2.5],[1.4,1.4,6,1.4,1.4,1.4]];
+        const kb = document.getElementById("kb");
+        rows.forEach(row => {
+            const div = document.createElement("div");
+            div.className = "key-row";
+            row.forEach(flex => {
+                const k = document.createElement("div");
+                k.className = "key"; k.style.flex = flex;
+                div.appendChild(k);
+            });
+            kb.appendChild(div);
+        });
     }
-    updateClock();
-    setInterval(updateClock, 10000);
+    buildKb();
 
-    /* Language toggle */
-    function toggleLang() {
-        lang = lang === 'fr' ? 'en' : 'fr';
-        document.body.className = 'lang-' + lang;
-        document.getElementById('lang-btn').textContent = lang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR';
-        if (currentWin) {
-            const info = WIN_INFO[currentWin];
-            document.getElementById('tb-label').textContent = info[lang];
-        }
-        if (currentWin === 'projects') buildProjectGrid();
+    /* ── PROJECTS ── */
+    function buildProjects() {
+        const grid = document.getElementById("proj-grid");
+        grid.innerHTML = "";
+        PROJECTS[lang].forEach((p,i) => {
+            const div = document.createElement("div");
+            div.className = "proj-folder";
+            div.innerHTML = `<svg viewBox="0 0 48 40" width="40" height="34"><rect x="0" y="12" width="48" height="28" rx="2" fill="#C8860A"/><rect x="0" y="8" width="20" height="6" rx="2" fill="#C8860A"/><rect x="0" y="12" width="48" height="26" rx="2" fill="#F0BC30"/><rect x="1" y="16" width="46" height="20" rx="1" fill="#FAD660"/></svg><span>${p.t}</span>`;
+            div.onclick = () => openProject(i);
+            grid.appendChild(div);
+        });
+        document.getElementById("proj-list").style.display = "block";
+        document.getElementById("proj-detail").style.display = "none";
     }
-
-    /* Icon selection */
-    function selectIcon(el) {
-        if (activeIconEl) activeIconEl.classList.remove('active');
-        el.classList.add('active');
-        activeIconEl = el;
-    }
-
-    /* Open window */
-    function openWin(id) {
-        document.querySelectorAll('.xp-win').forEach(w => w.classList.remove('open'));
-        document.getElementById('welcome').style.display = 'none';
-        document.getElementById('win-' + id).classList.add('open');
-        currentWin = id;
-        const info = WIN_INFO[id];
-        document.getElementById('tb-icon').textContent  = info.icon;
-        document.getElementById('tb-label').textContent = info[lang];
-        document.getElementById('tb-active').classList.add('visible');
-        if (id === 'projects') buildProjectGrid();
-    }
-
-    /* Close window */
-    function closeWin() {
-        document.querySelectorAll('.xp-win').forEach(w => w.classList.remove('open'));
-        document.getElementById('welcome').style.display = 'block';
-        document.getElementById('tb-active').classList.remove('visible');
-        currentWin = null;
-        if (activeIconEl) { activeIconEl.classList.remove('active'); activeIconEl = null; }
-    }
-
-    /* Build project grid */
-    function buildProjectGrid() {
-        const data = PROJECTS[lang];
-        document.getElementById('proj-grid').innerHTML = data.map((p,i) => `
-            <div class="proj-folder" onclick="openProject(${i})">
-                <svg viewBox="0 0 48 40" width="42" height="35">
-                    <rect x="0" y="14" width="48" height="26" rx="3" fill="#E8A400"/>
-                    <rect x="0" y="10" width="22" height="6" rx="3" fill="#E8A400"/>
-                    <rect x="0" y="14" width="48" height="24" rx="3" fill="#F5C842"/>
-                    <rect x="1" y="18" width="46" height="19" rx="2" fill="#FADA6B"/>
-                    <rect x="0" y="14" width="48" height="5" fill="#E8A400" opacity="0.5"/>
-                </svg>
-                <span>${p.title}</span>
-            </div>`).join('');
-        document.getElementById('projects-list-view').style.display   = 'block';
-        document.getElementById('projects-detail-view').style.display = 'none';
-    }
-
-    /* Open project detail */
     function openProject(i) {
         const p = PROJECTS[lang][i];
-        document.getElementById('proj-detail-title').textContent = p.title;
-        document.getElementById('proj-detail-desc').textContent  = p.desc;
-        document.getElementById('proj-detail-tags').innerHTML    = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
-        document.getElementById('projects-list-view').style.display   = 'none';
-        document.getElementById('projects-detail-view').style.display = 'block';
+        document.getElementById("proj-t").textContent = p.t;
+        document.getElementById("proj-d").textContent = p.d;
+        document.getElementById("proj-g").innerHTML = p.g.map(g=>`<span class="tag">${g}</span>`).join("");
+        document.getElementById("proj-list").style.display = "none";
+        document.getElementById("proj-detail").style.display = "block";
+    }
+    function backProj() {
+        document.getElementById("proj-list").style.display = "block";
+        document.getElementById("proj-detail").style.display = "none";
     }
 
-    /* Back to project list */
-    function backToProjects() {
-        document.getElementById('projects-list-view').style.display   = 'block';
-        document.getElementById('projects-detail-view').style.display = 'none';
+    /* ── LANGUAGE ── */
+    function toggleLang() {
+        lang = lang === "fr" ? "en" : "fr";
+        document.body.className = "lang-" + lang;
+        document.getElementById("lang-btn").textContent = lang === "fr" ? "🇬🇧 EN" : "🇫🇷 FR";
+        if (currentWin) {
+            const info = WIN_INFO[currentWin];
+            document.getElementById("tb-label").textContent = info[lang];
+        }
+        if (currentWin === "projects") buildProjects();
+    }
+
+    /* ── ICON SELECT ── */
+    function selectIcon(el) {
+        if (activeEl) activeEl.classList.remove("active");
+        el.classList.add("active"); activeEl = el;
+    }
+
+    /* ── OPEN WINDOW ── */
+    function openWin(id) {
+        document.querySelectorAll(".xp-win").forEach(w => w.classList.remove("open"));
+        document.getElementById("welcome").style.display = "none";
+        document.getElementById("win-" + id).classList.add("open");
+        currentWin = id;
+        const info = WIN_INFO[id];
+        document.getElementById("tb-icon").textContent = info.icon;
+        document.getElementById("tb-label").textContent = info[lang];
+        document.getElementById("tb-active").classList.add("visible");
+        if (id === "projects") buildProjects();
+    }
+
+    /* ── CLOSE WINDOW ── */
+    function closeWin() {
+        document.querySelectorAll(".xp-win").forEach(w => w.classList.remove("open"));
+        document.getElementById("welcome").style.display = "block";
+        document.getElementById("tb-active").classList.remove("visible");
+        currentWin = null;
+        if (activeEl) { activeEl.classList.remove("active"); activeEl = null; }
     }
 </script>
 </body>
