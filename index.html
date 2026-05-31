@@ -1,21 +1,18 @@
 function scaleToFit() {
     if (window.innerWidth <= 640) return;
-    const el = document.getElementById("cw");
+    var el = document.getElementById("cw");
     el.style.transform = "none";
-    requestAnimationFrame(() => {
-        const rect = el.getBoundingClientRect();
-        const sh = window.innerHeight * 0.96;
-        const sw = window.innerWidth * 0.96;
-        const s = Math.min(1, sh / rect.height, sw / rect.width);
+    requestAnimationFrame(function() {
+        var rect = el.getBoundingClientRect();
+        var sh = window.innerHeight * 0.96;
+        var sw = window.innerWidth * 0.96;
+        var s = Math.min(1, sh / rect.height, sw / rect.width);
         if (s < 1) {
-            el.style.transform = `scale(${s})`;
+            el.style.transform = "scale(" + s + ")";
             el.style.transformOrigin = "top center";
-            // Adjust top padding after scale
-            const diff = rect.height - rect.height * s;
-            document.body.style.paddingTop = `${Math.max(8, (window.innerHeight - rect.height * s) / 2)}px`;
+            document.body.style.paddingTop = Math.max(8, (window.innerHeight - rect.height * s) / 2) + "px";
         }
     });
 }
-window.addEventListener("load", () => setTimeout(scaleToFit, 50));
+window.addEventListener("load", function() { setTimeout(scaleToFit, 50); });
 window.addEventListener("resize", scaleToFit);
-            
