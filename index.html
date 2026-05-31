@@ -73,8 +73,7 @@ body {
     linear-gradient(180deg, #2a6bc5 0%, #5a9bf0 35%, #90c8fa 60%, #b8dcff 78%, #d8eeff 90%, #eef8ff 100%);
 }
 .wallpaper::before {
-  content: ''; position: absolute;
-  top: 16%; left: 0; right: 0; height: 60px;
+  content: ''; position: absolute; top: 16%; left: 0; right: 0; height: 60px;
   background:
     radial-gradient(ellipse 90px 28px at 12% 50%, rgba(255,255,255,0.9) 0%, transparent 70%),
     radial-gradient(ellipse 60px 20px at 22% 40%, rgba(255,255,255,0.75) 0%, transparent 70%),
@@ -86,95 +85,43 @@ body {
 }
 .screen::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 85% 85% at 50% 50%,
-    transparent 65%, rgba(0,0,0,0.18) 80%, rgba(0,0,0,0.45) 100%);
+  background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 65%, rgba(0,0,0,0.18) 80%, rgba(0,0,0,0.45) 100%);
   pointer-events: none; z-index: 98; border-radius: 6px;
 }
-.scanlines {
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 3px);
-  pointer-events: none; z-index: 100;
-}
+.scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 3px); pointer-events: none; z-index: 100; }
 .phosphor { position: absolute; inset: 0; background: rgba(60,140,60,0.06); pointer-events: none; z-index: 99; }
-.glare {
-  position: absolute; top: 0; left: 0; right: 0; height: 45%;
-  background: linear-gradient(170deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 60%, transparent 100%);
-  pointer-events: none; z-index: 102; border-radius: 6px 6px 0 0;
-}
-.glare-side {
-  position: absolute; top: 5%; left: 0; width: 25%; height: 80%;
-  background: linear-gradient(90deg, rgba(255,255,255,0.07) 0%, transparent 100%);
-  pointer-events: none; z-index: 102;
-}
+.glare { position: absolute; top: 0; left: 0; right: 0; height: 45%; background: linear-gradient(170deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 60%, transparent 100%); pointer-events: none; z-index: 102; border-radius: 6px 6px 0 0; }
+.glare-side { position: absolute; top: 5%; left: 0; width: 25%; height: 80%; background: linear-gradient(90deg, rgba(255,255,255,0.07) 0%, transparent 100%); pointer-events: none; z-index: 102; }
 
 /* ===== ICÔNES ===== */
-.desktop-icons {
-  position: absolute; top: 8px; left: 8px;
-  display: flex; flex-direction: column; gap: 10px; z-index: 2;
-}
-.icon {
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
-  cursor: pointer; width: 64px; padding: 5px 3px; border-radius: 3px;
-  user-select: none; transition: background 0.1s;
-}
+.desktop-icons { position: absolute; top: 8px; left: 8px; display: flex; flex-direction: column; gap: 10px; z-index: 2; }
+.icon { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; width: 64px; padding: 5px 3px; border-radius: 3px; user-select: none; transition: background 0.1s; }
 .icon:hover { background: rgba(49,106,197,0.4); }
 .icon.active-icon { background: rgba(49,106,197,0.6); }
 .icon-img { font-size: 30px; line-height: 1; filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.7)); }
-.icon-label {
-  font-size: 11px; color: white; text-align: center;
-  text-shadow: 1px 1px 3px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,0.8);
-  line-height: 1.2; word-break: break-word; width: 100%;
-}
+.icon-label { font-size: 11px; color: white; text-align: center; text-shadow: 1px 1px 3px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,0.8); line-height: 1.2; word-break: break-word; width: 100%; }
 
 /* ===== FENÊTRES XP ===== */
-.xp-window {
-  position: absolute; top: 22px; left: 82px; right: 6px; bottom: 36px;
-  background: #ece9d8; border: 1px solid #0a246a;
-  border-radius: 7px 7px 4px 4px;
-  box-shadow: 4px 4px 16px rgba(0,0,0,0.65);
-  display: none; flex-direction: column; z-index: 10; overflow: hidden;
-}
+.xp-window { position: absolute; top: 22px; left: 82px; right: 6px; bottom: 36px; background: #ece9d8; border: 1px solid #0a246a; border-radius: 7px 7px 4px 4px; box-shadow: 4px 4px 16px rgba(0,0,0,0.65); display: none; flex-direction: column; z-index: 10; overflow: hidden; }
 .xp-window.active { display: flex; }
 
-.title-bar {
-  background: linear-gradient(180deg, #3168d0 0%, #1a3b8c 35%, #1e4fd9 65%, #3a7bd5 100%);
-  padding: 4px 6px; display: flex; align-items: center;
-  justify-content: space-between; min-height: 28px;
-  border-radius: 6px 6px 0 0; flex-shrink: 0;
-}
+.title-bar { background: linear-gradient(180deg, #3168d0 0%, #1a3b8c 35%, #1e4fd9 65%, #3a7bd5 100%); padding: 4px 6px; display: flex; align-items: center; justify-content: space-between; min-height: 28px; border-radius: 6px 6px 0 0; flex-shrink: 0; }
 .title-bar-left { display: flex; align-items: center; gap: 6px; }
 .title-icon { font-size: 14px; }
 .title-text { color: white; font-size: 12px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); }
 .title-buttons { display: flex; gap: 3px; }
-.tb-btn {
-  width: 20px; height: 17px; border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 3px; cursor: pointer; font-size: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: bold; color: white;
-  background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%);
-}
+.tb-btn { width: 20px; height: 17px; border: 1px solid rgba(255,255,255,0.35); border-radius: 3px; cursor: pointer; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%); }
 .tb-btn:hover { background: linear-gradient(180deg, #7ab5e5 0%, #5a9be5 50%, #4070c0 100%); }
 .tb-btn.close-btn { background: linear-gradient(180deg, #d55b5b 0%, #c03030 50%, #902020 100%); }
 .tb-btn.close-btn:hover { background: linear-gradient(180deg, #e57b7b 0%, #d04040 50%, #a03030 100%); }
 
-.menu-bar {
-  background: #ece9d8; border-bottom: 1px solid #aca899;
-  padding: 2px 6px; display: flex; gap: 2px; flex-shrink: 0;
-}
+.menu-bar { background: #ece9d8; border-bottom: 1px solid #aca899; padding: 2px 6px; display: flex; gap: 2px; flex-shrink: 0; }
 .menu-item { font-size: 11px; padding: 2px 6px; cursor: pointer; border-radius: 2px; }
 .menu-item:hover { background: #316ac5; color: white; }
 
-.address-bar {
-  background: white; border: 1px solid #7f9db9;
-  padding: 2px 7px; font-size: 11px; color: #333;
-  margin: 3px 6px; border-radius: 2px; flex-shrink: 0;
-}
+.address-bar { background: white; border: 1px solid #7f9db9; padding: 2px 7px; font-size: 11px; color: #333; margin: 3px 6px; border-radius: 2px; flex-shrink: 0; }
 
-.window-content {
-  flex: 1; overflow-y: auto; padding: 11px 14px;
-  font-size: 12px; color: #333; background: white;
-  margin: 0 5px 5px; border: 1px solid #aca899;
-}
+.window-content { flex: 1; overflow-y: auto; padding: 11px 14px; font-size: 12px; color: #333; background: white; margin: 0 5px 5px; border: 1px solid #aca899; }
 .window-content::-webkit-scrollbar { width: 16px; }
 .window-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
 .window-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
@@ -217,86 +164,29 @@ body {
 .project-hint { margin-top: 5px; font-size: 9px; color: #316ac5; display: flex; align-items: center; gap: 3px; }
 .project-hint::before { content: '📂'; font-size: 10px; }
 
-/* ===== MODAL PROJET ===== */
-#project-modal {
-  display: none;
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 40;
-}
-#modal-win {
-  position: absolute;
-  top: 15px; left: 78px; right: 4px; bottom: 34px;
-  background: #ece9d8;
-  border: 1px solid #0a246a;
-  border-radius: 7px 7px 4px 4px;
-  box-shadow: 4px 4px 20px rgba(0,0,0,0.7);
-  display: flex; flex-direction: column; overflow: hidden;
-}
-.modal-content {
-  flex: 1; overflow-y: auto; background: white;
-  margin: 0 5px 5px; border: 1px solid #aca899; padding: 10px;
-}
+/* ===== MODAL ===== */
+#project-modal { display: none; position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 40; }
+#modal-win { position: absolute; top: 15px; left: 78px; right: 4px; bottom: 34px; background: #ece9d8; border: 1px solid #0a246a; border-radius: 7px 7px 4px 4px; box-shadow: 4px 4px 20px rgba(0,0,0,0.7); display: flex; flex-direction: column; overflow: hidden; }
+.modal-content { flex: 1; overflow-y: auto; background: white; margin: 0 5px 5px; border: 1px solid #aca899; padding: 10px; }
 .modal-content::-webkit-scrollbar { width: 16px; }
 .modal-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
 .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
 
-/* Carrousel */
-.carousel-wrap {
-  position: relative;
-  margin-bottom: 10px;
-  display: none;
-  background: #f0eee8;
-  border: 1px solid #aca899;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.carousel-img {
-  width: 100%;
-  display: block;
-}
-.carousel-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 5px;
-  background: #ece9d8;
-  border-top: 1px solid #aca899;
-}
-.carousel-btn {
-  background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white; font-size: 11px; font-weight: bold;
-  padding: 2px 10px; border-radius: 3px; cursor: pointer;
-}
+.carousel-wrap { margin-bottom: 10px; display: none; background: #f0eee8; border: 1px solid #aca899; border-radius: 3px; overflow: hidden; }
+.carousel-img { width: 100%; display: block; }
+.carousel-nav { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 5px; background: #ece9d8; border-top: 1px solid #aca899; }
+.carousel-btn { background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%); border: 1px solid rgba(255,255,255,0.3); color: white; font-size: 11px; font-weight: bold; padding: 2px 10px; border-radius: 3px; cursor: pointer; }
 .carousel-btn:hover { background: linear-gradient(180deg, #7ab5e5 0%, #5a9be5 50%, #4070c0 100%); }
 .carousel-btn:disabled { background: #b0b0b0; cursor: default; opacity: 0.5; }
 .carousel-counter { font-size: 10px; color: #555; min-width: 40px; text-align: center; }
 
-/* Image simple */
-#modal-img {
-  width: 100%;
-  border: 1px solid #aca899; border-radius: 3px;
-  margin-bottom: 10px; display: none;
-}
-
+#modal-img { width: 100%; border: 1px solid #aca899; border-radius: 3px; margin-bottom: 10px; display: none; }
 #modal-project-title { font-size: 13px; font-weight: bold; color: #1a3b8c; margin-bottom: 2px; }
 #modal-project-sub { font-size: 10px; color: #888; font-style: italic; margin-bottom: 6px; }
 #modal-project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
 #modal-project-desc { font-size: 11px; line-height: 1.6; color: #444; margin-bottom: 10px; white-space: pre-line; }
-.modal-rag-note {
-  background: #f0f4ff; border: 1px solid #7f9db9; border-radius: 3px;
-  padding: 5px 8px; font-size: 10px; color: #1a3b8c; margin-bottom: 10px; line-height: 1.5;
-}
-#modal-link {
-  display: none;
-  background: linear-gradient(180deg, #4a7fd5 0%, #2a5ab5 100%);
-  color: white; text-decoration: none;
-  padding: 5px 14px; border-radius: 3px; font-size: 11px;
-  border: 1px solid #1a3b8c;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 3px rgba(0,0,0,0.2);
-}
+.modal-rag-note { background: #f0f4ff; border: 1px solid #7f9db9; border-radius: 3px; padding: 5px 8px; font-size: 10px; color: #1a3b8c; margin-bottom: 10px; line-height: 1.5; }
+#modal-link { display: none; background: linear-gradient(180deg, #4a7fd5 0%, #2a5ab5 100%); color: white; text-decoration: none; padding: 5px 14px; border-radius: 3px; font-size: 11px; border: 1px solid #1a3b8c; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 3px rgba(0,0,0,0.2); }
 #modal-link:hover { background: linear-gradient(180deg, #5a8fe5 0%, #3a6ac5 100%); }
 
 /* ===== CONTACT ===== */
@@ -384,7 +274,6 @@ body.lang-en .block-en { display: block !important; }
     <div class="screen-bezel">
       <div class="screen">
 
-        <!-- Boot -->
         <div id="startup-screen">
           <div class="xp-logo">windows <span>XP</span></div>
           <div class="xp-tagline">Portfolio Edition</div>
@@ -393,7 +282,6 @@ body.lang-en .block-en { display: block !important; }
 
         <div class="wallpaper"></div>
 
-        <!-- Icônes -->
         <div class="desktop-icons">
           <div class="icon" id="icon-about" onclick="openWindow('about')">
             <div class="icon-img">👤</div>
@@ -413,13 +301,10 @@ body.lang-en .block-en { display: block !important; }
           </div>
         </div>
 
-        <!-- ===== À PROPOS ===== -->
+        <!-- À PROPOS -->
         <div class="xp-window" id="win-about">
           <div class="title-bar">
-            <div class="title-bar-left">
-              <span class="title-icon">👤</span>
-              <span class="title-text"><span data-fr>À propos de moi</span><span data-en>About Me</span></span>
-            </div>
+            <div class="title-bar-left"><span class="title-icon">👤</span><span class="title-text"><span data-fr>À propos de moi</span><span data-en>About Me</span></span></div>
             <div class="title-buttons">
               <div class="tb-btn" onclick="minimizeWindow('about')">_</div>
               <div class="tb-btn">□</div>
@@ -433,10 +318,7 @@ body.lang-en .block-en { display: block !important; }
           <div class="address-bar">C:\Portfolio\<span data-fr>A_Propos</span><span data-en>About</span>\</div>
           <div class="window-content">
             <div class="about-header">
-              <img class="about-photo"
-                src="https://raw.githubusercontent.com/samasdrr/portefolio/main/photo.png.png"
-                alt="Samantha Asdrubal"
-                onerror="this.style.fontSize='32px';this.src='';this.alt='👤';" />
+              <img class="about-photo" src="photo.png.png" alt="Samantha Asdrubal" onerror="this.style.fontSize='32px';this.src='';this.alt='👤';" />
               <div class="about-text">
                 <h2>Samantha Asdrubal</h2>
                 <div class="role">Business Analyst &mdash; Mailinblack</div>
@@ -456,24 +338,15 @@ body.lang-en .block-en { display: block !important; }
               <div class="exp-meta">2022 – 2024 &nbsp;|&nbsp; Nantes</div>
               <p><span data-fr>Gestion de dossiers MRH et corporels.</span><span data-en>Management of home insurance and personal injury claims.</span></p>
             </div>
-            <div class="info-row">
-              <span class="info-label">🎓 <span data-fr>Formation</span><span data-en>Studies</span></span>
-              <span>Master Data &amp; AI for Business</span>
-            </div>
-            <div class="info-row">
-              <span class="info-label">📍 <span data-fr>Lieu</span><span data-en>Location</span></span>
-              <span>Marseille, Nantes &amp; Paris</span>
-            </div>
+            <div class="info-row"><span class="info-label">🎓 <span data-fr>Formation</span><span data-en>Studies</span></span><span>Master Data &amp; AI for Business</span></div>
+            <div class="info-row"><span class="info-label">📍 <span data-fr>Lieu</span><span data-en>Location</span></span><span>Marseille, Nantes &amp; Paris</span></div>
           </div>
         </div>
 
-        <!-- ===== COMPÉTENCES ===== -->
+        <!-- COMPÉTENCES -->
         <div class="xp-window" id="win-skills">
           <div class="title-bar">
-            <div class="title-bar-left">
-              <span class="title-icon">💼</span>
-              <span class="title-text"><span data-fr>Mes Compétences</span><span data-en>My Skills</span></span>
-            </div>
+            <div class="title-bar-left"><span class="title-icon">💼</span><span class="title-text"><span data-fr>Mes Compétences</span><span data-en>My Skills</span></span></div>
             <div class="title-buttons">
               <div class="tb-btn" onclick="minimizeWindow('skills')">_</div>
               <div class="tb-btn">□</div>
@@ -498,19 +371,13 @@ body.lang-en .block-en { display: block !important; }
             <div class="skill-category">
               <div class="skill-cat-title">📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></div>
               <div class="skill-tags">
-                <span class="skill-tag">Tableau</span>
-                <span class="skill-tag">Power BI</span>
-                <span class="skill-tag">Salesforce</span>
-                <span class="skill-tag">Notion</span>
+                <span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Salesforce</span><span class="skill-tag">Notion</span>
               </div>
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></div>
               <div class="skill-tags">
-                <span class="skill-tag">Make</span>
-                <span class="skill-tag">N8N</span>
-                <span class="skill-tag">Power Automate</span>
-                <span class="skill-tag">Dust</span>
+                <span class="skill-tag">Make</span><span class="skill-tag">N8N</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Dust</span>
                 <span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span>
                 <span class="skill-tag">GitHub / VS Code</span>
               </div>
@@ -529,13 +396,10 @@ body.lang-en .block-en { display: block !important; }
           </div>
         </div>
 
-        <!-- ===== PROJETS ===== -->
+        <!-- PROJETS -->
         <div class="xp-window" id="win-projects">
           <div class="title-bar">
-            <div class="title-bar-left">
-              <span class="title-icon">📁</span>
-              <span class="title-text"><span data-fr>Mes Projets</span><span data-en>My Projects</span></span>
-            </div>
+            <div class="title-bar-left"><span class="title-icon">📁</span><span class="title-text"><span data-fr>Mes Projets</span><span data-en>My Projects</span></span></div>
             <div class="title-buttons">
               <div class="tb-btn" onclick="minimizeWindow('projects')">_</div>
               <div class="tb-btn">□</div>
@@ -552,54 +416,42 @@ body.lang-en .block-en { display: block !important; }
             <div class="project-card clickable" onclick="openProject('seo')">
               <h3>🔍 Workflow SEO Ranking</h3>
               <div class="project-sub"><span data-fr>Hackathon payant</span><span data-en>Paid Hackathon</span></div>
-              <div class="project-tags">
-                <span class="ptag">Make</span><span class="ptag">Google Sheets</span><span class="ptag">API Google Trends</span>
-              </div>
+              <div class="project-tags"><span class="ptag">Make</span><span class="ptag">Google Sheets</span><span class="ptag">API Google Trends</span></div>
               <p><span data-fr>Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.</span><span data-en>Fully automated workflow scoring keywords based on search intent.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
             <div class="project-card clickable" onclick="openProject('courses')">
               <h3>🏇 <span data-fr>Prédiction Courses Hippiques</span><span data-en>Horse Racing Prediction</span></h3>
-              <div class="project-tags">
-                <span class="ptag">Google Sheets</span><span class="ptag">Excel</span><span class="ptag">Dashboard</span><span class="ptag">Kaggle</span>
-              </div>
+              <div class="project-tags"><span class="ptag">Google Sheets</span><span class="ptag">Excel</span><span class="ptag">Dashboard</span><span class="ptag">Kaggle</span></div>
               <p><span data-fr>Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d'un jeu de données récupéré sur Kaggle.</span><span data-en>Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
             <div class="project-card clickable" onclick="openProject('films')">
               <h3>🎬 <span data-fr>Scraping Films &amp; Séries</span><span data-en>Movies &amp; Series Scraping</span></h3>
-              <div class="project-tags">
-                <span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">Web Scraping</span>
-              </div>
+              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">Web Scraping</span></div>
               <p><span data-fr>Scraping du site JustWatch afin de générer des recommandations personnalisées sur les films et séries.</span><span data-en>Scraping JustWatch to generate personalized movie and series recommendations.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
             <div class="project-card clickable" onclick="openProject('chatbot')">
               <h3>🎵 <span data-fr>Chatbot Paroles de Musique</span><span data-en>Music Lyrics Chatbot</span></h3>
-              <div class="project-tags">
-                <span class="ptag">Python</span><span class="ptag">Scraping</span><span class="ptag">RAG</span>
-              </div>
+              <div class="project-tags"><span class="ptag">Python</span><span class="ptag">Scraping</span><span class="ptag">RAG</span></div>
               <p><span data-fr>Scraping de LyricsTranslate puis vectorisation des données (RAG) pour créer un chatbot qui retrouve le titre d'une chanson à partir de paroles.</span><span data-en>Scraping LyricsTranslate then vectorizing data (RAG) to build a chatbot that finds a song title from lyrics.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
             <div class="project-card clickable" onclick="openProject('hub')">
               <h3>🛒 Hub Supply Marketplace <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon Mirakl)</span></h3>
-              <div class="project-tags">
-                <span class="ptag">Supply Chain</span><span class="ptag green">Agentique</span><span class="ptag green">Vibe Coding</span>
-              </div>
+              <div class="project-tags"><span class="ptag">Supply Chain</span><span class="ptag green">Agentique</span><span class="ptag green">Vibe Coding</span></div>
               <p><span data-fr>Hub de gestion de la chaîne d'approvisionnement pour les vendeurs marketplace. Prédiction de stock, gestion de pertes et de l'approvisionnement.</span><span data-en>Supply chain management hub for marketplace sellers. Stock prediction, loss management and supply automation.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
             <div class="project-card clickable" onclick="openProject('powerauto')">
               <h3>⚡ <span data-fr>Workflow Power Automate — Gestion des leads</span><span data-en>Power Automate Workflow — Lead Management</span></h3>
-              <div class="project-tags">
-                <span class="ptag">Power Automate</span><span class="ptag">Salesforce</span><span class="ptag">CRM</span><span class="ptag green">Microsoft Teams</span>
-              </div>
+              <div class="project-tags"><span class="ptag">Power Automate</span><span class="ptag">Salesforce</span><span class="ptag">CRM</span><span class="ptag green">Microsoft Teams</span></div>
               <p><span data-fr>Plusieurs flows connectés à Salesforce. Alertes quotidiennes et hebdomadaires envoyées via bot Teams aux sales et managers.</span><span data-en>Multiple flows connected to Salesforce. Daily and weekly alerts sent via Teams bot to sales reps and managers.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
@@ -607,7 +459,7 @@ body.lang-en .block-en { display: block !important; }
           </div>
         </div>
 
-        <!-- ===== MODAL PROJET ===== -->
+        <!-- MODAL PROJET -->
         <div id="project-modal">
           <div id="modal-win">
             <div class="title-bar">
@@ -623,27 +475,22 @@ body.lang-en .block-en { display: block !important; }
               <div class="menu-item" onclick="closeModal()"><span data-fr>Fermer</span><span data-en>Close</span></div>
             </div>
             <div class="modal-content">
-
-              <!-- Image simple -->
               <img id="modal-img" src="" alt="" onerror="this.style.display='none';" />
-
-              <!-- Carrousel multi-images -->
               <div class="carousel-wrap" id="carousel-wrap">
                 <img class="carousel-img" id="carousel-img" src="" alt="" onerror="this.src='';" />
                 <div class="carousel-nav">
                   <button class="carousel-btn" id="carousel-prev" onclick="carouselPrev()">&#9664;</button>
-                  <span class="carousel-counter" id="carousel-counter">1 / 3</span>
+                  <span class="carousel-counter" id="carousel-counter">1 / 2</span>
                   <button class="carousel-btn" id="carousel-next" onclick="carouselNext()">&#9654;</button>
                 </div>
               </div>
-
               <div id="modal-project-title"></div>
               <div id="modal-project-sub"></div>
               <div id="modal-project-tags"></div>
               <div id="modal-project-desc"></div>
               <div id="modal-rag-note" class="modal-rag-note" style="display:none;">
                 <strong>💡 RAG (Retrieval-Augmented Generation)</strong> &mdash;
-                <span data-fr>Technique qui consiste à vectoriser des textes (ici les paroles) et à les stocker dans une base de vecteurs. Quand l'utilisateur saisit des paroles, le système calcule la similarité sémantique pour retrouver la chanson la plus proche, sans avoir tout mémorisé dans un modèle.</span><span data-en>A technique that vectorizes texts (here: lyrics) and stores them in a vector database. When the user types lyrics, the system computes semantic similarity to find the closest song, without memorizing everything in a model.</span>
+                <span data-fr>Technique qui consiste à vectoriser des textes (ici les paroles) et à les stocker dans une base de vecteurs. Quand l'utilisateur saisit des paroles, le système calcule la similarité sémantique pour retrouver la chanson la plus proche.</span><span data-en>A technique that vectorizes texts (here: lyrics) and stores them in a vector database. When the user types lyrics, the system computes semantic similarity to find the closest song.</span>
               </div>
               <a id="modal-link" href="#" target="_blank" rel="noopener">
                 🔗 <span data-fr>Voir le projet</span><span data-en>View project</span>
@@ -652,13 +499,10 @@ body.lang-en .block-en { display: block !important; }
           </div>
         </div>
 
-        <!-- ===== CONTACT ===== -->
+        <!-- CONTACT -->
         <div class="xp-window" id="win-contact">
           <div class="title-bar">
-            <div class="title-bar-left">
-              <span class="title-icon">✉️</span>
-              <span class="title-text">Contact</span>
-            </div>
+            <div class="title-bar-left"><span class="title-icon">✉️</span><span class="title-text">Contact</span></div>
             <div class="title-buttons">
               <div class="tb-btn" onclick="minimizeWindow('contact')">_</div>
               <div class="tb-btn">□</div>
@@ -674,14 +518,17 @@ body.lang-en .block-en { display: block !important; }
             <p class="contact-intro block-fr">N'hésitez pas à me contacter !</p>
             <p class="contact-intro block-en">Feel free to reach out!</p>
             <div class="contact-links">
+              <a href="mailto:asdrubalsamantha@gmail.com" class="contact-link">
+                <span class="cl-icon">📧</span><span>asdrubalsamantha@gmail.com</span>
+              </a>
               <a href="mailto:sasdrubal@eugeniaschool.com" class="contact-link">
-                <span class="cl-icon">📧</span><span>sasdrubal@eugeniaschool.com</span>
+                <span class="cl-icon">🎓</span><span>sasdrubal@eugeniaschool.com</span>
+              </a>
+              <a href="https://www.linkedin.com/in/samantha-asdrubal-136a7b29b" target="_blank" rel="noopener" class="contact-link">
+                <span class="cl-icon">🔗</span><span>linkedin.com/in/samantha-asdrubal</span>
               </a>
               <a href="https://github.com/samasdrr" target="_blank" rel="noopener" class="contact-link">
                 <span class="cl-icon">🐙</span><span>github.com/samasdrr</span>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
-                <span class="cl-icon">🔗</span><span>LinkedIn</span>
               </a>
             </div>
           </div>
@@ -689,10 +536,7 @@ body.lang-en .block-en { display: block !important; }
 
         <!-- Taskbar -->
         <div class="taskbar">
-          <div class="start-btn">
-            <span class="start-icon">⊞</span>
-            <span class="start-text">start</span>
-          </div>
+          <div class="start-btn"><span class="start-icon">⊞</span><span class="start-text">start</span></div>
           <div class="taskbar-tasks" id="taskbar-tasks"></div>
           <div class="system-tray">
             <div class="lang-toggle" id="lang-btn" onclick="toggleLang()">EN</div>
@@ -734,8 +578,7 @@ body.lang-en .block-en { display: block !important; }
         <div class="key fn">F9</div><div class="key fn">F10</div><div class="key fn">F11</div><div class="key fn">F12</div>
       </div>
       <div class="key-row">
-        <div class="key">~</div>
-        <div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div>
+        <div class="key">~</div><div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div>
         <div class="key">5</div><div class="key">6</div><div class="key">7</div><div class="key">8</div>
         <div class="key">9</div><div class="key">0</div><div class="key">-</div><div class="key">=</div>
         <div class="key wider">Del</div>
@@ -787,7 +630,7 @@ var PROJECTS = {
     tags: ['Make', 'Google Sheets', 'API Google Trends'],
     descFr: 'Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.\n\nConnecté à Google Trends via API pour récupérer les volumes et tendances, le flow classe automatiquement les mots-clés par potentiel SEO directement dans Google Sheets.',
     descEn: 'Fully automated workflow scoring keywords based on search intent.\n\nConnected to Google Trends via API to retrieve volumes and trends, the flow automatically ranks keywords by SEO potential directly in Google Sheets.',
-    img: 'img/seo-workflow.png',
+    img: 'make1.png',
     imgs: null,
     link: null,
     rag: false
@@ -801,7 +644,7 @@ var PROJECTS = {
     tags: ['Google Sheets', 'Excel', 'Dashboard', 'Kaggle'],
     descFr: 'Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d\'un jeu de données récupéré sur Kaggle.\n\nLe dashboard intègre des formules de scoring basées sur les performances passées des chevaux, jockeys et conditions de course.',
     descEn: 'Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.\n\nThe dashboard includes scoring formulas based on past performance of horses, jockeys and race conditions.',
-    img: 'img/courses-hippiques.png',
+    img: 'Horsepredective.png',
     imgs: null,
     link: 'https://docs.google.com/spreadsheets/d/1-MUSx2d8U98KpO9am7kJ5F4DKmnVEfQzKN0J30xqzRM/edit?usp=sharing',
     rag: false
@@ -813,9 +656,9 @@ var PROJECTS = {
     subFr: '',
     subEn: '',
     tags: ['Python', 'HTML', 'Web Scraping', 'JustWatch'],
-    descFr: 'Scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries selon les préférences de l\'utilisateur (genre, plateforme, note).\n\nDéployé sous forme d\'application web via Lovable.',
-    descEn: 'Scraping JustWatch to generate personalized movie and series recommendations based on user preferences (genre, platform, rating).\n\nDeployed as a web application via Lovable.',
-    img: 'img/scraping-films.png',
+    descFr: 'Scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries selon les préférences de l\'utilisateur.\n\nDéployé sous forme d\'application web via Lovable.',
+    descEn: 'Scraping JustWatch to generate personalized movie and series recommendations based on user preferences.\n\nDeployed as a web application via Lovable.',
+    img: null,
     imgs: null,
     link: 'https://vibe-select-recs.lovable.app',
     rag: false
@@ -841,10 +684,10 @@ var PROJECTS = {
     subFr: 'Hackathon Mirakl',
     subEn: 'Mirakl Hackathon',
     tags: ['Supply Chain', 'Agentique', 'Vibe Coding', 'Mirakl'],
-    descFr: 'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace.\n\nFonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement. Concu en mode vibe coding lors du hackathon Mirakl.',
+    descFr: 'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace.\n\nFonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement. Conçu en mode vibe coding lors du hackathon Mirakl.',
     descEn: 'Supply chain management hub for marketplace sellers.\n\nFeatures: stock prediction, loss management and supply automation. Built with vibe coding during the Mirakl hackathon.',
-    img: 'img/hub-supply.png',
-    imgs: null,
+    img: null,
+    imgs: ['Mirakl.png', 'mirakl1.png', 'mirakl2.png'],
     link: null,
     rag: false
   },
@@ -855,10 +698,10 @@ var PROJECTS = {
     subFr: 'Mailinblack',
     subEn: 'Mailinblack',
     tags: ['Power Automate', 'Salesforce', 'CRM', 'Microsoft Teams'],
-    descFr: 'Plusieurs flows Power Automate connectes au CRM Salesforce :\n\n• Top 5 sales de la semaine\n• Top 10 leads closes de la semaine\n• Top leads a closer par commercial\n\nLes sales et managers recoivent automatiquement des alertes quotidiennes et hebdomadaires via un bot Microsoft Teams, directement dans leurs canaux.',
+    descFr: 'Plusieurs flows Power Automate connectés au CRM Salesforce :\n\n• Top 5 sales de la semaine\n• Top 10 leads closés de la semaine\n• Top leads à closer par commercial\n\nLes sales et managers reçoivent des alertes quotidiennes et hebdomadaires via un bot Microsoft Teams, directement dans leurs canaux.',
     descEn: 'Multiple Power Automate flows connected to Salesforce CRM:\n\n• Top 5 weekly sales reps\n• Top 10 closed leads of the week\n• Top leads to close per salesperson\n\nSales reps and managers automatically receive daily and weekly alerts via a Microsoft Teams bot, directly in their channels.',
-    img: null,
-    imgs: ['img/power-automate-1.png', 'img/power-automate-2.png', 'img/power-automate-3.png'],
+    img: 'powerautomate.png',
+    imgs: null,
     link: null,
     rag: false
   }
@@ -875,7 +718,6 @@ function carouselShow(idx) {
   document.getElementById('carousel-prev').disabled = (idx === 0);
   document.getElementById('carousel-next').disabled = (idx === carouselImages.length - 1);
 }
-
 function carouselPrev() { carouselShow(carouselIndex - 1); }
 function carouselNext() { carouselShow(carouselIndex + 1); }
 
@@ -914,25 +756,21 @@ function openProject(key) {
 
   document.getElementById('modal-rag-note').style.display = d.rag ? 'block' : 'none';
 
-  /* Images */
   var imgEl = document.getElementById('modal-img');
   var carWrap = document.getElementById('carousel-wrap');
 
   if (d.imgs && d.imgs.length > 0) {
-    /* Carrousel */
     imgEl.style.display = 'none';
     carouselImages = d.imgs;
     carouselIndex = 0;
     carWrap.style.display = 'block';
     carouselShow(0);
   } else if (d.img) {
-    /* Image unique */
     carWrap.style.display = 'none';
     carouselImages = [];
     imgEl.src = d.img;
     imgEl.style.display = 'block';
   } else {
-    /* Pas d'image */
     imgEl.style.display = 'none';
     carWrap.style.display = 'none';
     carouselImages = [];
