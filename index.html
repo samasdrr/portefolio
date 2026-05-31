@@ -177,95 +177,47 @@ body {
 }
 .window-content::-webkit-scrollbar { width: 16px; }
 .window-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
-.window-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088;
-}
+.window-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
 
-/* ===== CONTENU À PROPOS ===== */
+/* ===== À PROPOS ===== */
 .about-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
-.about-photo {
-  width: 72px; height: 72px; border-radius: 4px;
-  border: 2px solid #7f9db9; object-fit: cover; flex-shrink: 0; background: #dce6f8;
-}
+.about-photo { width: 72px; height: 72px; border-radius: 4px; border: 2px solid #7f9db9; object-fit: cover; flex-shrink: 0; background: #dce6f8; }
 .about-text h2 { font-size: 13px; color: #1a3b8c; margin-bottom: 2px; }
 .about-text .role { font-size: 10px; color: #316ac5; margin-bottom: 5px; font-style: italic; }
 .about-text .bio { font-size: 10px; line-height: 1.5; color: #444; }
-.section-title {
-  font-size: 11px; font-weight: bold; color: white;
-  background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%);
-  padding: 3px 8px; border-radius: 3px; margin: 9px 0 5px;
-}
-.exp-card {
-  background: #f5f3ed; border: 1px solid #d0ccc0;
-  border-left: 3px solid #316ac5;
-  border-radius: 3px; padding: 6px 9px; margin-bottom: 6px;
-}
+.section-title { font-size: 11px; font-weight: bold; color: white; background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%); padding: 3px 8px; border-radius: 3px; margin: 9px 0 5px; }
+.exp-card { background: #f5f3ed; border: 1px solid #d0ccc0; border-left: 3px solid #316ac5; border-radius: 3px; padding: 6px 9px; margin-bottom: 6px; }
 .exp-card h4 { font-size: 11px; color: #1a3b8c; margin-bottom: 2px; }
 .exp-meta { font-size: 9px; color: #888; margin-bottom: 3px; }
 .exp-card p { font-size: 10px; color: #555; line-height: 1.4; }
-.info-row {
-  display: flex; align-items: center; gap: 8px;
-  padding: 3px 0; border-bottom: 1px solid #ece9d8; font-size: 10px;
-}
+.info-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; border-bottom: 1px solid #ece9d8; font-size: 10px; }
 .info-label { font-weight: bold; color: #1a3b8c; min-width: 80px; }
 
 /* ===== COMPÉTENCES ===== */
 .skill-category { margin-bottom: 11px; }
-.skill-cat-title {
-  font-size: 11px; font-weight: bold; color: white;
-  background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%);
-  padding: 4px 9px; border-radius: 3px; margin-bottom: 6px;
-  display: flex; align-items: center; gap: 5px;
-}
+.skill-cat-title { font-size: 11px; font-weight: bold; color: white; background: linear-gradient(180deg, #2c5dbc 0%, #1a3b8c 100%); padding: 4px 9px; border-radius: 3px; margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-.skill-tag {
-  background: #dce6f8; border: 1px solid #7f9db9;
-  border-radius: 3px; padding: 3px 9px; font-size: 10px; color: #1a3b8c;
-  display: flex; align-items: center; gap: 4px;
-}
-.skill-tag.certified {
-  background: linear-gradient(135deg, #fff8e1, #fff3cd);
-  border: 1px solid #f0c040; color: #7a5800; font-weight: bold;
-}
-.cert-badge {
-  background: #f0c040; color: #7a5800; font-size: 8px;
-  padding: 1px 4px; border-radius: 2px; font-weight: bold; white-space: nowrap;
-}
+.skill-tag { background: #dce6f8; border: 1px solid #7f9db9; border-radius: 3px; padding: 3px 9px; font-size: 10px; color: #1a3b8c; display: flex; align-items: center; gap: 4px; }
+.skill-tag.certified { background: linear-gradient(135deg, #fff8e1, #fff3cd); border: 1px solid #f0c040; color: #7a5800; font-weight: bold; }
+.cert-badge { background: #f0c040; color: #7a5800; font-size: 8px; padding: 1px 4px; border-radius: 2px; font-weight: bold; white-space: nowrap; }
 .soft-skills-grid { display: flex; flex-wrap: wrap; gap: 5px; }
-.soft-tag {
-  background: linear-gradient(135deg, #eef4ee, #d8ecd8);
-  border: 1px solid #80b880; border-radius: 3px; padding: 4px 9px;
-  font-size: 10px; color: #2a5a2a; display: flex; align-items: center; gap: 4px;
-}
+.soft-tag { background: linear-gradient(135deg, #eef4ee, #d8ecd8); border: 1px solid #80b880; border-radius: 3px; padding: 4px 9px; font-size: 10px; color: #2a5a2a; display: flex; align-items: center; gap: 4px; }
 .soft-tag .sticon { font-size: 11px; }
 
 /* ===== PROJETS ===== */
-.project-card {
-  background: #f5f3ed; border: 1px solid #aca899;
-  border-radius: 4px; padding: 8px 10px; margin-bottom: 7px;
-  transition: background 0.12s, border-color 0.12s;
-}
-.project-card.clickable {
-  cursor: pointer;
-}
-.project-card.clickable:hover {
-  background: #e8e4d8;
-  border-color: #316ac5;
-}
+.project-card { background: #f5f3ed; border: 1px solid #aca899; border-radius: 4px; padding: 8px 10px; margin-bottom: 7px; }
+.project-card.clickable { cursor: pointer; transition: background 0.12s, border-color 0.12s; }
+.project-card.clickable:hover { background: #e8e4d8; border-color: #316ac5; }
 .project-card h3 { font-size: 12px; color: #1a3b8c; margin-bottom: 3px; }
 .project-sub { font-size: 9px; color: #888; font-style: italic; margin-bottom: 3px; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 4px; }
 .ptag { background: #316ac5; color: white; font-size: 10px; padding: 1px 6px; border-radius: 2px; }
 .ptag.green { background: #3a8a3a; }
 .project-card p { font-size: 10px; line-height: 1.45; color: #555; }
-.project-hint {
-  margin-top: 5px;
-  font-size: 9px; color: #316ac5;
-  display: flex; align-items: center; gap: 3px;
-}
+.project-hint { margin-top: 5px; font-size: 9px; color: #316ac5; display: flex; align-items: center; gap: 3px; }
 .project-hint::before { content: '📂'; font-size: 10px; }
 
-/* ===== MODAL PROJET (XP style) ===== */
+/* ===== MODAL PROJET ===== */
 #project-modal {
   display: none;
   position: absolute; inset: 0;
@@ -288,19 +240,54 @@ body {
 .modal-content::-webkit-scrollbar { width: 16px; }
 .modal-content::-webkit-scrollbar-track { background: #ece9d8; border-left: 1px solid #aca899; }
 .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(90deg, #d0ccc0, #b0aca0); border: 1px solid #909088; }
-#modal-img {
-  width: 100%; border: 1px solid #aca899; border-radius: 3px;
-  margin-bottom: 10px; display: none;
-  cursor: zoom-in;
+
+/* Carrousel */
+.carousel-wrap {
+  position: relative;
+  margin-bottom: 10px;
+  display: none;
+  background: #f0eee8;
+  border: 1px solid #aca899;
+  border-radius: 3px;
+  overflow: hidden;
 }
+.carousel-img {
+  width: 100%;
+  display: block;
+}
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 5px;
+  background: #ece9d8;
+  border-top: 1px solid #aca899;
+}
+.carousel-btn {
+  background: linear-gradient(180deg, #5b9bd5 0%, #3a7bd5 50%, #2050a0 100%);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white; font-size: 11px; font-weight: bold;
+  padding: 2px 10px; border-radius: 3px; cursor: pointer;
+}
+.carousel-btn:hover { background: linear-gradient(180deg, #7ab5e5 0%, #5a9be5 50%, #4070c0 100%); }
+.carousel-btn:disabled { background: #b0b0b0; cursor: default; opacity: 0.5; }
+.carousel-counter { font-size: 10px; color: #555; min-width: 40px; text-align: center; }
+
+/* Image simple */
+#modal-img {
+  width: 100%;
+  border: 1px solid #aca899; border-radius: 3px;
+  margin-bottom: 10px; display: none;
+}
+
 #modal-project-title { font-size: 13px; font-weight: bold; color: #1a3b8c; margin-bottom: 2px; }
 #modal-project-sub { font-size: 10px; color: #888; font-style: italic; margin-bottom: 6px; }
 #modal-project-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
-#modal-project-desc { font-size: 11px; line-height: 1.6; color: #444; margin-bottom: 10px; }
+#modal-project-desc { font-size: 11px; line-height: 1.6; color: #444; margin-bottom: 10px; white-space: pre-line; }
 .modal-rag-note {
   background: #f0f4ff; border: 1px solid #7f9db9; border-radius: 3px;
-  padding: 5px 8px; font-size: 10px; color: #1a3b8c; margin-bottom: 10px;
-  line-height: 1.5;
+  padding: 5px 8px; font-size: 10px; color: #1a3b8c; margin-bottom: 10px; line-height: 1.5;
 }
 #modal-link {
   display: none;
@@ -314,130 +301,47 @@ body {
 
 /* ===== CONTACT ===== */
 .contact-links { display: flex; flex-direction: column; gap: 7px; }
-.contact-link {
-  display: flex; align-items: center; gap: 10px;
-  padding: 7px 12px; background: #f0eee8; border: 1px solid #aca899;
-  border-radius: 3px; text-decoration: none; color: #1a3b8c;
-  font-size: 12px; transition: background 0.1s;
-}
+.contact-link { display: flex; align-items: center; gap: 10px; padding: 7px 12px; background: #f0eee8; border: 1px solid #aca899; border-radius: 3px; text-decoration: none; color: #1a3b8c; font-size: 12px; transition: background 0.1s; }
 .contact-link:hover { background: #dce6f8; }
 .contact-link .cl-icon { font-size: 17px; }
 .contact-intro { margin-bottom: 12px; font-size: 12px; color: #555; }
 
 /* ===== TASKBAR ===== */
-.taskbar {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 34px;
-  background: linear-gradient(180deg, #2564e0 0%, #1a4bc7 40%, #1e52d4 65%, #2460e0 100%);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5px; z-index: 50; border-top: 2px solid #5090ff;
-}
-.start-btn {
-  background: linear-gradient(180deg, #5aa334 0%, #3a8a1a 40%, #2d7010 60%, #4a9a28 100%);
-  border: 1px solid #2a6a10; border-radius: 0 12px 12px 0;
-  padding: 3px 12px 3px 8px; display: flex; align-items: center; gap: 5px;
-  cursor: pointer; height: 26px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 2px 0 4px rgba(0,0,0,0.2);
-}
+.taskbar { position: absolute; bottom: 0; left: 0; right: 0; height: 34px; background: linear-gradient(180deg, #2564e0 0%, #1a4bc7 40%, #1e52d4 65%, #2460e0 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 5px; z-index: 50; border-top: 2px solid #5090ff; }
+.start-btn { background: linear-gradient(180deg, #5aa334 0%, #3a8a1a 40%, #2d7010 60%, #4a9a28 100%); border: 1px solid #2a6a10; border-radius: 0 12px 12px 0; padding: 3px 12px 3px 8px; display: flex; align-items: center; gap: 5px; cursor: pointer; height: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 2px 0 4px rgba(0,0,0,0.2); }
 .start-btn:hover { background: linear-gradient(180deg, #6ab344 0%, #4a9a2a 40%, #3d8020 60%, #5aaa38 100%); }
 .start-icon { font-size: 14px; }
 .start-text { color: white; font-size: 12px; font-weight: bold; font-style: italic; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); }
 .taskbar-tasks { flex: 1; margin: 0 6px; display: flex; gap: 2px; }
-.task-btn {
-  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 3px; padding: 2px 8px; color: white; font-size: 11px;
-  cursor: pointer; white-space: nowrap; overflow: hidden;
-  max-width: 110px; text-overflow: ellipsis; height: 22px;
-}
-.task-btn.active-task {
-  background: rgba(0,0,0,0.28); border-color: rgba(255,255,255,0.1);
-  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.4);
-}
-.system-tray {
-  display: flex; align-items: center; gap: 6px;
-  background: rgba(0,0,0,0.18); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 3px; padding: 2px 7px; height: 24px;
-}
-.lang-toggle {
-  color: white; font-size: 10px; cursor: pointer;
-  background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 2px; padding: 1px 5px;
-}
+.task-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); border-radius: 3px; padding: 2px 8px; color: white; font-size: 11px; cursor: pointer; white-space: nowrap; overflow: hidden; max-width: 110px; text-overflow: ellipsis; height: 22px; }
+.task-btn.active-task { background: rgba(0,0,0,0.28); border-color: rgba(255,255,255,0.1); box-shadow: inset 1px 1px 3px rgba(0,0,0,0.4); }
+.system-tray { display: flex; align-items: center; gap: 6px; background: rgba(0,0,0,0.18); border: 1px solid rgba(255,255,255,0.12); border-radius: 3px; padding: 2px 7px; height: 24px; }
+.lang-toggle { color: white; font-size: 10px; cursor: pointer; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.35); border-radius: 2px; padding: 1px 5px; }
 .lang-toggle:hover { background: rgba(255,255,255,0.35); }
 .clock { color: white; font-size: 10px; }
 
 /* ===== CHIN ===== */
-.monitor-chin {
-  background: linear-gradient(180deg, #d4c49a 0%, #b8a870 50%, #c8b888 100%);
-  height: 52px; border-radius: 0 0 18px 18px;
-  display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
-  box-shadow: inset 0 3px 6px rgba(255,255,255,0.25), inset 0 -2px 5px rgba(0,0,0,0.2), 0 6px 14px rgba(0,0,0,0.5);
-  margin: 0 -28px; position: relative; z-index: 1;
-}
+.monitor-chin { background: linear-gradient(180deg, #d4c49a 0%, #b8a870 50%, #c8b888 100%); height: 52px; border-radius: 0 0 18px 18px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; box-shadow: inset 0 3px 6px rgba(255,255,255,0.25), inset 0 -2px 5px rgba(0,0,0,0.2), 0 6px 14px rgba(0,0,0,0.5); margin: 0 -28px; position: relative; z-index: 1; }
 .chin-left { display: flex; align-items: center; gap: 10px; }
-.power-btn {
-  width: 22px; height: 22px; border-radius: 50%;
-  background: linear-gradient(145deg, #c8b870, #a09050); border: 2px solid #807040;
-  box-shadow: inset 0 2px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
-  display: flex; align-items: center; justify-content: center; cursor: pointer;
-}
-.power-led {
-  width: 7px; height: 7px; background: #44ff44; border-radius: 50%;
-  box-shadow: 0 0 7px #44ff44, 0 0 14px rgba(68,255,68,0.4);
-  animation: blink 5s infinite;
-}
+.power-btn { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(145deg, #c8b870, #a09050); border: 2px solid #807040; box-shadow: inset 0 2px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.power-led { width: 7px; height: 7px; background: #44ff44; border-radius: 50%; box-shadow: 0 0 7px #44ff44, 0 0 14px rgba(68,255,68,0.4); animation: blink 5s infinite; }
 @keyframes blink { 0%, 85%, 100% { opacity: 1; } 91% { opacity: 0.15; } }
 .chin-controls { display: flex; gap: 7px; align-items: center; }
-.ctrl-btn {
-  width: 14px; height: 28px;
-  background: linear-gradient(180deg, #c8b870 0%, #907840 50%, #b0a060 100%);
-  border: 1px solid #706030; border-radius: 3px;
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 2px 3px rgba(0,0,0,0.3); cursor: pointer;
-}
-.ctrl-knob {
-  width: 20px; height: 20px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #d8c880, #907840); border: 1px solid #706030;
-  box-shadow: inset 0 1px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4);
-  cursor: pointer; position: relative;
-}
-.ctrl-knob::after {
-  content: ''; position: absolute; top: 3px; left: 50%;
-  transform: translateX(-50%); width: 2px; height: 6px; background: #403010; border-radius: 1px;
-}
+.ctrl-btn { width: 14px; height: 28px; background: linear-gradient(180deg, #c8b870 0%, #907840 50%, #b0a060 100%); border: 1px solid #706030; border-radius: 3px; box-shadow: inset 0 1px 2px rgba(255,255,255,0.4), 0 2px 3px rgba(0,0,0,0.3); cursor: pointer; }
+.ctrl-knob { width: 20px; height: 20px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #d8c880, #907840); border: 1px solid #706030; box-shadow: inset 0 1px 3px rgba(255,255,255,0.4), 0 2px 4px rgba(0,0,0,0.4); cursor: pointer; position: relative; }
+.ctrl-knob::after { content: ''; position: absolute; top: 3px; left: 50%; transform: translateX(-50%); width: 2px; height: 6px; background: #403010; border-radius: 1px; }
 .monitor-brand { font-size: 9px; color: #6a5a30; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; text-shadow: 0 1px 0 rgba(255,255,255,0.3); }
 
 /* ===== PIED ===== */
 .monitor-stand { display: flex; flex-direction: column; align-items: center; }
-.stand-neck {
-  width: 70px; height: 22px;
-  background: linear-gradient(90deg, #a89060 0%, #d4c498 40%, #c0aa78 60%, #a89060 100%);
-  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); box-shadow: 0 3px 6px rgba(0,0,0,0.4);
-}
-.stand-base {
-  width: 160px; height: 14px;
-  background: linear-gradient(180deg, #cfc09a 0%, #a89060 100%);
-  border-radius: 4px 4px 8px 8px;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.3);
-}
+.stand-neck { width: 70px; height: 22px; background: linear-gradient(90deg, #a89060 0%, #d4c498 40%, #c0aa78 60%, #a89060 100%); clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%); box-shadow: 0 3px 6px rgba(0,0,0,0.4); }
+.stand-base { width: 160px; height: 14px; background: linear-gradient(180deg, #cfc09a 0%, #a89060 100%); border-radius: 4px 4px 8px 8px; box-shadow: 0 5px 12px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.3); }
 
 /* ===== CLAVIER ===== */
 .keyboard-wrap { margin-top: 18px; }
-.keyboard {
-  background: linear-gradient(180deg, #e8d8b8 0%, #d4c498 40%, #c4b488 100%);
-  border-radius: 10px 10px 6px 6px; padding: 10px 10px 14px;
-  box-shadow: inset 0 2px 4px rgba(255,255,255,0.55), inset 0 -2px 4px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.4);
-  border: 1px solid #a09060;
-}
+.keyboard { background: linear-gradient(180deg, #e8d8b8 0%, #d4c498 40%, #c4b488 100%); border-radius: 10px 10px 6px 6px; padding: 10px 10px 14px; box-shadow: inset 0 2px 4px rgba(255,255,255,0.55), inset 0 -2px 4px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.6), 0 3px 6px rgba(0,0,0,0.4); border: 1px solid #a09060; }
 .key-row { display: flex; gap: 3px; margin-bottom: 3px; justify-content: center; }
-.key {
-  background: linear-gradient(180deg, #f8f2e4 0%, #e4dccc 60%, #d4ccb8 100%);
-  border: 1px solid #a8a090; border-radius: 4px;
-  width: 24px; height: 21px; display: flex; align-items: center; justify-content: center;
-  font-size: 7px; color: #444;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 1px 0 0 rgba(255,255,255,0.4), 0 3px 0 rgba(0,0,0,0.3), 0 3px 1px rgba(0,0,0,0.2);
-  cursor: default; user-select: none; font-family: Arial, sans-serif;
-  font-weight: bold; text-transform: uppercase; position: relative; top: 0;
-  transition: top 0.05s, box-shadow 0.05s;
-}
+.key { background: linear-gradient(180deg, #f8f2e4 0%, #e4dccc 60%, #d4ccb8 100%); border: 1px solid #a8a090; border-radius: 4px; width: 24px; height: 21px; display: flex; align-items: center; justify-content: center; font-size: 7px; color: #444; box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 1px 0 0 rgba(255,255,255,0.4), 0 3px 0 rgba(0,0,0,0.3), 0 3px 1px rgba(0,0,0,0.2); cursor: default; user-select: none; font-family: Arial, sans-serif; font-weight: bold; text-transform: uppercase; position: relative; top: 0; transition: top 0.05s, box-shadow 0.05s; }
 .key:hover { top: 2px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 0 rgba(0,0,0,0.3); }
 .key.wide { width: 38px; } .key.wider { width: 52px; }
 .key.space { width: 190px; } .key.enter { width: 48px; }
@@ -452,21 +356,13 @@ body.lang-fr .block-fr { display: block !important; }
 body.lang-en .block-en { display: block !important; }
 
 /* ===== BOOT ===== */
-#startup-screen {
-  position: absolute; inset: 0; background: #003399;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  z-index: 200; transition: opacity 0.8s;
-}
+#startup-screen { position: absolute; inset: 0; background: #003399; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 200; transition: opacity 0.8s; }
 #startup-screen.hidden { opacity: 0; pointer-events: none; }
 .xp-logo { font-size: 38px; color: white; font-family: 'Trebuchet MS', Tahoma, sans-serif; font-weight: 300; letter-spacing: 3px; margin-bottom: 4px; }
 .xp-logo span { color: #ff6600; font-weight: bold; }
 .xp-tagline { color: rgba(255,255,255,0.65); font-size: 11px; margin-bottom: 28px; letter-spacing: 1px; }
 .loading-bar-outer { width: 200px; height: 10px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; overflow: hidden; }
-.loading-bar-inner {
-  height: 100%; width: 0;
-  background: linear-gradient(90deg, #3377ff, #66aaff, #3377ff); background-size: 200% 100%;
-  animation: loadAnim 2.6s ease-out forwards, shimmer 0.8s linear infinite;
-}
+.loading-bar-inner { height: 100%; width: 0; background: linear-gradient(90deg, #3377ff, #66aaff, #3377ff); background-size: 200% 100%; animation: loadAnim 2.6s ease-out forwards, shimmer 0.8s linear infinite; }
 @keyframes loadAnim { 0% { width: 0; } 20% { width: 30%; } 50% { width: 62%; } 78% { width: 84%; } 100% { width: 100%; } }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
@@ -544,12 +440,8 @@ body.lang-en .block-en { display: block !important; }
               <div class="about-text">
                 <h2>Samantha Asdrubal</h2>
                 <div class="role">Business Analyst &mdash; Mailinblack</div>
-                <div class="block-fr">
-                  <p class="bio">Business Analyst en alternance chez Mailinblack et étudiante en Master Data &amp; AI for Business. J'optimise les processus commerciaux via l'automatisation, la data et les tableaux de bord décisionnels. Mon parcours commerce + marketing digital me permet de faire le lien entre enjeux métier et solutions tech.</p>
-                </div>
-                <div class="block-en">
-                  <p class="bio">Business Analyst apprentice at Mailinblack and Master Data &amp; AI for Business student. I optimize sales processes through automation, data analysis and dashboards. My background in commerce and digital marketing bridges business needs with technology.</p>
-                </div>
+                <div class="block-fr"><p class="bio">Business Analyst en alternance chez Mailinblack et étudiante en Master Data &amp; AI for Business. J'optimise les processus commerciaux via l'automatisation, la data et les tableaux de bord décisionnels. Mon parcours commerce + marketing digital me permet de faire le lien entre enjeux métier et solutions tech.</p></div>
+                <div class="block-en"><p class="bio">Business Analyst apprentice at Mailinblack and Master Data &amp; AI for Business student. I optimize sales processes through automation, data analysis and dashboards. My background in commerce and digital marketing bridges business needs with technology.</p></div>
               </div>
             </div>
             <div class="section-title block-fr">💼 Expériences</div>
@@ -657,77 +549,58 @@ body.lang-en .block-en { display: block !important; }
           <div class="address-bar">C:\Portfolio\<span data-fr>Projets</span><span data-en>Projects</span>\</div>
           <div class="window-content">
 
-            <!-- 1. SEO Workflow -->
             <div class="project-card clickable" onclick="openProject('seo')">
               <h3>🔍 Workflow SEO Ranking</h3>
               <div class="project-sub"><span data-fr>Hackathon payant</span><span data-en>Paid Hackathon</span></div>
               <div class="project-tags">
-                <span class="ptag">Make</span>
-                <span class="ptag">Google Sheets</span>
-                <span class="ptag">API Google Trends</span>
+                <span class="ptag">Make</span><span class="ptag">Google Sheets</span><span class="ptag">API Google Trends</span>
               </div>
               <p><span data-fr>Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.</span><span data-en>Fully automated workflow scoring keywords based on search intent.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
-            <!-- 2. Courses Hippiques -->
             <div class="project-card clickable" onclick="openProject('courses')">
               <h3>🏇 <span data-fr>Prédiction Courses Hippiques</span><span data-en>Horse Racing Prediction</span></h3>
               <div class="project-tags">
-                <span class="ptag">Google Sheets</span>
-                <span class="ptag">Excel</span>
-                <span class="ptag">Dashboard</span>
-                <span class="ptag">Kaggle</span>
+                <span class="ptag">Google Sheets</span><span class="ptag">Excel</span><span class="ptag">Dashboard</span><span class="ptag">Kaggle</span>
               </div>
               <p><span data-fr>Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d'un jeu de données récupéré sur Kaggle.</span><span data-en>Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
-            <!-- 3. Scraping Films -->
             <div class="project-card clickable" onclick="openProject('films')">
               <h3>🎬 <span data-fr>Scraping Films &amp; Séries</span><span data-en>Movies &amp; Series Scraping</span></h3>
               <div class="project-tags">
-                <span class="ptag">Python</span>
-                <span class="ptag">HTML</span>
-                <span class="ptag">Web Scraping</span>
+                <span class="ptag">Python</span><span class="ptag">HTML</span><span class="ptag">Web Scraping</span>
               </div>
               <p><span data-fr>Scraping du site JustWatch afin de générer des recommandations personnalisées sur les films et séries.</span><span data-en>Scraping JustWatch to generate personalized movie and series recommendations.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
-            <!-- 4. Chatbot Paroles -->
             <div class="project-card clickable" onclick="openProject('chatbot')">
               <h3>🎵 <span data-fr>Chatbot Paroles de Musique</span><span data-en>Music Lyrics Chatbot</span></h3>
               <div class="project-tags">
-                <span class="ptag">Python</span>
-                <span class="ptag">Scraping</span>
-                <span class="ptag">RAG</span>
+                <span class="ptag">Python</span><span class="ptag">Scraping</span><span class="ptag">RAG</span>
               </div>
-              <p><span data-fr>Scraping de LyricsTranslate puis vectorisation des données pour créer un chatbot qui retrouve le titre d'une chanson à partir de paroles.</span><span data-en>Scraping LyricsTranslate then vectorizing data to build a chatbot that finds a song title from lyrics.</span></p>
+              <p><span data-fr>Scraping de LyricsTranslate puis vectorisation des données (RAG) pour créer un chatbot qui retrouve le titre d'une chanson à partir de paroles.</span><span data-en>Scraping LyricsTranslate then vectorizing data (RAG) to build a chatbot that finds a song title from lyrics.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
-            <!-- 5. Hub Supply -->
             <div class="project-card clickable" onclick="openProject('hub')">
               <h3>🛒 Hub Supply Marketplace <span style="font-weight:normal;font-size:9px;color:#888;">(Hackathon Mirakl)</span></h3>
               <div class="project-tags">
-                <span class="ptag">Supply Chain</span>
-                <span class="ptag green">Agentique</span>
-                <span class="ptag green">Vibe Coding</span>
+                <span class="ptag">Supply Chain</span><span class="ptag green">Agentique</span><span class="ptag green">Vibe Coding</span>
               </div>
-              <p><span data-fr>Hub de gestion de la chaîne d'approvisionnement pour les vendeurs marketplace. Prédiction de stock, gestion de pertes et de l'approvisionnement.</span><span data-en>Supply chain management hub for marketplace sellers. Stock prediction, loss management and supply management.</span></p>
+              <p><span data-fr>Hub de gestion de la chaîne d'approvisionnement pour les vendeurs marketplace. Prédiction de stock, gestion de pertes et de l'approvisionnement.</span><span data-en>Supply chain management hub for marketplace sellers. Stock prediction, loss management and supply automation.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
-            <!-- 6. Power Automate -->
             <div class="project-card clickable" onclick="openProject('powerauto')">
               <h3>⚡ <span data-fr>Workflow Power Automate — Gestion des leads</span><span data-en>Power Automate Workflow — Lead Management</span></h3>
               <div class="project-tags">
-                <span class="ptag">Power Automate</span>
-                <span class="ptag">Salesforce</span>
-                <span class="ptag">CRM</span>
+                <span class="ptag">Power Automate</span><span class="ptag">Salesforce</span><span class="ptag">CRM</span><span class="ptag green">Microsoft Teams</span>
               </div>
-              <p><span data-fr>Plusieurs flows Power Automate connectés à Salesforce : top 5 sales de la semaine, top 10 leads closés, top leads à closer par commercial.</span><span data-en>Multiple Power Automate flows connected to Salesforce: top 5 weekly sales, top 10 closed leads, top leads to close per salesperson.</span></p>
+              <p><span data-fr>Plusieurs flows connectés à Salesforce. Alertes quotidiennes et hebdomadaires envoyées via bot Teams aux sales et managers.</span><span data-en>Multiple flows connected to Salesforce. Daily and weekly alerts sent via Teams bot to sales reps and managers.</span></p>
               <div class="project-hint"><span data-fr>Ouvrir le projet</span><span data-en>Open project</span></div>
             </div>
 
@@ -750,14 +623,27 @@ body.lang-en .block-en { display: block !important; }
               <div class="menu-item" onclick="closeModal()"><span data-fr>Fermer</span><span data-en>Close</span></div>
             </div>
             <div class="modal-content">
-              <img id="modal-img" src="" alt=""
-                onerror="this.style.display='none';" />
+
+              <!-- Image simple -->
+              <img id="modal-img" src="" alt="" onerror="this.style.display='none';" />
+
+              <!-- Carrousel multi-images -->
+              <div class="carousel-wrap" id="carousel-wrap">
+                <img class="carousel-img" id="carousel-img" src="" alt="" onerror="this.src='';" />
+                <div class="carousel-nav">
+                  <button class="carousel-btn" id="carousel-prev" onclick="carouselPrev()">&#9664;</button>
+                  <span class="carousel-counter" id="carousel-counter">1 / 3</span>
+                  <button class="carousel-btn" id="carousel-next" onclick="carouselNext()">&#9654;</button>
+                </div>
+              </div>
+
               <div id="modal-project-title"></div>
               <div id="modal-project-sub"></div>
               <div id="modal-project-tags"></div>
               <div id="modal-project-desc"></div>
               <div id="modal-rag-note" class="modal-rag-note" style="display:none;">
-                <strong>💡 RAG</strong> &mdash; <span data-fr>Retrieval-Augmented Generation : technique qui consiste à vectoriser des données textuelles pour permettre à un chatbot de retrouver les informations les plus proches sémantiquement d'une requête, sans avoir à tout mémoriser.</span><span data-en>Retrieval-Augmented Generation: a technique that vectorizes text data so a chatbot can retrieve the most semantically similar information to a query, without memorizing everything.</span>
+                <strong>💡 RAG (Retrieval-Augmented Generation)</strong> &mdash;
+                <span data-fr>Technique qui consiste à vectoriser des textes (ici les paroles) et à les stocker dans une base de vecteurs. Quand l'utilisateur saisit des paroles, le système calcule la similarité sémantique pour retrouver la chanson la plus proche, sans avoir tout mémorisé dans un modèle.</span><span data-en>A technique that vectorizes texts (here: lyrics) and stores them in a vector database. When the user types lyrics, the system computes semantic similarity to find the closest song, without memorizing everything in a model.</span>
               </div>
               <a id="modal-link" href="#" target="_blank" rel="noopener">
                 🔗 <span data-fr>Voir le projet</span><span data-en>View project</span>
@@ -887,6 +773,8 @@ body.lang-en .block-en { display: block !important; }
 <script>
 var currentWindow = null;
 var taskbarItems = {};
+var carouselImages = [];
+var carouselIndex = 0;
 
 /* ===== DONNÉES PROJETS ===== */
 var PROJECTS = {
@@ -897,9 +785,10 @@ var PROJECTS = {
     subFr: 'Hackathon payant',
     subEn: 'Paid Hackathon',
     tags: ['Make', 'Google Sheets', 'API Google Trends'],
-    descFr: 'Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche. Connecté à Google Trends via API pour récupérer les volumes et tendances, puis un scoring automatique classe les mots-clés par potentiel SEO dans Google Sheets.',
-    descEn: 'Fully automated workflow scoring keywords based on search intent. Connected to Google Trends via API to retrieve volumes and trends, then automatic scoring ranks keywords by SEO potential in Google Sheets.',
+    descFr: 'Workflow entièrement automatisé qui score les mots-clés selon les intentions de recherche.\n\nConnecté à Google Trends via API pour récupérer les volumes et tendances, le flow classe automatiquement les mots-clés par potentiel SEO directement dans Google Sheets.',
+    descEn: 'Fully automated workflow scoring keywords based on search intent.\n\nConnected to Google Trends via API to retrieve volumes and trends, the flow automatically ranks keywords by SEO potential directly in Google Sheets.',
     img: 'img/seo-workflow.png',
+    imgs: null,
     link: null,
     rag: false
   },
@@ -910,10 +799,11 @@ var PROJECTS = {
     subFr: '',
     subEn: '',
     tags: ['Google Sheets', 'Excel', 'Dashboard', 'Kaggle'],
-    descFr: 'Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d\'un jeu de données récupéré sur Kaggle. Le dashboard intègre des formules de scoring basées sur les performances passées des chevaux, jockeys et conditions de course.',
-    descEn: 'Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset. The dashboard includes scoring formulas based on past performance of horses, jockeys and race conditions.',
+    descFr: 'Fichier Google Sheets permettant de prédire un tiercé ou un quinté gagnant à partir d\'un jeu de données récupéré sur Kaggle.\n\nLe dashboard intègre des formules de scoring basées sur les performances passées des chevaux, jockeys et conditions de course.',
+    descEn: 'Google Sheets file predicting the winning tiercé or quinté from a Kaggle dataset.\n\nThe dashboard includes scoring formulas based on past performance of horses, jockeys and race conditions.',
     img: 'img/courses-hippiques.png',
-    link: '#LIEN_FICHIER',
+    imgs: null,
+    link: 'https://docs.google.com/spreadsheets/d/1-MUSx2d8U98KpO9am7kJ5F4DKmnVEfQzKN0J30xqzRM/edit?usp=sharing',
     rag: false
   },
   films: {
@@ -923,10 +813,11 @@ var PROJECTS = {
     subFr: '',
     subEn: '',
     tags: ['Python', 'HTML', 'Web Scraping', 'JustWatch'],
-    descFr: 'Script Python de scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries selon les préférences de l\'utilisateur (genre, plateforme, note).',
-    descEn: 'Python scraping script for JustWatch to generate personalized movie and series recommendations based on user preferences (genre, platform, rating).',
+    descFr: 'Scraping du site JustWatch afin de générer des recommandations personnalisées de films et séries selon les préférences de l\'utilisateur (genre, plateforme, note).\n\nDéployé sous forme d\'application web via Lovable.',
+    descEn: 'Scraping JustWatch to generate personalized movie and series recommendations based on user preferences (genre, platform, rating).\n\nDeployed as a web application via Lovable.',
     img: 'img/scraping-films.png',
-    link: '#LIEN_SITE',
+    imgs: null,
+    link: 'https://vibe-select-recs.lovable.app',
     rag: false
   },
   chatbot: {
@@ -936,10 +827,11 @@ var PROJECTS = {
     subFr: '',
     subEn: '',
     tags: ['Python', 'Scraping', 'RAG', 'LyricsTranslate'],
-    descFr: 'Scraping du site LyricsTranslate puis vectorisation des paroles (RAG) pour créer un chatbot capable de retrouver le titre d\'une chanson à partir d\'un extrait de paroles.',
-    descEn: 'Scraping LyricsTranslate then vectorizing lyrics (RAG) to build a chatbot that can find a song title from a lyrics snippet.',
+    descFr: 'Scraping du site LyricsTranslate puis vectorisation des paroles (RAG) pour créer un chatbot qui retrouve le titre d\'une chanson à partir d\'un extrait de paroles.',
+    descEn: 'Scraping LyricsTranslate then vectorizing lyrics (RAG) to build a chatbot that finds a song title from a lyrics snippet.',
     img: null,
-    link: '#LIEN_CHATBOT',
+    imgs: null,
+    link: 'https://github.com/arquam-elglaoui/Project-AI',
     rag: true
   },
   hub: {
@@ -949,10 +841,11 @@ var PROJECTS = {
     subFr: 'Hackathon Mirakl',
     subEn: 'Mirakl Hackathon',
     tags: ['Supply Chain', 'Agentique', 'Vibe Coding', 'Mirakl'],
-    descFr: 'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace. Fonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement. Développé en mode vibe coding lors du hackathon Mirakl.',
-    descEn: 'Supply chain management hub for marketplace sellers. Features: stock prediction, loss management and supply automation. Built with vibe coding during the Mirakl hackathon.',
+    descFr: 'Hub de gestion de la chaîne d\'approvisionnement pour les vendeurs marketplace.\n\nFonctionnalités : prédiction de stock, gestion des pertes et automatisation de l\'approvisionnement. Concu en mode vibe coding lors du hackathon Mirakl.',
+    descEn: 'Supply chain management hub for marketplace sellers.\n\nFeatures: stock prediction, loss management and supply automation. Built with vibe coding during the Mirakl hackathon.',
     img: 'img/hub-supply.png',
-    link: '#LIEN_PROJET',
+    imgs: null,
+    link: null,
     rag: false
   },
   powerauto: {
@@ -961,24 +854,44 @@ var PROJECTS = {
     titleEn: 'Power Automate Workflow — Lead Management',
     subFr: 'Mailinblack',
     subEn: 'Mailinblack',
-    tags: ['Power Automate', 'Salesforce', 'CRM'],
-    descFr: 'Création de plusieurs flows Power Automate connectés au CRM Salesforce : \n• Top 5 sales de la semaine \n• Top 10 leads closés de la semaine \n• Top leads à closer par commercial \nEnvoi automatique des rapports aux équipes commerciales.',
-    descEn: 'Multiple Power Automate flows connected to Salesforce CRM: \n• Top 5 weekly sales reps \n• Top 10 closed leads of the week \n• Top leads to close per salesperson \nAutomatic report delivery to sales teams.',
-    img: 'img/power-automate.png',
+    tags: ['Power Automate', 'Salesforce', 'CRM', 'Microsoft Teams'],
+    descFr: 'Plusieurs flows Power Automate connectes au CRM Salesforce :\n\n• Top 5 sales de la semaine\n• Top 10 leads closes de la semaine\n• Top leads a closer par commercial\n\nLes sales et managers recoivent automatiquement des alertes quotidiennes et hebdomadaires via un bot Microsoft Teams, directement dans leurs canaux.',
+    descEn: 'Multiple Power Automate flows connected to Salesforce CRM:\n\n• Top 5 weekly sales reps\n• Top 10 closed leads of the week\n• Top leads to close per salesperson\n\nSales reps and managers automatically receive daily and weekly alerts via a Microsoft Teams bot, directly in their channels.',
+    img: null,
+    imgs: ['img/power-automate-1.png', 'img/power-automate-2.png', 'img/power-automate-3.png'],
     link: null,
     rag: false
   }
 };
 
+/* ===== CARROUSEL ===== */
+function carouselShow(idx) {
+  if (!carouselImages.length) { return; }
+  if (idx < 0) { idx = 0; }
+  if (idx >= carouselImages.length) { idx = carouselImages.length - 1; }
+  carouselIndex = idx;
+  document.getElementById('carousel-img').src = carouselImages[idx];
+  document.getElementById('carousel-counter').textContent = (idx + 1) + ' / ' + carouselImages.length;
+  document.getElementById('carousel-prev').disabled = (idx === 0);
+  document.getElementById('carousel-next').disabled = (idx === carouselImages.length - 1);
+}
+
+function carouselPrev() { carouselShow(carouselIndex - 1); }
+function carouselNext() { carouselShow(carouselIndex + 1); }
+
+/* ===== MODAL ===== */
 function openProject(key) {
   var d = PROJECTS[key];
   if (!d) { return; }
   var lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
 
   document.getElementById('modal-icon').textContent = d.icon;
-  document.getElementById('modal-win-title').textContent = (lang === 'en') ? d.titleEn : d.titleFr;
-  document.getElementById('modal-project-title').textContent = (lang === 'en') ? d.titleEn : d.titleFr;
-  document.getElementById('modal-project-title').style.cssText = 'font-size:13px;font-weight:bold;color:#1a3b8c;margin-bottom:2px;';
+  var t = (lang === 'en') ? d.titleEn : d.titleFr;
+  document.getElementById('modal-win-title').textContent = t;
+
+  var titleEl = document.getElementById('modal-project-title');
+  titleEl.textContent = t;
+  titleEl.style.cssText = 'font-size:13px;font-weight:bold;color:#1a3b8c;margin-bottom:2px;';
 
   var sub = (lang === 'en') ? d.subEn : d.subFr;
   var subEl = document.getElementById('modal-project-sub');
@@ -995,24 +908,38 @@ function openProject(key) {
     tagsEl.appendChild(span);
   }
 
-  var descText = (lang === 'en') ? d.descEn : d.descFr;
   var descEl = document.getElementById('modal-project-desc');
   descEl.style.cssText = 'font-size:11px;line-height:1.6;color:#444;margin-bottom:10px;white-space:pre-line;';
-  descEl.textContent = descText;
+  descEl.textContent = (lang === 'en') ? d.descEn : d.descFr;
 
-  var ragNote = document.getElementById('modal-rag-note');
-  ragNote.style.display = d.rag ? 'block' : 'none';
+  document.getElementById('modal-rag-note').style.display = d.rag ? 'block' : 'none';
 
+  /* Images */
   var imgEl = document.getElementById('modal-img');
-  if (d.img) {
+  var carWrap = document.getElementById('carousel-wrap');
+
+  if (d.imgs && d.imgs.length > 0) {
+    /* Carrousel */
+    imgEl.style.display = 'none';
+    carouselImages = d.imgs;
+    carouselIndex = 0;
+    carWrap.style.display = 'block';
+    carouselShow(0);
+  } else if (d.img) {
+    /* Image unique */
+    carWrap.style.display = 'none';
+    carouselImages = [];
     imgEl.src = d.img;
     imgEl.style.display = 'block';
   } else {
+    /* Pas d'image */
     imgEl.style.display = 'none';
+    carWrap.style.display = 'none';
+    carouselImages = [];
   }
 
   var linkEl = document.getElementById('modal-link');
-  if (d.link && d.link !== null) {
+  if (d.link) {
     linkEl.href = d.link;
     linkEl.style.display = 'inline-block';
   } else {
