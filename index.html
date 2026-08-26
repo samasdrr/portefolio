@@ -537,8 +537,7 @@ body.lang-en .block-en { display: block !important; }
             <div class="exp-card"><h4>Master Data &amp; AI for Business</h4><div class="exp-meta">2025 – 2027 · Paris</div></div>
             <div class="exp-card"><h4>Licence Commerce, Vente &amp; Marketing Digital</h4><div class="exp-meta">2024 – 2025 · Aix-en-Provence</div><p>🏆 Major de promotion</p></div>
             <div class="exp-card"><h4>BTS Assurance</h4><div class="exp-meta">2022 – 2024 · Nantes</div></div>
-            <div class="section-title">🛠️ <span data-fr>Compétences</span><span data-en>Skills</span></div><div class="skill-tags"><span class="skill-tag">Data</span><span class="skill-tag">Business Analysis</span><span class="skill-tag">Automatisation</span><span class="skill-tag">Tableaux de bord</span><span class="skill-tag">Reporting</span><span class="skill-tag">Optimisation des processus</span><span class="skill-tag">IA</span></div>
-            <div class="section-title">🌿 <span data-fr>Centres d’intérêt</span><span data-en>Interests</span></div><p>Voyage · Lecture · Crochet · Automatisation · Nouvelles technologies</p>
+            <div class="section-title">🌿 <span data-fr>Centres d’intérêt</span><span data-en>Interests</span></div><p>Voyage · Lecture · Crochet · Patisserie</p>
           </div>
         </div>
 
@@ -559,15 +558,16 @@ body.lang-en .block-en { display: block !important; }
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">📈 <span data-fr>Visualisation &amp; Reporting</span><span data-en>Visualization &amp; Reporting</span></div>
-              <div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Salesforce</span><span class="skill-tag">Notion</span></div>
+              <div class="skill-tags"><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span><span class="skill-tag">Salesforce</span></div>
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">⚙️ <span data-fr>Automatisation &amp; Outils</span><span data-en>Automation &amp; Tools</span></div>
-              <div class="skill-tags"><span class="skill-tag">Make</span><span class="skill-tag">N8N</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Dust</span><span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span><span class="skill-tag">GitHub / VS Code</span></div>
+              <div class="skill-tags"><span class="skill-tag">Make</span><span class="skill-tag">N8N</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Dust</span><span class="skill-tag">Notion</span><span class="skill-tag"><span data-fr>Intégration d'API</span><span data-en>API Integration</span></span><span class="skill-tag">GitHub / VS Code</span></div>
             </div>
             <div class="skill-category">
               <div class="skill-cat-title">🧠 Soft Skills</div>
               <div class="soft-skills-grid">
+                <span class="soft-tag"><span class="sticon">💬</span> <span data-fr>Force de proposition</span><span data-en>Proactive and solution-oriented</span></span>
                 <span class="soft-tag"><span class="sticon">⚡</span> <span data-fr>Prise en main rapide</span><span data-en>Quick learner</span></span>
                 <span class="soft-tag"><span class="sticon">🎯</span> <span data-fr>Autonomie</span><span data-en>Self-starter</span></span>
                 <span class="soft-tag"><span class="sticon">🤝</span> <span data-fr>Esprit d'équipe</span><span data-en>Team player</span></span>
@@ -891,7 +891,7 @@ var BOT_DATA = {
     en: '💼 Experience:\n\n🔵 Mailinblack — Business Analyst (Apprenticeship)\n2024–2027 | Marseille\nAutomation of sales processes, management tools, dashboards.\n\n🔵 CNP Assurances — Claims Officer\n2022–2024 | Nantes\nHome insurance and personal injury claims management.'
   },
   skills: {
-    fr: '⚙️ Compétences :\n\n📊 Data & Analyse : Python, SQL, Excel, Dataiku (cert. Designer Core)\n📈 Visualisation : Tableau, Power BI, Salesforce, Notion\n🔧 Automatisation : Make, N8N, Power Automate, Dust, API, GitHub',
+    fr: '⚙️ Compétences :\n\n📊 Data & Analyse : Python, SQL, Excel, Dataiku (cert. Designer Core)\n📈 Visualisation : Tableau, Power BI, Salesforce\n🔧 Automatisation : Make, N8N, Power Automate, Dust, Notion, API, GitHub',
     en: '⚙️ Skills:\n\n📊 Data & Analysis: Python, SQL, Excel, Dataiku (Designer Core cert.)\n📈 Visualization: Tableau, Power BI, Salesforce, Notion\n🔧 Automation: Make, N8N, Power Automate, Dust, API, GitHub'
   },
   projets: {
@@ -1101,7 +1101,7 @@ function chatInit() {
 }
 
 /* ===== CARROUSEL ===== */
-function openImageZoom(src, alt) { var box=document.getElementById('image-lightbox'); var img=document.getElementById('zoom-image'); if(!src||!box||!img){return;} img.src=src; img.alt=alt||''; box.style.display='flex'; }
+function openImageZoom(src, alt) { var box=document.getElementById('image-lightbox'); var img=document.getElementById('zoom-image'); if(!src||!box||!img){return;} if(box.parentNode !== document.body){document.body.appendChild(box);} img.src=src; img.alt=alt||''; box.style.display='flex'; }
 function closeImageZoom(event) { if(event){event.stopPropagation();} var box=document.getElementById('image-lightbox'); if(box){box.style.display='none';} }
 
 function carouselShow(idx) {
